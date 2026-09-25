@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const ctrl = require('../controllers/wishlistController');
+const { authenticate } = require('../middleware/auth');
 
-// TODO: Implement wishlist routes
-router.get('/', (req, res) => {
-  res.json({ success: true, message: 'wishlist route - coming soon' });
-});
+router.use(authenticate);
+router.get('/', ctrl.getWishlist);
+router.post('/:productId', ctrl.addToWishlist);
+router.delete('/:productId', ctrl.removeFromWishlist);
 
 module.exports = router;

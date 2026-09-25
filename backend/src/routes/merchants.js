@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const ctrl = require('../controllers/merchantController');
+const { authenticate, adminOnly } = require('../middleware/auth');
 
-// TODO: Implement merchants routes
-router.get('/', (req, res) => {
-  res.json({ success: true, message: 'merchants route - coming soon' });
-});
+router.get('/', ctrl.getMerchants);
+router.post('/', authenticate, adminOnly, ctrl.createMerchant);
+router.patch('/:id', authenticate, adminOnly, ctrl.updateMerchant);
+router.delete('/:id', authenticate, adminOnly, ctrl.deleteMerchant);
 
 module.exports = router;
