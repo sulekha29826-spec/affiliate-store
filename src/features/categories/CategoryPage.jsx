@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getActiveProducts } from '../../services/productService';
 import { getCategories } from '../../services/categoryService';
 import ProductCard from '../../components/common/ProductCard';
-import Loader from '../../components/common/Loader';
+import { ProductCardSkeleton } from '../../components/common/Loader';
 import { Filter, SlidersHorizontal, ChevronRight, X } from 'lucide-react';
 
 export default function CategoryPage() {
@@ -260,7 +260,11 @@ export default function CategoryPage() {
           </div>
 
           {loading ? (
-            <Loader text="Loading deals..." />
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 animate-fade-in">
+              {[...Array(8)].map((_, i) => (
+                <ProductCardSkeleton key={i} />
+              ))}
+            </div>
           ) : filteredProducts.length === 0 ? (
             <div className="bg-white p-12 text-center border border-[#E0E0E0] rounded-[2px]">
               <p className="text-gray-500 text-sm">No products found matching your current filter criteria.</p>

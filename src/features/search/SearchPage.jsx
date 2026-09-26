@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { getActiveProducts } from '../../services/productService';
 import ProductCard from '../../components/common/ProductCard';
-import Loader from '../../components/common/Loader';
+import { ProductCardSkeleton } from '../../components/common/Loader';
 import { Search, ChevronRight } from 'lucide-react';
 
 export default function SearchPage() {
@@ -86,7 +86,11 @@ export default function SearchPage() {
       </div>
 
       {loading ? (
-        <Loader text="Searching best deals..." />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 animate-fade-in">
+          {[...Array(5)].map((_, i) => (
+            <ProductCardSkeleton key={i} />
+          ))}
+        </div>
       ) : searchResults.length === 0 ? (
         <div className="bg-white p-12 text-center border border-[#E0E0E0] rounded-[2px]">
           <Search className="w-12 h-12 text-gray-300 mx-auto mb-3" />

@@ -18,13 +18,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-14 sm:h-16 gap-3 sm:gap-6">
           {/* Brand Logo */}
-          <Link to="/" className="flex flex-col shrink-0 group">
+          <Link to="/" className="flex flex-col shrink-0 group transition-transform duration-200 group-hover:scale-102">
             <span className="text-xl sm:text-2xl font-black italic tracking-tight text-white leading-none">
               Sasta<span className="text-[#FFE500]">Bazar</span>
             </span>
             <span className="text-[10px] text-gray-200 italic flex items-center gap-1 group-hover:text-white transition-colors">
               Explore <span className="text-[#FFE500] font-bold">Plus Deals</span>
-              <Flame className="w-2.5 h-2.5 text-[#FFE500] fill-current" />
+              <Flame className="w-2.5 h-2.5 text-[#FFE500] fill-current animate-pulse" />
             </span>
           </Link>
 
@@ -33,18 +33,18 @@ export default function Header() {
             onSubmit={handleSearchSubmit}
             className="flex-1 max-w-2xl relative"
           >
-            <div className="relative flex items-center">
+            <div className="relative flex items-center transition-all duration-200">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search for products, brands and best deals..."
-                className="w-full bg-white text-[#212121] placeholder-gray-500 text-xs sm:text-sm pl-4 pr-10 py-2 sm:py-2.5 rounded-[2px] shadow-inner focus:outline-none focus:ring-2 focus:ring-[#FFE500]"
+                className="w-full bg-white text-[#212121] placeholder-gray-500 text-xs sm:text-sm pl-4 pr-10 py-2 sm:py-2.5 rounded-[2px] shadow-inner focus:outline-none focus:ring-2 focus:ring-[#FFE500] transition-shadow duration-200"
               />
               <button
                 type="submit"
                 aria-label="Search"
-                className="absolute right-0 top-0 bottom-0 px-3 flex items-center justify-center text-[#2874F0] hover:text-blue-800 transition-colors"
+                className="absolute right-0 top-0 bottom-0 px-3 flex items-center justify-center text-[#2874F0] hover:text-blue-800 active:scale-90 transition-all cursor-pointer"
               >
                 <Search className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
@@ -55,7 +55,7 @@ export default function Header() {
           <div className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium">
             <Link
               to="/category/electronics"
-              className="hidden md:flex items-center gap-1.5 hover:text-[#FFE500] transition-colors"
+              className="hidden md:flex items-center gap-1.5 hover:text-[#FFE500] hover:scale-105 transition-all duration-200"
             >
               <Flame className="w-4 h-4 text-[#FFE500]" />
               <span>Trending</span>
@@ -63,7 +63,7 @@ export default function Header() {
 
             <Link
               to="/affiliate-disclosure"
-              className="flex items-center gap-1 hover:text-[#FFE500] transition-colors text-[11px] sm:text-xs bg-white/10 px-2 py-1 rounded-[2px]"
+              className="flex items-center gap-1 hover:text-[#FFE500] hover:bg-white/20 transition-all duration-200 text-[11px] sm:text-xs bg-white/10 px-2 py-1 rounded-[2px]"
               title="FTC & Amazon Associates Disclosure"
             >
               <ShieldAlert className="w-3.5 h-3.5 text-[#FFE500]" />
@@ -72,10 +72,10 @@ export default function Header() {
 
             {/* Quick Admin link */}
             <a
-              href="http://localhost:5174"
+              href="https://admin-livid-six.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:flex items-center gap-1 text-[11px] text-blue-100 hover:text-white transition-colors"
+              className="hidden lg:flex items-center gap-1 text-[11px] text-blue-100 hover:text-white hover:underline transition-colors"
               title="Open Admin Console"
             >
               <span>Partner Console</span>

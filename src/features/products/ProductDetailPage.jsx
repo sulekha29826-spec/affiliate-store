@@ -4,7 +4,7 @@ import { getProductByIdOrSlug, getProductsByCategory } from '../../services/prod
 import PlatformBadge from '../../components/common/PlatformBadge';
 import RatingChip from '../../components/common/RatingChip';
 import ProductCard from '../../components/common/ProductCard';
-import Loader from '../../components/common/Loader';
+import { ProductDetailSkeleton } from '../../components/common/Loader';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { trackAndRedirect } from '../../utils/trackClick';
 import { 
@@ -50,7 +50,7 @@ export default function ProductDetailPage() {
   }, [idOrSlug]);
 
   if (loading) {
-    return <Loader text="Loading product deal details..." />;
+    return <ProductDetailSkeleton />;
   }
 
   if (!product) {
@@ -142,9 +142,10 @@ export default function ProductDetailPage() {
             {/* Main Stage Image */}
             <div className="flex-1 relative flex items-center justify-center p-4 border border-gray-100 rounded-[2px] min-h-[300px] sm:min-h-[400px]">
               <img
+                key={currentImg}
                 src={currentImg}
                 alt={title}
-                className="max-h-[380px] max-w-full object-contain"
+                className="max-h-[380px] max-w-full object-contain animate-fade-in transition-all duration-300"
               />
               <div className="absolute top-2 left-2">
                 <PlatformBadge platform={platform} size="md" />
@@ -238,7 +239,7 @@ export default function ProductDetailPage() {
               <div className="flex flex-col sm:flex-row items-center gap-3">
                 <button
                   onClick={handleBuyNow}
-                  className="w-full sm:flex-1 bg-[#FB641B] hover:bg-[#e05612] text-white font-bold py-3.5 px-6 rounded-[2px] shadow-sm flex items-center justify-center gap-2 text-base cursor-pointer active:scale-[0.99] transition-all"
+                  className="w-full sm:flex-1 bg-[#FB641B] hover:bg-[#e05612] text-white font-bold py-3.5 px-6 rounded-[2px] shadow-md hover:shadow-orange-500/25 flex items-center justify-center gap-2 text-base cursor-pointer active:scale-95 transition-all duration-150"
                 >
                   <span>BUY NOW ON {platform?.toUpperCase()}</span>
                   <ExternalLink className="w-5 h-5" />
@@ -289,7 +290,7 @@ export default function ProductDetailPage() {
         </div>
         <button
           onClick={handleBuyNow}
-          className="bg-[#FB641B] hover:bg-[#e05612] text-white text-xs font-bold py-2.5 px-5 rounded-[2px] flex items-center gap-1.5 shadow cursor-pointer"
+          className="bg-[#FB641B] hover:bg-[#e05612] text-white text-xs font-bold py-2.5 px-5 rounded-[2px] flex items-center gap-1.5 shadow-md active:scale-95 transition-all duration-150 cursor-pointer"
         >
           <span>BUY ON {platform?.toUpperCase()}</span>
           <ExternalLink className="w-3.5 h-3.5" />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import HeroBanner from './HeroBanner';
 import DealRow from './DealRow';
 import CategoryNav from '../../components/layout/CategoryNav';
-import Loader from '../../components/common/Loader';
+import { DealRowSkeleton } from '../../components/common/Loader';
 import { getTrendingProducts, getMostClickedProducts, getActiveProducts } from '../../services/productService';
 import { ShieldCheck, Zap, ArrowRightLeft, Sparkles } from 'lucide-react';
 
@@ -64,7 +64,10 @@ export default function HomePage() {
         </div>
 
         {loading ? (
-          <Loader text="Fetching best offers and price drops..." />
+          <div className="space-y-3 animate-fade-in">
+            <DealRowSkeleton count={5} />
+            <DealRowSkeleton count={5} />
+          </div>
         ) : (
           <>
             {/* Deals of the Day / Trending */}

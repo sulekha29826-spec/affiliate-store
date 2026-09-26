@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getCategories } from '../../services/categoryService';
+import { CategoryNavSkeleton } from '../common/Loader';
 
 export default function CategoryNav() {
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getCategories().then(setCategories).catch(console.error);
+    getCategories()
+      .then((data) => {
+        setCategories(data);
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return <CategoryNavSkeleton />;
+  }
 
   if (!categories || categories.length === 0) return null;
 
@@ -19,9 +30,9 @@ export default function CategoryNav() {
             <Link
               key={cat.id}
               to={`/category/${cat.slug || cat.id}`}
-              className="flex flex-col items-center shrink-0 group text-center px-1"
+              className="flex flex-col items-center shrink-0 group text-center px-1 transition-transform duration-200"
             >
-              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-gray-50 flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-150">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-gray-50 flex items-center justify-center p-1 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-md group-hover:ring-2 group-hover:ring-[#2874F0]/30 transition-all duration-300 ease-out">
                 <img
                   src={cat.image}
                   alt={cat.name}
@@ -29,7 +40,7 @@ export default function CategoryNav() {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="text-[11px] sm:text-xs font-semibold text-[#212121] mt-1 group-hover:text-[#2874F0] transition-colors whitespace-nowrap">
+              <span className="text-[11px] sm:text-xs font-semibold text-[#212121] mt-1.5 group-hover:text-[#2874F0] transition-colors whitespace-nowrap">
                 {cat.name}
               </span>
             </Link>

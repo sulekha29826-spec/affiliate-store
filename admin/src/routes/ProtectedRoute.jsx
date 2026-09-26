@@ -8,8 +8,12 @@ export default function ProtectedRoute({ children, requireSuperAdmin = false }) 
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center p-6">
+        <div className="w-full max-w-sm bg-slate-800/80 border border-slate-700/60 p-6 rounded-xl space-y-4 animate-pulse">
+          <div className="h-6 bg-slate-700 rounded w-1/2 mx-auto" />
+          <div className="h-10 bg-slate-700/50 rounded w-full" />
+          <div className="h-10 bg-slate-700/50 rounded w-full" />
+        </div>
       </div>
     );
   }
