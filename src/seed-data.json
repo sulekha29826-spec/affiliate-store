@@ -1,0 +1,248 @@
+{
+  "products": {
+    "prod_sony_xm5": {
+      "title": "Sony WH-1000XM5 Wireless Industry Leading Noise Canceling Headphones",
+      "slug": "sony-wh-1000xm5-wireless-headphones",
+      "description": "The Sony WH-1000XM5 wireless noise-canceling headphones rewrite the rules for distraction-free listening. 2 processors control 8 microphones for unprecedented noise cancellation and exceptional call quality with 4 beamforming microphones.",
+      "images": [
+        "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 26990,
+      "originalPrice": 34990,
+      "discountPercent": 23,
+      "categoryId": "electronics",
+      "subCategory": "Headphones",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B09XS7JWHH?tag=sastabazar-21",
+      "tags": ["trending", "deal_of_the_day"],
+      "status": "active",
+      "clickCount": 184,
+      "rating": 4.6,
+      "ratingCount": 4210,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_s24_ultra": {
+      "title": "Samsung Galaxy S24 Ultra 5G (Titanium Gray, 256GB)",
+      "slug": "samsung-galaxy-s24-ultra-5g",
+      "description": "Galaxy AI is here. Search like never before, get real-time voice translation on a call, format your notes into a clear summary, and effortlessly edit your photos. Equipped with 200MP camera and Snapdragon 8 Gen 3.",
+      "images": [
+        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 119999,
+      "originalPrice": 134999,
+      "discountPercent": 11,
+      "categoryId": "mobiles",
+      "subCategory": "Flagship Phones",
+      "platform": "flipkart",
+      "affiliateLink": "https://www.flipkart.com/samsung-galaxy-s24-ultra?affid=sastabazar",
+      "tags": ["bestseller", "trending"],
+      "status": "active",
+      "clickCount": 312,
+      "rating": 4.7,
+      "ratingCount": 1850,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_macbook_m3": {
+      "title": "Apple 2024 MacBook Air 13-inch M3 Chip Laptop (8GB Unified Memory, 256GB SSD)",
+      "slug": "apple-macbook-air-13-m3",
+      "description": "Lean, mean, M3 machine. The blazing-fast MacBook Air with M3 chip sails through work and play. With up to 18 hours of battery life and a striking Liquid Retina display.",
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 99990,
+      "originalPrice": 114900,
+      "discountPercent": 13,
+      "categoryId": "electronics",
+      "subCategory": "Laptops",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B0CX236W8K?tag=sastabazar-21",
+      "tags": ["trending", "deal_of_the_day"],
+      "status": "active",
+      "clickCount": 240,
+      "rating": 4.8,
+      "ratingCount": 920,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_nike_pegasus": {
+      "title": "Nike Air Zoom Pegasus 40 Running Shoes For Men",
+      "slug": "nike-air-zoom-pegasus-40-mens",
+      "description": "A springy ride for any run, the Peg's familiar, just-for-you feel returns to help you accomplish your goals. Engineered mesh upper provides breathability and durability.",
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 6495,
+      "originalPrice": 11895,
+      "discountPercent": 45,
+      "categoryId": "fashion",
+      "subCategory": "Footwear",
+      "platform": "myntra",
+      "affiliateLink": "https://www.myntra.com/sports-shoes/nike/nike-men-air-zoom-pegasus?aff=sastabazar",
+      "tags": ["deal_of_the_day"],
+      "status": "active",
+      "clickCount": 98,
+      "rating": 4.4,
+      "ratingCount": 630,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_philips_airfryer": {
+      "title": "Philips Digital Air Fryer HD9252/90 with Rapid Air Technology (4.1 Litre)",
+      "slug": "philips-digital-air-fryer-hd9252",
+      "description": "Healthy frying with Rapid Air technology. 90% less fat. Fry, bake, grill, roast and even reheat with digital touch screen and 7 presets.",
+      "images": [
+        "https://images.unsplash.com/photo-1585515320310-259814833e62?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 7999,
+      "originalPrice": 12995,
+      "discountPercent": 38,
+      "categoryId": "appliances",
+      "subCategory": "Kitchen Appliances",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B08GYH7T5K?tag=sastabazar-21",
+      "tags": ["bestseller"],
+      "status": "active",
+      "clickCount": 115,
+      "rating": 4.5,
+      "ratingCount": 8940,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_levis_jacket": {
+      "title": "Levi's Men's Trucker Denim Regular Fit Washed Jacket",
+      "slug": "levis-mens-trucker-denim-jacket",
+      "description": "The original jean jacket since 1967. Levi's iconic trucker jacket is crafted from 100% cotton denim, designed with timeless dual chest flap pockets and point collar.",
+      "images": [
+        "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 2849,
+      "originalPrice": 5999,
+      "discountPercent": 52,
+      "categoryId": "fashion",
+      "subCategory": "Men Clothing",
+      "platform": "ajio",
+      "affiliateLink": "https://www.ajio.com/levis-denim-jacket?aff=sastabazar",
+      "tags": ["deal_of_the_day"],
+      "status": "active",
+      "clickCount": 74,
+      "rating": 4.3,
+      "ratingCount": 412,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_boat_nirvana": {
+      "title": "boAt Nirvana Ion ANC TWS Earbuds with 120H Playtime, 32dB Active Noise Cancellation",
+      "slug": "boat-nirvana-ion-anc-tws",
+      "description": "Experience true tranquility with boAt Nirvana Ion ANC featuring crystal bionic sound powered by HiFi DSP, 120 hours total playtime, in-ear detection, and dual EQ modes.",
+      "images": [
+        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 2299,
+      "originalPrice": 7990,
+      "discountPercent": 71,
+      "categoryId": "electronics",
+      "subCategory": "Audio",
+      "platform": "boat",
+      "affiliateLink": "https://www.boat-lifestyle.com/products/nirvana-ion-anc-earbuds",
+      "tags": ["trending", "bestseller"],
+      "status": "active",
+      "clickCount": 267,
+      "rating": 4.2,
+      "ratingCount": 11200,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    }
+  },
+  "categories": {
+    "electronics": {
+      "name": "Electronics",
+      "slug": "electronics",
+      "image": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&auto=format&fit=crop&q=80",
+      "order": 1
+    },
+    "mobiles": {
+      "name": "Mobiles",
+      "slug": "mobiles",
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&auto=format&fit=crop&q=80",
+      "order": 2
+    },
+    "fashion": {
+      "name": "Fashion",
+      "slug": "fashion",
+      "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&auto=format&fit=crop&q=80",
+      "order": 3
+    },
+    "appliances": {
+      "name": "Appliances",
+      "slug": "appliances",
+      "image": "https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&auto=format&fit=crop&q=80",
+      "order": 4
+    }
+  },
+  "banners": {
+    "banner_festive_sale": {
+      "title": "Mega Electronics Loot — Up to 70% Off",
+      "image": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&auto=format&fit=crop&q=80",
+      "link": "/category/electronics",
+      "order": 1,
+      "active": true
+    },
+    "banner_smartphone_carnival": {
+      "title": "Flagship Smartphone Deals of the Month",
+      "image": "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1600&auto=format&fit=crop&q=80",
+      "link": "/category/mobiles",
+      "order": 2,
+      "active": true
+    },
+    "banner_fashion_clearance": {
+      "title": "Branded Fashion Festival — Extra 50% Off",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&auto=format&fit=crop&q=80",
+      "link": "/category/fashion",
+      "order": 3,
+      "active": true
+    }
+  },
+  "settings": {
+    "siteName": "SastaBazar",
+    "tagline": "India's Smartest Deal & Price Drop Aggregator",
+    "logo": "https://cdn-icons-png.flaticon.com/512/3081/3081840.png",
+    "contactEmail": "support@sastabazar.in",
+    "affiliateDisclosure": "SastaBazar is a participant in affiliate advertising programs including Amazon Associates, Flipkart Affiliate, Myntra, and others. We earn advertising fees by linking to these merchant websites. Prices and product availability are accurate as of the date/time indicated and are subject to change. Any price and availability information displayed on the merchant site at the time of purchase will apply to the purchase of this product.",
+    "socialLinks": {
+      "telegram": "https://t.me/sastabazar_deals",
+      "whatsapp": "https://whatsapp.com/channel/sastabazar",
+      "twitter": "https://x.com/sastabazar"
+    }
+  },
+  "admins": {
+    "admin_demo_seed": {
+      "email": "admin@sastabazar.com",
+      "role": "superadmin",
+      "createdAt": 1740000000000
+    }
+  },
+  "clicks": {
+    "prod_sony_xm5": {
+      "click_seed_1": {
+        "timestamp": 1740086400000,
+        "platform": "amazon"
+      },
+      "click_seed_2": {
+        "timestamp": 1740172800000,
+        "platform": "amazon"
+      }
+    },
+    "prod_s24_ultra": {
+      "click_seed_3": {
+        "timestamp": 1740172800000,
+        "platform": "flipkart"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "products": {
+      ".read": true,
+      ".write": "root.child('admins').child(auth.uid).exists()",
+      ".indexOn": ["status", "categoryId", "platform", "clickCount", "createdAt"]
+    },
+    "categories": {
+      ".read": true,
+      ".write": "root.child('admins').child(auth.uid).exists()",
+      ".indexOn": ["order", "slug"]
+    },
+    "banners": {
+      ".read": true,
+      ".write": "root.child('admins').child(auth.uid).exists()",
+      ".indexOn": ["order", "active"]
+    },
+    "clicks": {
+      ".read": "root.child('admins').child(auth.uid).exists()",
+      ".write": true
+    },
+    "admins": {
+      ".read": "auth != null",
+      ".write": "root.child('admins').child(auth.uid).child('role').val() === 'superadmin'"
+    },
+    "settings": {
+      ".read": true,
+      ".write": "root.child('admins').child(auth.uid).child('role').val() === 'superadmin'"
+    }
+  }
+}
