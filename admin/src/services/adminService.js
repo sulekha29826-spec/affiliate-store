@@ -29,10 +29,10 @@ export async function getAdminProducts() {
   try {
     const productsRef = ref(database, 'products');
     const snap = await get(productsRef);
-    if (snap.exists()) {
+    if (snap.exists() && snap.val()) {
       return Object.entries(snap.val()).map(([id, data]) => ({ id, ...data }));
     }
-    return [];
+    return Object.entries(localProducts).map(([id, data]) => ({ id, ...data }));
   } catch (err) {
     console.error('getAdminProducts error:', err);
     return Object.entries(localProducts).map(([id, data]) => ({ id, ...data }));
@@ -104,12 +104,14 @@ export async function getAdminCategories() {
   try {
     const categoriesRef = ref(database, 'categories');
     const snap = await get(categoriesRef);
-    if (snap.exists()) {
+    if (snap.exists() && snap.val()) {
       return Object.entries(snap.val())
         .map(([id, data]) => ({ id, ...data }))
         .sort((a, b) => (a.order || 0) - (b.order || 0));
     }
-    return [];
+    return Object.entries(localCategories)
+      .map(([id, data]) => ({ id, ...data }))
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
   } catch (err) {
     console.error('getAdminCategories error:', err);
     return Object.entries(localCategories).map(([id, data]) => ({ id, ...data }));
@@ -159,12 +161,14 @@ export async function getAdminBanners() {
   try {
     const bannersRef = ref(database, 'banners');
     const snap = await get(bannersRef);
-    if (snap.exists()) {
+    if (snap.exists() && snap.val()) {
       return Object.entries(snap.val())
         .map(([id, data]) => ({ id, ...data }))
         .sort((a, b) => (a.order || 0) - (b.order || 0));
     }
-    return [];
+    return Object.entries(localBanners)
+      .map(([id, data]) => ({ id, ...data }))
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
   } catch (err) {
     console.error('getAdminBanners error:', err);
     return Object.entries(localBanners).map(([id, data]) => ({ id, ...data }));
@@ -344,3 +348,31 @@ export async function deleteAdminUser(uid) {
   await remove(adminRef);
   return true;
 }
+
+// ==========================================
+// SEED / SYNC DATA
+// ==========================================
+
+export async function syncSeedDataToFirebase() {
+  if (!isFirebaseConfigured || !database) {
+    localProducts = { ...seedData.products };
+    localCategories = { ...seedData.categories };
+    localBanners = { ...seedData.banners };
+    localSettings = { ...seedData.settings };
+    return { success: true, message: 'Local demo state reloaded with 18 products.' };
+  }
+
+  try {
+    await update(ref(database), {
+      products: seedData.products,
+      categories: seedData.categories,
+      banners: seedData.banners,
+      settings: seedData.settings,
+    });
+    return { success: true, message: 'Products, categories & banners successfully synced to Firebase!' };
+  } catch (err) {
+    console.error('syncSeedDataToFirebase error:', err);
+    throw err;
+  }
+}
+

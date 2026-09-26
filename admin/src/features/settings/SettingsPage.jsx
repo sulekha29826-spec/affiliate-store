@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getAdminSettings, saveAdminSettings } from '../../services/adminService';
-import { Settings, Save, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { getAdminSettings, saveAdminSettings, syncSeedDataToFirebase } from '../../services/adminService';
+import { Settings, Save, ShieldCheck, CheckCircle2, Database, RefreshCw } from 'lucide-react';
 
 export default function SettingsPage() {
   const [settings, setSettings] = useState({
@@ -19,6 +19,8 @@ export default function SettingsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [syncing, setSyncing] = useState(false);
+  const [syncResult, setSyncResult] = useState(null);
 
   useEffect(() => {
     async function load() {
@@ -56,6 +58,23 @@ export default function SettingsPage() {
       console.error('Failed to save settings:', err);
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleSyncCatalog = async () => {
+    if (!window.confirm('Sync 18 curated products, categories & banners to Firebase Realtime Database?')) {
+      return;
+    }
+    setSyncing(true);
+    setSyncResult(null);
+    try {
+      const res = await syncSeedDataToFirebase();
+      setSyncResult({ success: true, message: res.message });
+      setTimeout(() => setSyncResult(null), 5000);
+    } catch (err) {
+      setSyncResult({ success: false, message: err.message || 'Failed to sync to Firebase' });
+    } finally {
+      setSyncing(false);
     }
   };
 
@@ -231,6 +250,44 @@ export default function SettingsPage() {
           </button>
         </div>
       </form>
+
+      {/* Database Maintenance & Catalog Sync */}
+      <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 sm:p-6 space-y-4 text-xs shadow-sm">
+        <div className="flex items-start justify-between flex-wrap gap-4">
+          <div>
+            <h2 className="text-sm font-bold text-white flex items-center gap-2">
+              <Database className="w-4 h-4 text-amber-400" />
+              <span>Catalog & Database Seeding</span>
+            </h2>
+            <p className="text-slate-400 mt-1">
+              Sync 18 curated affiliate products across Amazon, Flipkart, Myntra & Ajio, along with categories and hero banners, directly into your Firebase Realtime Database.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleSyncCatalog}
+            disabled={syncing}
+            className="bg-amber-600 hover:bg-amber-500 text-white font-semibold px-4 py-2 rounded-lg flex items-center gap-2 cursor-pointer shadow-md shadow-amber-600/20 disabled:opacity-50"
+          >
+            <RefreshCw className={`w-4 h-4 ${syncing ? 'animate-spin' : ''}`} />
+            <span>{syncing ? 'Syncing Catalog...' : 'Sync Catalog to Firebase'}</span>
+          </button>
+        </div>
+
+        {syncResult && (
+          <div
+            className={`p-3 rounded-lg text-xs flex items-center gap-2 ${
+              syncResult.success
+                ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                : 'bg-red-500/10 border border-red-500/20 text-red-400'
+            }`}
+          >
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+            <span>{syncResult.message}</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

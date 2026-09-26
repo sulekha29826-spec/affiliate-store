@@ -29,10 +29,11 @@ export async function getActiveProducts() {
       equalTo('active')
     );
     const snapshot = await get(productsRef);
-    if (snapshot.exists()) {
-      return normalizeProducts(snapshot.val());
+    if (snapshot.exists() && snapshot.val()) {
+      const prods = normalizeProducts(snapshot.val());
+      if (prods.length > 0) return prods;
     }
-    return [];
+    return normalizeProducts(seedData.products);
   } catch (error) {
     console.error('Failed to fetch products from Firebase:', error);
     // Fallback to seed data on connection issue
