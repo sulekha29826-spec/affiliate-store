@@ -32,14 +32,14 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="group relative bg-white border border-[#E0E0E0] rounded-[2px] p-3 flex flex-col justify-between hover:shadow-xl hover:border-blue-200 transition-all duration-300 ease-out hover:-translate-y-1.5 animate-fade-in">
+    <div className="group relative bg-white border border-slate-200/90 rounded-[4px] p-3 flex flex-col justify-between hover:shadow-xl hover:border-blue-400 transition-all duration-300 ease-out hover:-translate-y-1.5 animate-fade-in shadow-xs">
       <Link to={`/product/${slug || id}`} className="block">
         {/* Top Badges */}
         <div className="flex items-center justify-between gap-1 mb-2">
           <PlatformBadge platform={platform} size="xs" />
           {discountPercent > 0 && (
-            <span className="text-[11px] font-bold text-[#388E3C] bg-green-50 px-1.5 py-0.5 rounded-[2px] border border-green-200/50 group-hover:bg-[#388E3C] group-hover:text-white transition-colors duration-200">
-              {discountPercent}% off
+            <span className="text-[11px] font-black text-white bg-gradient-to-r from-emerald-600 to-green-600 px-2 py-0.5 rounded shadow-xs">
+              {discountPercent}% OFF
             </span>
           )}
         </div>
@@ -57,7 +57,7 @@ export default function ProductCard({ product }) {
         {/* Title */}
         <h3
           title={title}
-          className="text-xs sm:text-sm font-medium text-[#212121] leading-tight line-clamp-2 min-h-[2.5rem] mb-1.5 group-hover:text-[#2874F0] transition-colors duration-200"
+          className="text-xs sm:text-sm font-semibold text-slate-800 leading-tight line-clamp-2 min-h-[2.5rem] mb-1.5 group-hover:text-blue-600 transition-colors duration-200"
         >
           {title}
         </h3>
@@ -69,11 +69,11 @@ export default function ProductCard({ product }) {
 
         {/* Price Row */}
         <div className="flex items-baseline flex-wrap gap-x-2 gap-y-0.5 mb-3">
-          <span className="text-base sm:text-lg font-bold text-[#212121] group-hover:text-[#2874F0] transition-colors duration-200">
+          <span className="text-lg sm:text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-200">
             {formatCurrency(price)}
           </span>
           {originalPrice && originalPrice > price && (
-            <span className="text-xs text-gray-500 line-through">
+            <span className="text-xs text-slate-400 font-semibold line-through">
               {formatCurrency(originalPrice)}
             </span>
           )}
@@ -84,9 +84,9 @@ export default function ProductCard({ product }) {
       <button
         onClick={handleBuyNow}
         type="button"
-        className="w-full bg-[#FB641B] hover:bg-[#e05612] text-white text-xs sm:text-sm font-semibold py-2 px-3 rounded-[2px] flex items-center justify-center gap-1.5 shadow-sm hover:shadow-orange-500/30 active:scale-95 transition-all duration-150 cursor-pointer"
+        className="w-full bg-gradient-to-r from-[#FF5200] via-[#FF6000] to-[#E54800] hover:from-[#E54800] hover:to-[#CC3800] text-white text-xs sm:text-sm font-bold py-2.5 px-3 rounded shadow-md shadow-orange-500/25 active:scale-95 transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer"
       >
-        <span>Buy Now</span>
+        <span>BUY NOW</span>
         <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
       </button>
     </div>

@@ -247,10 +247,10 @@ export default function CategoryPage() {
                 <button
                   key={s.key}
                   onClick={() => setSortBy(s.key)}
-                  className={`px-2.5 py-1 rounded-[2px] transition-colors cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-[3px] text-xs font-bold transition-all cursor-pointer ${
                     sortBy === s.key
-                      ? 'bg-[#2874F0] text-white font-semibold'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
+                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
                   {s.label}

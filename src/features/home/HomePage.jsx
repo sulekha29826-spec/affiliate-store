@@ -43,23 +43,46 @@ export default function HomePage() {
         {/* Promotional Hero Carousel */}
         <HeroBanner />
 
-        {/* Feature / Trust Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 my-3 text-xs bg-white p-3 rounded-[2px] border border-[#E0E0E0] shadow-xs">
-          <div className="flex items-center gap-2 text-gray-700">
-            <Zap className="w-4 h-4 text-[#FB641B] shrink-0" />
-            <span>Fast Direct Redirects</span>
+        {/* Feature / Trust Strip with Rich Color Highlights */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 my-4 text-xs font-bold">
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-orange-200/90 text-slate-800 p-2.5 rounded-[4px] shadow-xs flex items-center gap-2.5 transition-all hover:shadow-md hover:border-orange-300">
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Zap className="w-4 h-4 fill-current" />
+            </div>
+            <div>
+              <span className="block text-slate-900 leading-tight">Fast Direct Redirects</span>
+              <span className="text-[10px] text-slate-500 font-normal">Official checkout</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-gray-700">
-            <ShieldCheck className="w-4 h-4 text-[#388E3C] shrink-0" />
-            <span>100% Genuine Partner Links</span>
+
+          <div className="bg-gradient-to-r from-emerald-50 to-green-50 border border-emerald-200/90 text-slate-800 p-2.5 rounded-[4px] shadow-xs flex items-center gap-2.5 transition-all hover:shadow-md hover:border-emerald-300">
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <ShieldCheck className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="block text-slate-900 leading-tight">100% Genuine Links</span>
+              <span className="text-[10px] text-slate-500 font-normal">Verified partners</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-gray-700">
-            <ArrowRightLeft className="w-4 h-4 text-[#2874F0] shrink-0" />
-            <span>Multi-Merchant Comparison</span>
+
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/90 text-slate-800 p-2.5 rounded-[4px] shadow-xs flex items-center gap-2.5 transition-all hover:shadow-md hover:border-blue-300">
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <ArrowRightLeft className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="block text-slate-900 leading-tight">Multi-Merchant Deals</span>
+              <span className="text-[10px] text-slate-500 font-normal">Best price comparison</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-gray-700">
-            <Sparkles className="w-4 h-4 text-purple-600 shrink-0" />
-            <span>Live Price Drop Alerts</span>
+
+          <div className="bg-gradient-to-r from-purple-50 to-fuchsia-50 border border-purple-200/90 text-slate-800 p-2.5 rounded-[4px] shadow-xs flex items-center gap-2.5 transition-all hover:shadow-md hover:border-purple-300">
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="block text-slate-900 leading-tight">Live Price Drops</span>
+              <span className="text-[10px] text-slate-500 font-normal">Real-time alerts</span>
+            </div>
           </div>
         </div>
 

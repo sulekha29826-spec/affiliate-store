@@ -181,53 +181,53 @@ export default function ProductDetailPage() {
               </div>
 
               {/* Price Row */}
-              <div className="bg-gray-50 border border-gray-200/80 p-3 sm:p-4 rounded-[2px] mb-4">
+              <div className="bg-gradient-to-r from-slate-50 to-blue-50/40 border border-blue-200/80 p-3.5 sm:p-4 rounded-[4px] mb-4 shadow-xs">
                 <div className="flex items-baseline gap-3 flex-wrap">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#212121]">
+                  <span className="text-2xl sm:text-3xl font-black text-slate-900">
                     {formatCurrency(price)}
                   </span>
                   {originalPrice && originalPrice > price && (
                     <>
-                      <span className="text-sm text-gray-500 line-through">
+                      <span className="text-sm text-slate-400 font-semibold line-through">
                         {formatCurrency(originalPrice)}
                       </span>
-                      <span className="text-sm font-bold text-[#388E3C]">
-                        {discountPercent}% off
+                      <span className="text-xs sm:text-sm font-black text-white bg-gradient-to-r from-emerald-600 to-green-600 px-2 py-0.5 rounded shadow-xs">
+                        {discountPercent}% OFF
                       </span>
                     </>
                   )}
                 </div>
-                <p className="text-[11px] text-gray-500 mt-1">
-                  Inclusive of all taxes. Final price is subject to checkout on {platform?.toUpperCase()}.
+                <p className="text-[11px] text-slate-500 mt-1.5 font-medium">
+                  Inclusive of all taxes. Verified deal directly linked to {platform?.toUpperCase()}.
                 </p>
               </div>
 
               {/* Available Offers / Deal Features */}
               <div className="space-y-2 mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-700 block">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-800 block">
                   Available Partner Perks:
                 </span>
-                <div className="flex items-center gap-2 text-xs text-gray-700">
-                  <Tag className="w-3.5 h-3.5 text-[#388E3C] shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                  <Tag className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                   <span>Direct checkout via official merchant storefront</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-700">
-                  <Truck className="w-3.5 h-3.5 text-[#2874F0] shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                  <Truck className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                   <span>Fast shipping fulfilled directly by {platform?.toUpperCase()}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-700">
-                  <RotateCcw className="w-3.5 h-3.5 text-[#FB641B] shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                  <RotateCcw className="w-3.5 h-3.5 text-orange-600 shrink-0" />
                   <span>Standard merchant replacement and warranty protection applies</span>
                 </div>
               </div>
 
               {/* Description */}
               {description && (
-                <div className="border-t border-gray-200 pt-3 mb-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                <div className="border-t border-slate-200 pt-3 mb-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5">
                     Product Overview:
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed whitespace-pre-line">
                     {description}
                   </p>
                 </div>
@@ -235,18 +235,18 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Desktop CTA Button */}
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-slate-200">
               <div className="flex flex-col sm:flex-row items-center gap-3">
                 <button
                   onClick={handleBuyNow}
-                  className="w-full sm:flex-1 bg-[#FB641B] hover:bg-[#e05612] text-white font-bold py-3.5 px-6 rounded-[2px] shadow-md hover:shadow-orange-500/25 flex items-center justify-center gap-2 text-base cursor-pointer active:scale-95 transition-all duration-150"
+                  className="w-full sm:flex-1 bg-gradient-to-r from-[#FF5200] via-[#FF6000] to-[#E54800] hover:from-[#E54800] hover:to-[#CC3800] text-white font-black py-4 px-6 rounded shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2 text-base cursor-pointer active:scale-95 transition-all duration-150"
                 >
                   <span>BUY NOW ON {platform?.toUpperCase()}</span>
                   <ExternalLink className="w-5 h-5" />
                 </button>
               </div>
-              <p className="text-[11px] text-gray-400 text-center mt-2 flex items-center justify-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#388E3C]" />
+              <p className="text-[11px] text-slate-500 font-medium text-center mt-2 flex items-center justify-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 You will be redirected safely to {platform?.toUpperCase()}'s official website.
               </p>
             </div>
@@ -277,20 +277,20 @@ export default function ProductDetailPage() {
       )}
 
       {/* Sticky Mobile Bottom CTA Bar */}
-      <div className="sm:hidden fixed bottom-0 inset-x-0 bg-white border-t border-gray-300 p-2.5 z-40 shadow-lg flex items-center justify-between gap-3">
+      <div className="sm:hidden fixed bottom-0 inset-x-0 bg-white border-t border-slate-300 p-2.5 z-40 shadow-xl flex items-center justify-between gap-3">
         <div>
-          <span className="text-base font-black text-[#212121]">
+          <span className="text-lg font-black text-slate-900">
             {formatCurrency(price)}
           </span>
           {discountPercent > 0 && (
-            <span className="text-[11px] font-bold text-[#388E3C] ml-1.5">
-              {discountPercent}% off
+            <span className="text-[11px] font-black text-white bg-gradient-to-r from-emerald-600 to-green-600 px-1.5 py-0.5 rounded ml-1.5 shadow-xs">
+              {discountPercent}% OFF
             </span>
           )}
         </div>
         <button
           onClick={handleBuyNow}
-          className="bg-[#FB641B] hover:bg-[#e05612] text-white text-xs font-bold py-2.5 px-5 rounded-[2px] flex items-center gap-1.5 shadow-md active:scale-95 transition-all duration-150 cursor-pointer"
+          className="bg-gradient-to-r from-[#FF5200] via-[#FF6000] to-[#E54800] text-white text-xs font-black py-2.5 px-5 rounded shadow-md shadow-orange-500/25 active:scale-95 transition-all duration-150 flex items-center gap-1.5 cursor-pointer"
         >
           <span>BUY ON {platform?.toUpperCase()}</span>
           <ExternalLink className="w-3.5 h-3.5" />

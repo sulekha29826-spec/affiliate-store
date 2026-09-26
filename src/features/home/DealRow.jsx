@@ -7,25 +7,25 @@ export default function DealRow({ title, subtitle, products = [], viewAllLink = 
   if (!products || products.length === 0) return null;
 
   return (
-    <div className="bg-white border border-[#E0E0E0] rounded-[2px] p-3 sm:p-4 my-3 max-w-7xl mx-auto shadow-xs animate-fade-in">
-      {/* Header Row */}
-      <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#F0F0F0]">
-        <div>
-          <h2 className="text-base sm:text-xl font-bold text-[#212121] leading-tight flex items-center gap-2">
+    <div className="bg-white border border-slate-200/90 rounded-[4px] p-3 sm:p-5 my-4 max-w-7xl mx-auto shadow-sm animate-fade-in">
+      {/* Header Row with strong accent bar */}
+      <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-slate-100">
+        <div className="border-l-4 border-l-blue-600 pl-3">
+          <h2 className="text-lg sm:text-2xl font-black text-slate-900 leading-tight flex items-center gap-2">
             <span>{title}</span>
           </h2>
           {subtitle && (
-            <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>
+            <p className="text-xs sm:text-sm text-slate-500 mt-0.5 font-medium">{subtitle}</p>
           )}
         </div>
 
         {viewAllLink && (
           <Link
             to={viewAllLink}
-            className="group/btn bg-[#2874F0] hover:bg-blue-600 active:scale-95 text-white text-xs font-semibold px-3 py-1.5 rounded-[2px] flex items-center gap-1 shadow-xs transition-all duration-150 shrink-0"
+            className="group/btn bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 active:scale-95 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded shadow-md shadow-blue-500/25 flex items-center gap-1.5 transition-all duration-150 shrink-0"
           >
             <span>VIEW ALL</span>
-            <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+            <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
           </Link>
         )}
       </div>

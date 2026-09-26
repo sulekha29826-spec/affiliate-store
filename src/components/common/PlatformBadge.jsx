@@ -3,33 +3,33 @@ import React from 'react';
 const PLATFORM_STYLES = {
   amazon: {
     label: 'Amazon',
-    bg: 'bg-amber-50 text-amber-900 border-amber-300',
-    dot: 'bg-[#FF9900]',
+    bg: 'bg-slate-900 text-amber-400 border-amber-500/40 shadow-xs font-bold',
+    dot: 'bg-[#FF9900] shadow-[0_0_6px_#FF9900]',
   },
   flipkart: {
     label: 'Flipkart',
-    bg: 'bg-blue-50 text-blue-900 border-blue-300',
-    dot: 'bg-[#2874F0]',
+    bg: 'bg-blue-600 text-white border-blue-700 shadow-xs font-bold',
+    dot: 'bg-[#FFE500] shadow-[0_0_6px_#FFE500]',
   },
   myntra: {
     label: 'Myntra',
-    bg: 'bg-pink-50 text-pink-900 border-pink-300',
-    dot: 'bg-[#FF3F6C]',
+    bg: 'bg-[#FF3F6C] text-white border-[#E02654] shadow-xs font-bold',
+    dot: 'bg-white',
   },
   meesho: {
     label: 'Meesho',
-    bg: 'bg-purple-50 text-purple-900 border-purple-300',
-    dot: 'bg-[#9A217D]',
+    bg: 'bg-[#9A217D] text-white border-purple-800 shadow-xs font-bold',
+    dot: 'bg-pink-300',
   },
   ajio: {
     label: 'Ajio',
-    bg: 'bg-slate-100 text-slate-900 border-slate-300',
-    dot: 'bg-[#2C4152]',
+    bg: 'bg-slate-800 text-cyan-300 border-cyan-500/30 shadow-xs font-bold',
+    dot: 'bg-cyan-400 shadow-[0_0_6px_#22d3ee]',
   },
   boat: {
     label: 'boAt',
-    bg: 'bg-red-50 text-red-900 border-red-300',
-    dot: 'bg-[#E60000]',
+    bg: 'bg-red-600 text-white border-red-700 shadow-xs font-bold',
+    dot: 'bg-white',
   },
 };
 

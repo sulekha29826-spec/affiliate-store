@@ -6,15 +6,15 @@ export default function RatingChip({ rating = 4.0, count, size = 'sm' }) {
   return (
     <div className="inline-flex items-center gap-1.5">
       <span
-        className={`inline-flex items-center gap-0.5 bg-[#388E3C] text-white font-bold rounded-[3px] ${
-          isSmall ? 'text-[11px] px-1.5 py-0.5' : 'text-sm px-2 py-0.5'
+        className={`inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-[3px] shadow-xs border border-emerald-700/50 ${
+          isSmall ? 'text-[11px] px-1.5 py-0.5' : 'text-sm px-2.5 py-0.5'
         }`}
       >
         <span>{Number(rating).toFixed(1)}</span>
-        <Star className={isSmall ? 'w-2.5 h-2.5 fill-current' : 'w-3.5 h-3.5 fill-current'} />
+        <Star className={isSmall ? 'w-3 h-3 text-[#FFD700] fill-[#FFD700]' : 'w-3.5 h-3.5 text-[#FFD700] fill-[#FFD700]'} />
       </span>
       {count && (
-        <span className="text-xs text-gray-500 font-normal">
+        <span className="text-xs text-slate-500 font-medium">
           ({count.toLocaleString()})
         </span>
       )}
