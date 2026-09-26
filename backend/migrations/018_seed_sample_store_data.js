@@ -13,17 +13,17 @@ exports.up = async function (knex) {
     { name: 'Books & Stationery', slug: 'books', description: 'Bestsellers, fiction & learning', sort_order: 6, status: 'active' },
   ]).returning('*');
 
-  // Insert Merchants
+  // Insert Merchants (no slug column in schema)
   const merchants = await knex('merchants').insert([
-    { name: 'Amazon', slug: 'amazon', website: 'https://amazon.in', status: 'active' },
-    { name: 'Flipkart', slug: 'flipkart', website: 'https://flipkart.com', status: 'active' },
-    { name: 'Myntra', slug: 'myntra', website: 'https://myntra.com', status: 'active' },
+    { name: 'Amazon', website: 'https://amazon.in', status: 'active' },
+    { name: 'Flipkart', website: 'https://flipkart.com', status: 'active' },
+    { name: 'Myntra', website: 'https://myntra.com', status: 'active' },
   ]).returning('*');
 
   const catMap = {};
   categories.forEach((c) => { catMap[c.slug] = c.id; });
   const merMap = {};
-  merchants.forEach((m) => { merMap[m.slug] = m.id; });
+  merchants.forEach((m) => { merMap[m.name] = m.id; });
 
   // Insert Sample Products
   const products = await knex('products').insert([
@@ -34,7 +34,7 @@ exports.up = async function (knex) {
       description: 'The Sony WH-1000XM5 headphones rewrite the rules for distraction-free listening. With two processors controlling eight microphones, Auto NC Optimizer, and an ultra-comfortable lightweight design.',
       brand: 'Sony',
       category_id: catMap['electronics'],
-      merchant_id: merMap['amazon'],
+      merchant_id: merMap['Amazon'],
       affiliate_url: 'https://amazon.in/dp/B09XS7JWHH?tag=affiliate-21',
       price: 26990,
       original_price: 34990,
@@ -53,7 +53,7 @@ exports.up = async function (knex) {
       description: 'Supercharged by the next-generation M3 chip, the MacBook Air is strikingly thin and fast with support for up to two external displays and spatial audio.',
       brand: 'Apple',
       category_id: catMap['electronics'],
-      merchant_id: merMap['amazon'],
+      merchant_id: merMap['Amazon'],
       affiliate_url: 'https://amazon.in/dp/B0CX23V25D?tag=affiliate-21',
       price: 114900,
       original_price: 134900,
@@ -72,7 +72,7 @@ exports.up = async function (knex) {
       description: 'The Pegasus 40 offers improved comfort in sensitive areas of your foot, like the arch and toes, while maintaining responsive Zoom Air cushioning.',
       brand: 'Nike',
       category_id: catMap['fitness-sports'],
-      merchant_id: merMap['myntra'],
+      merchant_id: merMap['Myntra'],
       affiliate_url: 'https://myntra.com/shoes/nike?tag=affiliate-21',
       price: 7995,
       original_price: 11995,
@@ -91,7 +91,7 @@ exports.up = async function (knex) {
       description: 'Cook fast or slow with the Instant Pot Duo. 13 one-touch smart programs put cooking on autopilot with over 10 safety features.',
       brand: 'Instant Pot',
       category_id: catMap['home-kitchen'],
-      merchant_id: merMap['flipkart'],
+      merchant_id: merMap['Flipkart'],
       affiliate_url: 'https://flipkart.com/instant-pot?tag=affiliate-21',
       price: 6499,
       original_price: 9999,
