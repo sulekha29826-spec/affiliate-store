@@ -15,9 +15,12 @@
       "subCategory": "Headphones",
       "platform": "amazon",
       "affiliateLink": "https://www.amazon.in/dp/B09XS7JWHH?tag=sastabazar-21",
-      "tags": ["trending", "deal_of_the_day"],
+      "tags": [
+        "trending",
+        "deal_of_the_day"
+      ],
       "status": "active",
-      "clickCount": 184,
+      "clickCount": 214,
       "rating": 4.6,
       "ratingCount": 4210,
       "createdAt": 1740000000000,
@@ -38,9 +41,12 @@
       "subCategory": "Flagship Phones",
       "platform": "flipkart",
       "affiliateLink": "https://www.flipkart.com/samsung-galaxy-s24-ultra?affid=sastabazar",
-      "tags": ["bestseller", "trending"],
+      "tags": [
+        "bestseller",
+        "trending"
+      ],
       "status": "active",
-      "clickCount": 312,
+      "clickCount": 348,
       "rating": 4.7,
       "ratingCount": 1850,
       "createdAt": 1740000000000,
@@ -61,78 +67,163 @@
       "subCategory": "Laptops",
       "platform": "amazon",
       "affiliateLink": "https://www.amazon.in/dp/B0CX236W8K?tag=sastabazar-21",
-      "tags": ["trending", "deal_of_the_day"],
+      "tags": [
+        "trending",
+        "deal_of_the_day"
+      ],
       "status": "active",
-      "clickCount": 240,
+      "clickCount": 289,
       "rating": 4.8,
       "ratingCount": 920,
       "createdAt": 1740000000000,
       "updatedAt": 1740000000000
     },
-    "prod_nike_pegasus": {
-      "title": "Nike Air Zoom Pegasus 40 Running Shoes For Men",
-      "slug": "nike-air-zoom-pegasus-40-mens",
-      "description": "A springy ride for any run, the Peg's familiar, just-for-you feel returns to help you accomplish your goals. Engineered mesh upper provides breathability and durability.",
+    "prod_iphone_15": {
+      "title": "Apple iPhone 15 (128 GB) - Blue Super Retina XDR Display with Dynamic Island",
+      "slug": "apple-iphone-15-128gb-blue",
+      "description": "Dynamic Island bubbles up alerts and Live Activities. 48MP Main camera with 2x Telephoto for high-resolution captures. All-day battery life with USB-C connector.",
       "images": [
-        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&auto=format&fit=crop&q=80"
       ],
-      "price": 6495,
-      "originalPrice": 11895,
-      "discountPercent": 45,
-      "categoryId": "fashion",
-      "subCategory": "Footwear",
-      "platform": "myntra",
-      "affiliateLink": "https://www.myntra.com/sports-shoes/nike/nike-men-air-zoom-pegasus?aff=sastabazar",
-      "tags": ["deal_of_the_day"],
-      "status": "active",
-      "clickCount": 98,
-      "rating": 4.4,
-      "ratingCount": 630,
-      "createdAt": 1740000000000,
-      "updatedAt": 1740000000000
-    },
-    "prod_philips_airfryer": {
-      "title": "Philips Digital Air Fryer HD9252/90 with Rapid Air Technology (4.1 Litre)",
-      "slug": "philips-digital-air-fryer-hd9252",
-      "description": "Healthy frying with Rapid Air technology. 90% less fat. Fry, bake, grill, roast and even reheat with digital touch screen and 7 presets.",
-      "images": [
-        "https://images.unsplash.com/photo-1585515320310-259814833e62?w=800&auto=format&fit=crop&q=80"
-      ],
-      "price": 7999,
-      "originalPrice": 12995,
-      "discountPercent": 38,
-      "categoryId": "appliances",
-      "subCategory": "Kitchen Appliances",
+      "price": 69999,
+      "originalPrice": 79900,
+      "discountPercent": 12,
+      "categoryId": "mobiles",
+      "subCategory": "Smartphones",
       "platform": "amazon",
-      "affiliateLink": "https://www.amazon.in/dp/B08GYH7T5K?tag=sastabazar-21",
-      "tags": ["bestseller"],
+      "affiliateLink": "https://www.amazon.in/dp/B0CHX1W1XY?tag=sastabazar-21",
+      "tags": [
+        "trending",
+        "bestseller"
+      ],
       "status": "active",
-      "clickCount": 115,
-      "rating": 4.5,
-      "ratingCount": 8940,
+      "clickCount": 420,
+      "rating": 4.7,
+      "ratingCount": 5230,
       "createdAt": 1740000000000,
       "updatedAt": 1740000000000
     },
-    "prod_levis_jacket": {
-      "title": "Levi's Men's Trucker Denim Regular Fit Washed Jacket",
-      "slug": "levis-mens-trucker-denim-jacket",
-      "description": "The original jean jacket since 1967. Levi's iconic trucker jacket is crafted from 100% cotton denim, designed with timeless dual chest flap pockets and point collar.",
+    "prod_oneplus_12r": {
+      "title": "OnePlus 12R 5G (Cool Blue, 16GB RAM, 256GB Storage, Snapdragon 8 Gen 2)",
+      "slug": "oneplus-12r-5g-cool-blue",
+      "description": "Flagship cooling and Snapdragon 8 Gen 2 gaming performance. 1.5K 120Hz ProXDR display with 5500 mAh battery and 100W SUPERVOOC charging technology.",
       "images": [
-        "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80"
       ],
-      "price": 2849,
-      "originalPrice": 5999,
-      "discountPercent": 52,
-      "categoryId": "fashion",
-      "subCategory": "Men Clothing",
-      "platform": "ajio",
-      "affiliateLink": "https://www.ajio.com/levis-denim-jacket?aff=sastabazar",
-      "tags": ["deal_of_the_day"],
+      "price": 42999,
+      "originalPrice": 45999,
+      "discountPercent": 7,
+      "categoryId": "mobiles",
+      "subCategory": "Smartphones",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B0CQPNWGB1?tag=sastabazar-21",
+      "tags": [
+        "trending",
+        "deal_of_the_day"
+      ],
       "status": "active",
-      "clickCount": 74,
-      "rating": 4.3,
-      "ratingCount": 412,
+      "clickCount": 175,
+      "rating": 4.5,
+      "ratingCount": 2340,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_ipad_10th": {
+      "title": "Apple iPad (10th Generation) with A14 Bionic chip, 10.9-inch Liquid Retina Display (64GB, Wi-Fi)",
+      "slug": "apple-ipad-10th-generation-64gb",
+      "description": "Colorfully reimagined and more versatile than ever with an all-screen design. 10.9-inch Liquid Retina display and powerful A14 Bionic chip for daily creativity.",
+      "images": [
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 33900,
+      "originalPrice": 39900,
+      "discountPercent": 15,
+      "categoryId": "electronics",
+      "subCategory": "Tablets",
+      "platform": "flipkart",
+      "affiliateLink": "https://www.flipkart.com/apple-ipad-10th-gen?affid=sastabazar",
+      "tags": [
+        "bestseller"
+      ],
+      "status": "active",
+      "clickCount": 162,
+      "rating": 4.6,
+      "ratingCount": 3410,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_asus_tuf_f15": {
+      "title": "ASUS TUF Gaming F15, 15.6-inch FHD 144Hz, Intel Core i5-11400H 11th Gen, RTX 3050 4GB Graphics Gaming Laptop",
+      "slug": "asus-tuf-gaming-f15-rtx3050",
+      "description": "Geared for serious gaming and real-world durability. Powered by Intel Core i5 CPU and GeForce RTX 3050 GPU, action-packed gameplay is fast and fluid on 144Hz display.",
+      "images": [
+        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 52990,
+      "originalPrice": 77990,
+      "discountPercent": 32,
+      "categoryId": "electronics",
+      "subCategory": "Gaming Laptops",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B09RMT6TSK?tag=sastabazar-21",
+      "tags": [
+        "deal_of_the_day",
+        "trending"
+      ],
+      "status": "active",
+      "clickCount": 230,
+      "rating": 4.4,
+      "ratingCount": 8760,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_apple_watch_9": {
+      "title": "Apple Watch Series 9 GPS 45mm Starlight Aluminium Case with Sport Band - S/M",
+      "slug": "apple-watch-series-9-gps-45mm",
+      "description": "Smarter, brighter, mightier. Features S9 SiP for a magical double tap gesture, an even brighter display, and on-device Siri with enhanced health metrics.",
+      "images": [
+        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 38999,
+      "originalPrice": 44900,
+      "discountPercent": 13,
+      "categoryId": "electronics",
+      "subCategory": "Smartwatches",
+      "platform": "flipkart",
+      "affiliateLink": "https://www.flipkart.com/apple-watch-series-9?affid=sastabazar",
+      "tags": [
+        "trending",
+        "bestseller"
+      ],
+      "status": "active",
+      "clickCount": 195,
+      "rating": 4.7,
+      "ratingCount": 1120,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_jbl_flip6": {
+      "title": "JBL Flip 6 Wireless Portable Bluetooth Speaker with Powerful Sound, Deep Bass & IP67 Waterproof & Dustproof",
+      "slug": "jbl-flip-6-portable-bluetooth-speaker",
+      "description": "2-way speaker system designed to deliver loud, crystal clear, powerful sound. Racetrack-shaped woofer delivers exceptional low frequencies with 12 hours of playtime.",
+      "images": [
+        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 8999,
+      "originalPrice": 13999,
+      "discountPercent": 36,
+      "categoryId": "electronics",
+      "subCategory": "Audio",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B09GHPK7S6?tag=sastabazar-21",
+      "tags": [
+        "trending"
+      ],
+      "status": "active",
+      "clickCount": 180,
+      "rating": 4.5,
+      "ratingCount": 6750,
       "createdAt": 1740000000000,
       "updatedAt": 1740000000000
     },
@@ -150,11 +241,210 @@
       "subCategory": "Audio",
       "platform": "boat",
       "affiliateLink": "https://www.boat-lifestyle.com/products/nirvana-ion-anc-earbuds",
-      "tags": ["trending", "bestseller"],
+      "tags": [
+        "trending",
+        "bestseller"
+      ],
       "status": "active",
-      "clickCount": 267,
+      "clickCount": 310,
       "rating": 4.2,
       "ratingCount": 11200,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_nike_pegasus": {
+      "title": "Nike Air Zoom Pegasus 40 Running Shoes For Men",
+      "slug": "nike-air-zoom-pegasus-40-mens",
+      "description": "A springy ride for any run, the Peg return helps you accomplish your goals. Engineered mesh upper provides breathability and durability for all-day comfort.",
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 6495,
+      "originalPrice": 11895,
+      "discountPercent": 45,
+      "categoryId": "fashion",
+      "subCategory": "Footwear",
+      "platform": "myntra",
+      "affiliateLink": "https://www.myntra.com/sports-shoes/nike/nike-men-air-zoom-pegasus?aff=sastabazar",
+      "tags": [
+        "deal_of_the_day"
+      ],
+      "status": "active",
+      "clickCount": 140,
+      "rating": 4.4,
+      "ratingCount": 630,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_puma_sneakers": {
+      "title": "Puma Men Dazzler Low-Top Casual Sneakers with Cushioned Insole",
+      "slug": "puma-men-dazzler-casual-sneakers",
+      "description": "Elevate your street style with Puma Dazzler sneakers. Featuring a clean leatherette finish, contrast signature Formstrip, and a SoftFoam+ sockliner for superior cushioning.",
+      "images": [
+        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 1599,
+      "originalPrice": 3999,
+      "discountPercent": 60,
+      "categoryId": "fashion",
+      "subCategory": "Footwear",
+      "platform": "myntra",
+      "affiliateLink": "https://www.myntra.com/casual-shoes/puma/puma-men-dazzler-sneakers?aff=sastabazar",
+      "tags": [
+        "deal_of_the_day",
+        "trending"
+      ],
+      "status": "active",
+      "clickCount": 225,
+      "rating": 4.3,
+      "ratingCount": 4200,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_levis_jacket": {
+      "title": "Levi's Men's Trucker Denim Regular Fit Washed Jacket",
+      "slug": "levis-mens-trucker-denim-jacket",
+      "description": "The original jean jacket since 1967. Levi's iconic trucker jacket is crafted from 100% cotton denim, designed with timeless dual chest flap pockets and point collar.",
+      "images": [
+        "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 2849,
+      "originalPrice": 5999,
+      "discountPercent": 52,
+      "categoryId": "fashion",
+      "subCategory": "Men Clothing",
+      "platform": "ajio",
+      "affiliateLink": "https://www.ajio.com/levis-denim-jacket?aff=sastabazar",
+      "tags": [
+        "deal_of_the_day"
+      ],
+      "status": "active",
+      "clickCount": 115,
+      "rating": 4.3,
+      "ratingCount": 412,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_rayban_aviator": {
+      "title": "Ray-Ban Classic Polarized Green Lens Aviator Sunglasses (Gold Metal Frame, 58mm)",
+      "slug": "ray-ban-classic-polarized-aviator",
+      "description": "Originally designed for US aviators in 1937, Ray-Ban Aviator sunglasses combine great styling with exceptional quality, performance, and 100% UV protection.",
+      "images": [
+        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 7290,
+      "originalPrice": 10490,
+      "discountPercent": 31,
+      "categoryId": "fashion",
+      "subCategory": "Accessories",
+      "platform": "ajio",
+      "affiliateLink": "https://www.ajio.com/ray-ban-aviator-sunglasses?aff=sastabazar",
+      "tags": [
+        "trending"
+      ],
+      "status": "active",
+      "clickCount": 98,
+      "rating": 4.6,
+      "ratingCount": 890,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_philips_airfryer": {
+      "title": "Philips Digital Air Fryer HD9252/90 with Rapid Air Technology (4.1 Litre)",
+      "slug": "philips-digital-air-fryer-hd9252",
+      "description": "Healthy frying with Rapid Air technology. 90% less fat. Fry, bake, grill, roast and even reheat with digital touch screen and 7 presets.",
+      "images": [
+        "https://images.unsplash.com/photo-1585515320310-259814833e62?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 7999,
+      "originalPrice": 12995,
+      "discountPercent": 38,
+      "categoryId": "appliances",
+      "subCategory": "Kitchen Appliances",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B08GYH7T5K?tag=sastabazar-21",
+      "tags": [
+        "bestseller"
+      ],
+      "status": "active",
+      "clickCount": 170,
+      "rating": 4.5,
+      "ratingCount": 8940,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_dyson_v8": {
+      "title": "Dyson V8 Absolute Cordless Vacuum Cleaner with De-tangling Technology & 2 Cleaner Heads",
+      "slug": "dyson-v8-absolute-cordless-vacuum",
+      "description": "Engineered for homes with pets. Powered by the Dyson digital motor V8, spinning at up to 110,000rpm to generate powerful suction on carpets and hard floors.",
+      "images": [
+        "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 31900,
+      "originalPrice": 43900,
+      "discountPercent": 27,
+      "categoryId": "appliances",
+      "subCategory": "Home Cleaning",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B08VNJ12G7?tag=sastabazar-21",
+      "tags": [
+        "bestseller",
+        "trending"
+      ],
+      "status": "active",
+      "clickCount": 135,
+      "rating": 4.6,
+      "ratingCount": 3120,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_kent_ro": {
+      "title": "KENT Grand Plus RO+UV+UF+TDS Control Water Purifier (9 Litres Storage Tank)",
+      "slug": "kent-grand-plus-ro-water-purifier",
+      "description": "Multiple purification by RO+UV+UF+TDS Control removes dissolved impurities and kills bacteria & viruses to make 100% pure and mineral-rich drinking water.",
+      "images": [
+        "https://images.unsplash.com/photo-1584281722573-d5677b10291e?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 14999,
+      "originalPrice": 21000,
+      "discountPercent": 29,
+      "categoryId": "appliances",
+      "subCategory": "Water Purifiers",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B07R9V5P3R?tag=sastabazar-21",
+      "tags": [
+        "bestseller"
+      ],
+      "status": "active",
+      "clickCount": 110,
+      "rating": 4.4,
+      "ratingCount": 7890,
+      "createdAt": 1740000000000,
+      "updatedAt": 1740000000000
+    },
+    "prod_philips_trimmer": {
+      "title": "Philips Norelco All-in-One Multi Groomer Trimmer Series 7000 (19 Length Settings, 5hr Run Time)",
+      "slug": "philips-norelco-all-in-one-trimmer-7000",
+      "description": "Ultimate styling with our most advanced trimmer. DualCut steel blades self-sharpen for maximum precision. Includes beard, hair, body, and nose trimming attachments.",
+      "images": [
+        "https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&auto=format&fit=crop&q=80"
+      ],
+      "price": 3495,
+      "originalPrice": 5495,
+      "discountPercent": 36,
+      "categoryId": "appliances",
+      "subCategory": "Personal Grooming",
+      "platform": "amazon",
+      "affiliateLink": "https://www.amazon.in/dp/B082N3N1C5?tag=sastabazar-21",
+      "tags": [
+        "trending",
+        "deal_of_the_day"
+      ],
+      "status": "active",
+      "clickCount": 245,
+      "rating": 4.5,
+      "ratingCount": 9450,
       "createdAt": 1740000000000,
       "updatedAt": 1740000000000
     }
@@ -187,7 +477,7 @@
   },
   "banners": {
     "banner_festive_sale": {
-      "title": "Mega Electronics Loot — Up to 70% Off",
+      "title": "Mega Electronics Loot \u2014 Up to 70% Off",
       "image": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&auto=format&fit=crop&q=80",
       "link": "/category/electronics",
       "order": 1,
@@ -201,7 +491,7 @@
       "active": true
     },
     "banner_fashion_clearance": {
-      "title": "Branded Fashion Festival — Extra 50% Off",
+      "title": "Branded Fashion Festival \u2014 Extra 50% Off",
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&auto=format&fit=crop&q=80",
       "link": "/category/fashion",
       "order": 3,
