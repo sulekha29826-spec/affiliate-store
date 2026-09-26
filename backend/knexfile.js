@@ -1,5 +1,16 @@
 require('dotenv').config();
 
+const connectionConfig = () => {
+  const url = process.env.DATABASE_URL || '';
+  if (!url.includes('.render.com') && !url.includes('sslmode=require')) {
+    return url;
+  }
+  return {
+    connectionString: url,
+    ssl: { rejectUnauthorized: false },
+  };
+};
+
 module.exports = {
   development: {
     client: 'pg',
@@ -9,7 +20,7 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: { connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } },
+    connection: connectionConfig(),
     migrations: { directory: './migrations' },
     seeds: { directory: './seeds' },
   },

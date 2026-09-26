@@ -63,8 +63,15 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV} mode`);
+  try {
+    const db = require('./config/db');
+    await db.migrate.latest();
+    console.log('✅ Migrations applied successfully');
+  } catch (err) {
+    console.error('Migration notice:', err.message);
+  }
 });
 
 module.exports = app;
