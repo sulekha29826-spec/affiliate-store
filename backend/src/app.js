@@ -34,6 +34,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // Health check
+// System migration trigger endpoint
+app.get('/api/system/migrate', async (req, res) => {
+  try {
+    const db = require('./config/db');
+    const path = require('path');
+    const result = await db.migrate.latest({
+      directory: path.join(__dirname, '../migrations')
+    });
+    const categories = await db('categories').select('name');
+    const products = await db('products').select('title');
+    res.json({ success: true, result, categories, products });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message, stack: err.stack });
+  }
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ success: true, message: 'Affiliate Store API is running', timestamp: new Date().toISOString() });
 });
