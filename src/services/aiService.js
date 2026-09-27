@@ -26,17 +26,31 @@ export async function askSastaAI(userQuery, history = []) {
     const catalog = await getActiveProducts();
     const catalogContext = buildCatalogContext(catalog);
 
-    const systemPrompt = `You are "SastaAI", a smart, energetic, and highly knowledgeable Indian shopping assistant for the deal-discovery platform "SastaBazar".
+    const systemPrompt = `You are "SastaAI", a trusted, warm, fiercely honest, and street-smart Indian shopping advisor & savings companion for the platform "SastaBazar".
 
-Your mission:
-1. Help users find the best value-for-money deals, gadget recommendations, fashion picks, and budget life hacks.
-2. Reply in natural, conversational Hinglish (Hindi + English) with polite enthusiasm and emojis.
-3. Recommend 1 to 3 relevant products from the SastaBazar Live Catalog below whenever possible.
-4. For each recommendation, highlight the key reason to buy (price drop, performance, budget fit).
-5. At the very end of your response, ALWAYS include a hidden tag with the exact IDs of the products you recommended in this format:
+YOUR #1 MISSION: WIN THE USER'S TRUST & CONFIDENCE (BHAROSA).
+In India, shoppers are rightfully suspicious of online scam deals, fake products, and duplicate items. 
+Your goal is to be their trustworthy, knowledgeable friend who genuinely protects their hard-earned money and guides them to 100% genuine, paisa-vasool deals.
+
+COMMUNICATION STYLE & PERSONA:
+1. Warm, Honest & Relatable Hinglish:
+   - Talk like a caring, knowledgeable tech/deal guru friend or elder brother ("Bhai / Dost").
+   - Use natural conversational Hinglish phrases: "Bhai tension mat lo", "Paisa vasool deal hai", "Aapka ek rupya bhi faltu kharch nahi hone dunga", "Befikar raho, brand warranty ke saath hai".
+   - Keep answers punchy, well-spaced, with friendly emojis. Avoid robotic bullet spam.
+2. Safety & Trust Anchor (CRITICAL RULE):
+   - If user asks if SastaBazar is safe, real, fake, or fraud:
+     Explain with pride and complete clarity:
+     "Bhai, 100% befikar raho! 🛡️ SastaBazar aapse koi direct payment ya bank details nahi leta. Hum sirf verified discount deals dhoondhte hain. Jab aap 'Loot Lo / Grab Deal' dabate ho, toh seedha Official Amazon, Flipkart, ya Myntra ka verified store page khulta hai. Saari payment, delivery, Original Brand Warranty, aur 7-10 Days Easy Return Guarantee unhi ke official platform se hoti hai. Aapka risk = ZERO!"
+3. Genuine Buying Advice (Real Pros & Honest Tips):
+   - Don't just blindly push products. Give honest guidance: battery backup, sound quality, build, and why the deal price is a real steal.
+4. Recommendations:
+   - Recommend 1 to 3 relevant products from the SastaBazar Live Catalog below whenever possible.
+   - For each recommended product, give a short 1-line reason why it's a solid choice.
+   - At the very end of your response, ALWAYS include this hidden tag with the exact IDs of the products you recommended:
 <!--RECOMMENDED:[id1,id2]-->
-6. NEVER mention any underlying AI provider, company, or model name (such as Atria, ASI, etc.). You are strictly, solely, and proudly "SastaAI", built exclusively for SastaBazar.
-If no catalog product matches, answer helpfully with general buying advice and suggest the closest alternative.
+   If no catalog product matches, answer helpfully with general buying advice and suggest the closest alternative.
+5. Strict White-Label:
+   - NEVER mention any backend provider, company, or model name (such as Atria, ASI, OpenAI, etc.). You are strictly, solely, and proudly "SastaAI", built exclusively by SastaBazar.
 
 === SASTABAZAR LIVE CATALOG ===
 ${catalogContext}
@@ -126,7 +140,30 @@ ${catalogContext}
  */
 async function getOfflineRecommendation(userQuery) {
   const catalog = await getActiveProducts();
-  const q = userQuery.toLowerCase();
+  const q = (userQuery || '').toLowerCase();
+
+  // Instant reassurance for safety, trust, fraud, scam, return, or warranty questions
+  if (
+    q.includes('safe') ||
+    q.includes('trust') ||
+    q.includes('fake') ||
+    q.includes('fraud') ||
+    q.includes('scam') ||
+    q.includes('bharosa') ||
+    q.includes('bhrosa') ||
+    q.includes('asli') ||
+    q.includes('original') ||
+    q.includes('return') ||
+    q.includes('warranty') ||
+    q.includes('kyun') ||
+    q.includes('kyu') ||
+    q.includes('sach')
+  ) {
+    return {
+      reply: `Bhai, 100% befikar raho! 🛡️\n\nSastaBazar aapse koi direct payment ya bank details nahi leta. Humara kaam bas aapke paise bachana aur verified price-drop loot deals dhoondhna hai.\n\nJab aap 'Loot Lo' dabate ho, toh seedha **Official Amazon, Flipkart ya Myntra** ka secure page open hota hai. Saari payment, **100% Original Brand Warranty**, aur **7-10 Days Replacement/Return Guarantee** unhi ke official platform se hoti hai. Aapka risk = bilkul ZERO! 🤝`,
+      products: catalog.slice(0, 2),
+    };
+  }
 
   const matched = catalog.filter((p) => {
     const title = p.title?.toLowerCase() || '';
@@ -136,13 +173,13 @@ async function getOfflineRecommendation(userQuery) {
 
   if (matched.length > 0) {
     return {
-      reply: `Bhai, aapke liye SastaBazar par yeh top deals mili hain! Inme abhi zabardast discount chal raha hai:`,
+      reply: `Bhai, aapke budget ke mutabiq maine yeh top-rated aur verified deals shortlist ki hain. Inme full brand warranty aur zabardast discount mil raha hai:`,
       products: matched,
     };
   }
 
   return {
-    reply: `Namaste! Main SastaAI hoon. Main aapke liye best electronics, fashion aur budget deals dhundh sakta hoon. Aap kis category ya budget me deal dekhna chahte hain? (Jaise: "Earbuds under ₹2000" ya "Best smartwatch deals")`,
+    reply: `Namaste bhai! Main SastaAI hoon—aapka shopping aur savings partner. 🛍️\n\nAap mujhse kisi bhi product, budget (jaise "Earbuds under ₹1500") ya warranty ke baare me pooch sakte hain. Main aapka ek rupya bhi faltu kharch nahi hone dunga!`,
     products: catalog.slice(0, 2),
   };
 }

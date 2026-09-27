@@ -11,7 +11,8 @@ import {
   ShoppingBag,
   Zap,
   Flame,
-  ArrowRight
+  ArrowRight,
+  ShieldCheck,
 } from 'lucide-react';
 import { askSastaAI } from '../../services/aiService';
 import { formatCurrency } from '../../utils/formatCurrency';
@@ -19,10 +20,10 @@ import { trackAndRedirect } from '../../utils/trackClick';
 import PlatformBadge from '../common/PlatformBadge';
 
 const SUGGESTED_PROMPTS = [
-  '⚡ Best earbuds under ₹2000',
-  '🔥 Top smartphone deals today',
-  '👟 Casual shoes for college',
-  '🍳 Daily kitchen gadgets under ₹500',
+  '🛡️ SastaBazar safe aur genuine kyu hai?',
+  '⚡ Best earbuds under ₹1500',
+  '🔥 Aaj ki sabse badi loot deal',
+  '📦 Return aur brand warranty kaise milti hai?',
 ];
 
 export default function SastaAIAssistant() {
@@ -31,7 +32,7 @@ export default function SastaAIAssistant() {
     {
       id: 'welcome',
       role: 'assistant',
-      content: 'Namaste! Main **SastaAI** hoon—aapka smart shopping dost! 🛍️\n\nAap mujhse kisi bhi budget, gadget ya fashion deal ke baare me pooch sakte hain. Main aapke liye best offers dhoondhunga!',
+      content: 'Namaste bhai! Main **SastaAI** hoon—aapka personal shopping aur savings guide! 🤝\n\n🛡️ **100% Bharosa Guarantee:**\nYahan milne wali har deal verified hai aur seedha **Official Amazon, Flipkart aur Myntra** ke verified stores se aati hai. Saari payment, delivery, **Original Brand Warranty**, aur **Easy Return/Replacement** unhi ke official platform par hoti hai (Aapka risk = bilkul 0%!).\n\nAapka budget kitna hai ya aaj kya dhoondh rahe hain? Mujhse bina jhijhak poochhein—main aapka ek rupya bhi faltu kharch nahi hone dunga! 💡',
       products: [],
     },
   ]);
@@ -178,6 +179,17 @@ export default function SastaAIAssistant() {
             </div>
           </div>
 
+          {/* Trust Guarantee Strip */}
+          <div className="bg-emerald-50 border-b border-emerald-100 px-3 py-1.5 flex items-center justify-between text-[11px] text-emerald-800 font-semibold shadow-2xs">
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              <span>100% Genuine Stores • 0% Risk</span>
+            </span>
+            <span className="text-[10px] bg-emerald-200/60 text-emerald-900 px-1.5 py-0.5 rounded font-bold">
+              Amazon & Flipkart
+            </span>
+          </div>
+
           {/* Chat Messages Body */}
           <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 bg-slate-50/70">
             {messages.map((msg) => (
@@ -260,9 +272,9 @@ export default function SastaAIAssistant() {
                 <div className="bg-white border border-slate-200 p-3 rounded-2xl rounded-tl-none shadow-xs space-y-1.5 max-w-[75%]">
                   <div className="flex items-center gap-1.5 text-xs text-blue-600 font-bold">
                     <Sparkles className="w-3.5 h-3.5 text-[#FFD700] fill-[#FFD700] animate-pulse" />
-                    <span>SastaAI best deals dhoondh raha hai...</span>
+                    <span>SastaAI genuine deals aur reviews verify kar raha hai...</span>
                   </div>
-                  <div className="h-2 w-36 skeleton-shimmer rounded" />
+                  <div className="h-2 w-44 skeleton-shimmer rounded" />
                 </div>
               </div>
             )}
