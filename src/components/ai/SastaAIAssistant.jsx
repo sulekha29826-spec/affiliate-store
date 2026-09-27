@@ -31,7 +31,7 @@ export default function SastaAIAssistant() {
     {
       id: 'welcome',
       role: 'assistant',
-      content: 'Namaste! Main **SastaAI** hoon—aapka smart shopping dost! 🛍️\n\nAap mujhse kisi bhi budget, gadget ya fashion deal ke baare me pooch sakte hain. Main Atria-ASI dwara powered hoon!',
+      content: 'Namaste! Main **SastaAI** hoon—aapka smart shopping dost! 🛍️\n\nAap mujhse kisi bhi budget, gadget ya fashion deal ke baare me pooch sakte hain. Main aapke liye best offers dhoondhunga!',
       products: [],
     },
   ]);
@@ -148,8 +148,8 @@ export default function SastaAIAssistant() {
               <div>
                 <div className="flex items-center gap-1.5">
                   <h3 className="font-extrabold text-sm sm:text-base leading-tight">SastaAI</h3>
-                  <span className="text-[10px] bg-[#FFD700] text-blue-950 font-black px-1.5 py-0.2 rounded-full">
-                    Atria ASI
+                  <span className="text-[10px] bg-[#FFD700] text-blue-950 font-black px-1.5 py-0.2 rounded-full shadow-2xs">
+                    Smart AI
                   </span>
                 </div>
                 <p className="text-[10px] text-blue-100 flex items-center gap-1">
@@ -258,11 +258,11 @@ export default function SastaAIAssistant() {
             {loading && (
               <div className="flex items-start gap-2">
                 <div className="bg-white border border-slate-200 p-3 rounded-2xl rounded-tl-none shadow-xs space-y-1.5 max-w-[75%]">
-                  <div className="flex items-center gap-1.5 text-xs text-indigo-600 font-semibold">
-                    <Sparkles className="w-3.5 h-3.5 animate-spin" />
-                    <span>Atria ASI deal dhoondh raha hai...</span>
+                  <div className="flex items-center gap-1.5 text-xs text-blue-600 font-bold">
+                    <Sparkles className="w-3.5 h-3.5 text-[#FFD700] fill-[#FFD700] animate-pulse" />
+                    <span>SastaAI best deals dhoondh raha hai...</span>
                   </div>
-                  <div className="h-2 w-32 skeleton-shimmer rounded" />
+                  <div className="h-2 w-36 skeleton-shimmer rounded" />
                 </div>
               </div>
             )}
