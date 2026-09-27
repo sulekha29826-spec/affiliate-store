@@ -13,6 +13,8 @@ import {
   Plus,
   ArrowUpRight,
   ExternalLink,
+  Sparkles,
+  Wand2,
 } from 'lucide-react';
 
 export default function AdminDashboard() {
@@ -138,6 +140,34 @@ export default function AdminDashboard() {
             <span className="text-xs text-slate-500 ml-2">live on homepage</span>
           </div>
         </div>
+      </div>
+
+      {/* SastaAI Feature Spotlight */}
+      <div className="bg-gradient-to-r from-indigo-950/80 via-slate-900 to-purple-950/80 border border-indigo-500/30 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center text-indigo-400 shrink-0">
+            <Sparkles className="w-5 h-5 text-[#FFD700] fill-[#FFD700] animate-pulse" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-sm font-bold text-white">SastaAI Deal Studio & Copilot Live</h2>
+              <span className="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold px-1.5 py-0.5 rounded border border-indigo-500/30">
+                NEW
+              </span>
+            </div>
+            <p className="text-xs text-slate-300 mt-0.5">
+              1-Click Product Ingest, Viral Telegram & WhatsApp Broadcast Copywriter, aur Store AI Advisor.
+            </p>
+          </div>
+        </div>
+
+        <Link
+          to="/ai-studio"
+          className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 shrink-0 transition cursor-pointer shadow-lg shadow-indigo-600/30"
+        >
+          <Wand2 className="w-3.5 h-3.5 text-[#FFD700]" />
+          <span>Launch AI Studio</span>
+        </Link>
       </div>
 
       {/* Two Data Tables Grid */}

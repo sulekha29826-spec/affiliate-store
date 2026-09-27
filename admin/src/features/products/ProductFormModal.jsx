@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { X, Plus, Trash2, Image as ImageIcon } from 'lucide-react';
+import { X, Plus, Trash2, Image as ImageIcon, Sparkles, Wand2 } from 'lucide-react';
 import { slugify } from '../../utils/slugify';
+import { aiParseProduct, aiEnhanceDescription } from '../../services/adminAIService';
 
 const STANDARD_PLATFORMS = ['amazon', 'flipkart', 'myntra', 'meesho', 'ajio', 'boat'];
 
@@ -21,6 +22,12 @@ export default function ProductFormModal({ product, categories = [], onSave, onC
   const [status, setStatus] = useState('active');
   const [tags, setTags] = useState([]);
   const [saving, setSaving] = useState(false);
+
+  // AI Autofill & Enhancement State
+  const [aiInput, setAiInput] = useState('');
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiEnhancing, setAiEnhancing] = useState(false);
+  const [aiFeedback, setAiFeedback] = useState('');
 
   useEffect(() => {
     if (product) {
@@ -92,6 +99,67 @@ export default function ProductFormModal({ product, categories = [], onSave, onC
     }
   };
 
+  // AI Autofill from raw title, specs or link
+  const handleAiAutofill = async () => {
+    if (!aiInput.trim() || aiLoading) return;
+    setAiLoading(true);
+    setAiFeedback('');
+
+    try {
+      const parsed = await aiParseProduct(aiInput, categories);
+      if (parsed) {
+        if (parsed.title) {
+          setTitle(parsed.title);
+          setSlug(parsed.slug || slugify(parsed.title));
+        }
+        if (parsed.categoryId) setCategoryId(parsed.categoryId);
+        if (parsed.subCategory) setSubCategory(parsed.subCategory);
+        
+        if (parsed.platform) {
+          const p = parsed.platform.toLowerCase();
+          if (STANDARD_PLATFORMS.includes(p)) {
+            setPlatformOption(p);
+            setCustomPlatform('');
+          } else {
+            setPlatformOption('other');
+            setCustomPlatform(p);
+          }
+        }
+
+        if (parsed.price) setPrice(parsed.price);
+        if (parsed.originalPrice) setOriginalPrice(parsed.originalPrice);
+        if (parsed.description) setDescription(parsed.description);
+        if (parsed.tags && Array.isArray(parsed.tags)) setTags(parsed.tags);
+        if (parsed.affiliateLink) setAffiliateLink(parsed.affiliateLink);
+
+        setAiFeedback('✨ Product details successfully auto-filled!');
+        setTimeout(() => setAiFeedback(''), 4000);
+      }
+    } catch (err) {
+      console.error('AI autofill error:', err);
+      setAiFeedback('⚠️ Auto-fill error. Please check your connection.');
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
+  // AI Description Enhancer
+  const handleAiEnhanceCopy = async () => {
+    if (!title || aiEnhancing) return;
+    setAiEnhancing(true);
+
+    try {
+      const enhanced = await aiEnhanceDescription(title, description);
+      if (enhanced) {
+        setDescription(enhanced);
+      }
+    } catch (err) {
+      console.error('AI enhance description error:', err);
+    } finally {
+      setAiEnhancing(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
@@ -141,6 +209,58 @@ export default function ProductFormModal({ product, categories = [], onSave, onC
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+          {/* SastaAI Magic Autofill Box */}
+          <div className="bg-gradient-to-r from-blue-950/70 via-indigo-950/60 to-purple-950/70 border border-indigo-500/30 p-3.5 rounded-xl space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-indigo-300">
+                <Sparkles className="w-3.5 h-3.5 text-[#FFD700] fill-[#FFD700] animate-pulse" />
+                <span>SastaAI Magic Autofill</span>
+                <span className="text-[9px] bg-indigo-500/20 text-indigo-300 px-1.5 py-0.5 rounded font-bold border border-indigo-500/30">
+                  SMART FILL
+                </span>
+              </div>
+              {aiFeedback && (
+                <span className="text-[11px] text-emerald-400 font-medium">
+                  {aiFeedback}
+                </span>
+              )}
+            </div>
+
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={aiInput}
+                onChange={(e) => setAiInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleAiAutofill();
+                  }
+                }}
+                placeholder="Paste Amazon/Flipkart link, or type e.g. 'OnePlus Nord CE 4 5G 128GB amazon 24999'"
+                className="flex-1 bg-slate-950 border border-slate-700 text-white rounded-lg px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-indigo-400 placeholder:text-slate-500"
+              />
+              <button
+                type="button"
+                disabled={aiLoading || !aiInput.trim()}
+                onClick={handleAiAutofill}
+                className="bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold px-3 py-2 rounded-lg text-xs flex items-center gap-1.5 shrink-0 transition cursor-pointer shadow-md shadow-indigo-600/30"
+              >
+                {aiLoading ? (
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#FFD700] animate-ping" />
+                    <span>Processing...</span>
+                  </span>
+                ) : (
+                  <>
+                    <Wand2 className="w-3.5 h-3.5 text-[#FFD700]" />
+                    <span>Auto-Fill</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+
           {/* Title */}
           <div>
             <label className="block text-slate-300 font-medium mb-1">
@@ -344,9 +464,20 @@ export default function ProductFormModal({ product, categories = [], onSave, onC
 
           {/* Description */}
           <div>
-            <label className="block text-slate-300 font-medium mb-1">
-              Overview & Features
-            </label>
+            <div className="flex items-center justify-between mb-1">
+              <label className="text-slate-300 font-medium">
+                Overview & Features
+              </label>
+              <button
+                type="button"
+                disabled={aiEnhancing || !title}
+                onClick={handleAiEnhanceCopy}
+                className="text-indigo-400 hover:text-indigo-300 disabled:opacity-40 text-[11px] font-semibold flex items-center gap-1 cursor-pointer transition"
+              >
+                <Sparkles className="w-3 h-3 text-[#FFD700]" />
+                <span>{aiEnhancing ? 'Enhancing copy...' : 'AI Enhance Copy'}</span>
+              </button>
+            </div>
             <textarea
               rows={3}
               value={description}

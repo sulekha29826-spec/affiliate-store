@@ -11,6 +11,7 @@ import {
   Settings,
   ExternalLink,
   X,
+  Sparkles,
 } from 'lucide-react';
 
 export default function AdminSidebar({ mobileOpen, onClose }) {
@@ -19,6 +20,7 @@ export default function AdminSidebar({ mobileOpen, onClose }) {
   const navItems = [
     { label: 'Dashboard', to: '/', icon: LayoutDashboard },
     { label: 'Products', to: '/products', icon: ShoppingBag },
+    { label: 'SastaAI Studio', to: '/ai-studio', icon: Sparkles, isAI: true },
     { label: 'Categories', to: '/categories', icon: FolderTree },
     { label: 'Banners', to: '/banners', icon: ImageIcon },
     { label: 'Click Analytics', to: '/analytics', icon: BarChart3 },
@@ -84,8 +86,15 @@ export default function AdminSidebar({ mobileOpen, onClose }) {
                   }`
                 }
               >
-                <Icon className="w-4 h-4 shrink-0" />
-                <span>{item.label}</span>
+                <Icon className={`w-4 h-4 shrink-0 ${item.isAI ? 'text-[#FFD700]' : ''}`} />
+                <span className="flex-1 flex items-center justify-between">
+                  <span>{item.label}</span>
+                  {item.isAI && (
+                    <span className="text-[9px] bg-[#FFD700] text-blue-950 font-black px-1.5 py-0.5 rounded-full shadow-xs">
+                      AI
+                    </span>
+                  )}
+                </span>
               </NavLink>
             );
           })}
@@ -94,7 +103,7 @@ export default function AdminSidebar({ mobileOpen, onClose }) {
         {/* Public Storefront link */}
         <div className="p-3 border-t border-slate-800">
           <a
-            href="http://localhost:5173"
+            href="https://affiliate-store-kohl.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-between px-3 py-2 text-xs text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition"
@@ -103,7 +112,7 @@ export default function AdminSidebar({ mobileOpen, onClose }) {
               <ExternalLink className="w-3.5 h-3.5 text-indigo-400" />
               <span>Live Storefront</span>
             </span>
-            <span className="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-400">:5173</span>
+            <span className="text-[10px] bg-slate-800 text-emerald-400 font-semibold px-1.5 py-0.5 rounded">Live</span>
           </a>
         </div>
       </aside>

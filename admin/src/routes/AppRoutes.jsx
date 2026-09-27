@@ -9,6 +9,7 @@ import BannerManager from '../features/banners/BannerManager';
 import AnalyticsPage from '../features/analytics/AnalyticsPage';
 import AdminUserManager from '../features/adminUsers/AdminUserManager';
 import SettingsPage from '../features/settings/SettingsPage';
+import AIDealStudio from '../features/ai/AIDealStudio';
 
 export default function AppRoutes() {
   return (
@@ -29,6 +30,15 @@ export default function AppRoutes() {
         element={
           <ProtectedRoute>
             <ProductTable />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/ai-studio"
+        element={
+          <ProtectedRoute>
+            <AIDealStudio />
           </ProtectedRoute>
         }
       />
