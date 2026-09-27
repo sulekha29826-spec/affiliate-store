@@ -3,6 +3,7 @@ import { BrowserRouter, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import AppRoutes from './routes/AppRoutes';
+import SastaAIAssistant from './components/ai/SastaAIAssistant';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -16,12 +17,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-[#F1F3F6] text-[#212121]">
+      <div className="min-h-screen flex flex-col bg-[#EDF1F7] text-[#0F172A]">
         <Header />
         <main className="flex-1">
           <AppRoutes />
         </main>
         <Footer />
+        <SastaAIAssistant />
       </div>
     </BrowserRouter>
   );
