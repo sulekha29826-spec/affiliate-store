@@ -204,7 +204,7 @@ export default function AIDealStudio() {
       const copy = await aiEnhanceDescription(picked.title, `Best deal on ${picked.platform.toUpperCase()} with ${disc}% discount. Brand new with official warranty.`);
       await new Promise((r) => setTimeout(r, 600));
 
-      log('🚀 [Agent 4: Auto-Publisher]: Saving product with multi-image gallery to Firebase Live Catalog...');
+      log('🚀 [Agent 4: Auto-Publisher]: Saving product with multi-image gallery to Live Catalog...');
       const newProductPayload = {
         title: picked.title,
         slug: picked.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),

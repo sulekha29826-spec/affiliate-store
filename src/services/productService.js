@@ -13,13 +13,30 @@ function normalizeProducts(rawProducts) {
     .filter((p) => p.status === 'active');
 }
 
+const LOCAL_STORAGE_KEY = 'sastabazar_custom_products';
+
+function getStoredLocalProducts() {
+  try {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    }
+  } catch (e) {
+    // Ignore in SSR / environments without storage
+  }
+  return {};
+}
+
 /**
  * Fetch all active products
  * @returns {Promise<Array>}
  */
 export async function getActiveProducts() {
+  const localCustom = getStoredLocalProducts();
+  const baseCatalog = { ...seedData.products, ...localCustom };
+
   if (!isFirebaseConfigured || !database) {
-    return normalizeProducts(seedData.products);
+    return normalizeProducts(baseCatalog);
   }
 
   try {
@@ -30,14 +47,19 @@ export async function getActiveProducts() {
     );
     const snapshot = await get(productsRef);
     if (snapshot.exists() && snapshot.val()) {
-      const prods = normalizeProducts(snapshot.val());
-      if (prods.length > 0) return prods;
+      const fbProducts = normalizeProducts(snapshot.val());
+      const map = new Map();
+      fbProducts.forEach(p => map.set(p.id, p));
+      normalizeProducts(localCustom).forEach(p => {
+        if (!map.has(p.id)) map.set(p.id, p);
+      });
+      const merged = Array.from(map.values());
+      if (merged.length > 0) return merged;
     }
-    return normalizeProducts(seedData.products);
+    return normalizeProducts(baseCatalog);
   } catch (error) {
-    console.error('Failed to fetch products from Firebase:', error);
-    // Fallback to seed data on connection issue
-    return normalizeProducts(seedData.products);
+    console.warn('Failed to fetch products from Firebase (using base catalog):', error.message);
+    return normalizeProducts(baseCatalog);
   }
 }
 
