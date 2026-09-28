@@ -31,3 +31,4 @@ admin/dist
 .env.production
 admin/.env
 admin/.env.production
+.vercel
