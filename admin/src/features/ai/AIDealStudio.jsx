@@ -25,7 +25,8 @@ import {
   aiParseProduct,
   aiEnhanceDescription,
   aiGenerateSocialPost,
-  aiAskAdminCopilot
+  aiAskAdminCopilot,
+  getCuratedGalleryForProduct
 } from '../../services/adminAIService';
 import { getAdminProducts, getAdminCategories, saveProduct } from '../../services/adminService';
 
@@ -117,7 +118,12 @@ export default function AIDealStudio() {
           price: 1399,
           originalPrice: 4490,
           affiliateLink: 'https://www.amazon.in/dp/B09N3ZNHTY?tag=sastabazar-21',
-          image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&auto=format&fit=crop&q=80',
+          images: [
+            'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80'
+          ],
         },
         {
           title: 'Noise Pulse 2 Max 1.85 Inch BT Calling Smartwatch',
@@ -127,7 +133,12 @@ export default function AIDealStudio() {
           price: 1299,
           originalPrice: 5999,
           affiliateLink: 'https://www.flipkart.com/noise-pulse-2-max/p/itmexample?affid=sastabazar',
-          image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&auto=format&fit=crop&q=80',
+          images: [
+            'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1510017803434-a899398421b3?w=800&auto=format&fit=crop&q=80'
+          ],
         },
         {
           title: 'Puma Men Softride Rift Running Shoes',
@@ -137,7 +148,12 @@ export default function AIDealStudio() {
           price: 2199,
           originalPrice: 5499,
           affiliateLink: 'https://www.myntra.com/shoes/puma/running?aff=sastabazar',
-          image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80',
+          images: [
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80'
+          ],
         },
         {
           title: 'Pigeon 1.8L Electric Kettle for Boiling Water & Tea',
@@ -147,7 +163,11 @@ export default function AIDealStudio() {
           price: 599,
           originalPrice: 1245,
           affiliateLink: 'https://www.amazon.in/dp/B07WMS7TWB?tag=sastabazar-21',
-          image: 'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=600&auto=format&fit=crop&q=80',
+          images: [
+            'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80'
+          ],
         },
         {
           title: 'Philips Multi Grooming Kit All-in-One Trimmer',
@@ -157,7 +177,12 @@ export default function AIDealStudio() {
           price: 1499,
           originalPrice: 2195,
           affiliateLink: 'https://www.flipkart.com/philips-trimmer/p/itmexample?affid=sastabazar',
-          image: 'https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&auto=format&fit=crop&q=80',
+          images: [
+            'https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&auto=format&fit=crop&q=80'
+          ],
         }
       ];
 
@@ -175,11 +200,11 @@ export default function AIDealStudio() {
       log(`🔍 [Agent 2: Bharosa Inspector]: Verified! Real Discount = ${disc}% OFF, 100% Brand Warranty & 4.3★ Rating confirmed.`);
       await new Promise((r) => setTimeout(r, 700));
 
-      log('✍️ [Agent 3: SastaAI Copywriter]: Crafting high-converting Hinglish deal copy & specs...');
+      log('✍️ [Agent 3: SastaAI Copywriter]: Crafting rich structured deal copy & specs...');
       const copy = await aiEnhanceDescription(picked.title, `Best deal on ${picked.platform.toUpperCase()} with ${disc}% discount. Brand new with official warranty.`);
       await new Promise((r) => setTimeout(r, 600));
 
-      log('🚀 [Agent 4: Auto-Publisher]: Saving product to Firebase Live Catalog...');
+      log('🚀 [Agent 4: Auto-Publisher]: Saving product with multi-image gallery to Firebase Live Catalog...');
       const newProductPayload = {
         title: picked.title,
         slug: picked.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
@@ -191,7 +216,7 @@ export default function AIDealStudio() {
         originalPrice: picked.originalPrice,
         discountPercent: disc,
         affiliateLink: picked.affiliateLink,
-        images: [picked.image],
+        images: picked.images && Array.isArray(picked.images) ? picked.images : [picked.image || 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80'],
         tags: ['trending', 'deal_of_the_day', 'hot', 'autopilot'],
         status: 'active',
       };
@@ -250,9 +275,9 @@ export default function AIDealStudio() {
           ? Math.round(((generatedDeal.originalPrice - generatedDeal.price) / generatedDeal.originalPrice) * 100)
           : 50,
         affiliateLink: generatedDeal.affiliateLink || 'https://affiliate-store-kohl.vercel.app',
-        images: generatedDeal.images?.length ? generatedDeal.images : [
-          'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80'
-        ],
+        images: (generatedDeal.images && Array.isArray(generatedDeal.images) && generatedDeal.images.length >= 2)
+          ? generatedDeal.images
+          : getCuratedGalleryForProduct(generatedDeal.categoryId || '', generatedDeal.title || ''),
         tags: generatedDeal.tags || ['featured', 'deal_of_the_day'],
         status: 'active'
       };
@@ -719,10 +744,25 @@ export default function AIDealStudio() {
 
                   <div>
                     <span className="text-[10px] text-slate-400 uppercase font-semibold">Optimized Description</span>
-                    <p className="text-xs text-slate-300 bg-slate-950 p-3 rounded-xl border border-slate-800 whitespace-pre-line leading-relaxed">
+                    <p className="text-xs text-slate-300 bg-slate-950 p-3 rounded-xl border border-slate-800 whitespace-pre-line leading-relaxed font-sans">
                       {generatedDeal.description}
                     </p>
                   </div>
+
+                  {generatedDeal.images && generatedDeal.images.length > 0 && (
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase font-semibold block mb-1.5">
+                        Product Gallery Images ({generatedDeal.images.length} Shots)
+                      </span>
+                      <div className="grid grid-cols-4 gap-2">
+                        {generatedDeal.images.map((imgUrl, i) => (
+                          <div key={i} className="aspect-square bg-slate-950 border border-slate-800 rounded-lg overflow-hidden p-1 flex items-center justify-center">
+                            <img src={imgUrl} alt={`Preview ${i + 1}`} className="w-full h-full object-contain" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {generatedDeal.tags && (
                     <div className="flex flex-wrap gap-1.5 items-center">

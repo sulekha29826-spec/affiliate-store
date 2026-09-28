@@ -131,8 +131,11 @@ export default function ProductFormModal({ product, categories = [], onSave, onC
         if (parsed.description) setDescription(parsed.description);
         if (parsed.tags && Array.isArray(parsed.tags)) setTags(parsed.tags);
         if (parsed.affiliateLink) setAffiliateLink(parsed.affiliateLink);
+        if (parsed.images && Array.isArray(parsed.images) && parsed.images.length > 0) {
+          setImages(parsed.images);
+        }
 
-        setAiFeedback('✨ Product details successfully auto-filled!');
+        setAiFeedback('✨ Product details & image gallery successfully auto-filled!');
         setTimeout(() => setAiFeedback(''), 4000);
       }
     } catch (err) {

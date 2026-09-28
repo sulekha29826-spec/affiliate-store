@@ -47,25 +47,98 @@ async function callLLM(messages, temperature = 0.5, maxTokens = 800) {
  * @param {string} rawInput 
  * @param {Array} availableCategories 
  * @returns {Promise<Object>}
+/**
+ * Curated high-resolution 3-4 multi-image gallery matching eCommerce categories
+ */
+export function getCuratedGalleryForProduct(category = '', title = '') {
+  const text = `${category} ${title}`.toLowerCase();
+  if (text.includes('earbud') || text.includes('airdope') || text.includes('headphone') || text.includes('audio') || text.includes('tws') || text.includes('neckband') || text.includes('nord bud')) {
+    return [
+      'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80',
+    ];
+  }
+  if (text.includes('watch') || text.includes('wearable') || text.includes('band') || text.includes('fit') || text.includes('pulse')) {
+    return [
+      'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1510017803434-a899398421b3?w=800&auto=format&fit=crop&q=80',
+    ];
+  }
+  if (text.includes('shoe') || text.includes('sneaker') || text.includes('running') || text.includes('footwear') || text.includes('puma')) {
+    return [
+      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80',
+    ];
+  }
+  if (text.includes('trimmer') || text.includes('shaver') || text.includes('grooming') || text.includes('philips') || text.includes('beauty')) {
+    return [
+      'https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&auto=format&fit=crop&q=80',
+    ];
+  }
+  if (text.includes('kettle') || text.includes('kitchen') || text.includes('appliance') || text.includes('cookware') || text.includes('pigeon')) {
+    return [
+      'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&auto=format&fit=crop&q=80',
+    ];
+  }
+  if (text.includes('fashion') || text.includes('shirt') || text.includes('t-shirt') || text.includes('cloth') || text.includes('jeans')) {
+    return [
+      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&auto=format&fit=crop&q=80',
+    ];
+  }
+  // Default Electronics / Tech Gadgets
+  return [
+    'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&auto=format&fit=crop&q=80',
+  ];
+}
+
+/**
+ * Parse raw link, product title, or deal notes into a structured catalog product
+ * @param {string} rawInput 
+ * @param {Array} availableCategories 
+ * @returns {Promise<Object>}
  */
 export async function aiParseProduct(rawInput, availableCategories = []) {
   const catList = availableCategories.map(c => c.id).join(', ') || 'electronics, fashion, appliances, home, beauty';
 
   const systemPrompt = `You are "SastaAI Catalog Copilot", an expert Indian affiliate e-commerce product manager for "SastaBazar".
-Your task is to take any raw input (product name, pasted specs, or affiliate URL) and convert it into a complete, high-converting product listing JSON.
+Your task is to take any raw input (product name, pasted specs, or affiliate URL) and convert it into a complete, high-converting product listing JSON with multiple images and structured description.
 
 RULES:
 1. Output ONLY a valid raw JSON object. Do NOT wrap in markdown codeblocks (no \`\`\`json).
 2. JSON must strictly follow this structure:
 {
-  "title": "Clean, attractive product title with key spec (e.g. boAt Airdopes 141 Bluetooth Earbuds with 42H Playtime)",
+  "title": "Clean, attractive product title with key spec (e.g. boAt Airdopes 141 ANC Bluetooth Wireless Earbuds with 42H Playtime)",
   "slug": "kebab-case-slugified-title",
   "categoryId": "one of: [${catList}]",
-  "subCategory": "Relevant subcategory (e.g. Audio, Smartphone, Sneakers, Kitchen)",
+  "subCategory": "Relevant subcategory (e.g. Audio & Headphones, Smart Wearables, Footwear, Kitchen Appliances)",
   "platform": "amazon" | "flipkart" | "myntra" | "ajio" | "boat" | "meesho" | "other",
   "price": 999,
   "originalPrice": 2999,
-  "description": "Engaging 2-3 sentence overview highlighting why this deal is unmissable, followed by 3-4 bullet points of top features with emojis.",
+  "description": "🔥 LOOT DEAL HIGHLIGHT:\n[Punchy hook line]\n\n📋 PRODUCT OVERVIEW:\n[2-3 sentences explaining benefits]\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• [Emoji] Feature 1\n• [Emoji] Feature 2\n• [Emoji] Feature 3\n• [Emoji] Feature 4\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original Brand Certified Product with 1 Year Official Brand Warranty.",
+  "images": [
+    "High quality product image URL 1",
+    "High quality product image URL 2",
+    "High quality product image URL 3",
+    "High quality product image URL 4"
+  ],
   "tags": ["featured", "hot", "deal_of_the_day", "budget_friendly"],
   "affiliateLink": "Affiliate URL if detected in the input, otherwise leave empty"
 }
@@ -77,11 +150,17 @@ RULES:
     const rawReply = await callLLM([
       { role: 'system', content: systemPrompt },
       { role: 'user', content: `Extract and generate complete product details for:\n"${rawInput}"` }
-    ], 0.3, 700);
+    ], 0.3, 800);
 
     // Clean any accidental markdown quotes
     const cleaned = rawReply.replace(/```json/gi, '').replace(/```/g, '').trim();
     const parsed = JSON.parse(cleaned);
+
+    // Ensure 3-4 real high-resolution images are present
+    if (!Array.isArray(parsed.images) || parsed.images.length < 2) {
+      parsed.images = getCuratedGalleryForProduct(parsed.categoryId || '', parsed.title || '');
+    }
+
     return parsed;
   } catch (err) {
     console.warn('AI Parsing failed, falling back to heuristic parsing:', err);
@@ -93,24 +172,51 @@ RULES:
  * Enhance an existing product description into high-converting Hinglish/English deal copy
  */
 export async function aiEnhanceDescription(title, currentDesc = '') {
-  const systemPrompt = `You are "SastaAI Copywriter" for SastaBazar affiliate deals in India.
-Take the product title and rough description and rewrite it into an enticing, high-converting deal description.
-Include:
-- A punchy 1-line hook why it's worth buying today
-- 3 to 4 clear bullet points with emojis highlighting key specifications and benefits
-- A short reassurance line about warranty or value for money
-Format with clean line breaks. Do not use markdown headers (#).`;
+  const systemPrompt = `You are "SastaAI Copywriter" for SastaBazar Indian affiliate eCommerce.
+Generate an enticing, highly structured, and authentic deal description for this Indian affiliate product.
+Product: "${title}"
+Current notes/specs: "${currentDesc}"
+
+Format EXACTLY into these 4 clean sections with line breaks (do NOT use markdown headers like # or ##):
+
+🔥 LOOT DEAL HIGHLIGHT:
+[1 punchy sentence highlighting why this deal and price drop is unmissable]
+
+📋 PRODUCT OVERVIEW:
+[2-3 compelling sentences describing who this product is for and its real-world performance]
+
+⚡ KEY SPECIFICATIONS & FEATURES:
+• [Emoji] Feature 1 (Battery / Playtime / Performance)
+• [Emoji] Feature 2 (Audio / Display / Build Quality)
+• [Emoji] Feature 3 (Connectivity / Charging / Speed)
+• [Emoji] Feature 4 (Durability / IPX Rating / Convenience)
+
+🛡️ BRAND WARRANTY & TRUST:
+100% Original Brand Certified Product. Comes with 1 Year Official Brand Warranty and 7-day merchant replacement guarantee.`;
 
   try {
     const reply = await callLLM([
       { role: 'system', content: systemPrompt },
-      { role: 'user', content: `Product: "${title}"\nCurrent description/notes: "${currentDesc}"` }
-    ], 0.7, 500);
+      { role: 'user', content: `Write structured high-converting product description for: "${title}". Current context: "${currentDesc}"` }
+    ], 0.6, 600);
 
     return reply.trim();
   } catch (err) {
     console.error('Enhance description failed:', err);
-    return currentDesc || `${title} - Best budget deal with premium build quality and high performance.`;
+    return `🔥 LOOT DEAL HIGHLIGHT:
+${title} par mil raha hai zabardast discount! Limited-time price drop offer.
+
+📋 PRODUCT OVERVIEW:
+Ye product apni category me best-in-class performance aur maximum value deliver karta hai. Daily usage aur premium durability ke liye ideal choice hai.
+
+⚡ KEY SPECIFICATIONS & FEATURES:
+• ⚡ Superior Performance & Long-Lasting Reliability
+• 💎 Premium Ergonomic Build Quality
+• 🚀 Seamless Connectivity & Fast Response
+• 🔋 All-Day Battery / Energy Efficient Performance
+
+🛡️ BRAND WARRANTY & TRUST:
+100% Original Brand Certified Product with Official 1 Year Warranty & safe merchant delivery.`;
   }
 }
 
@@ -219,18 +325,31 @@ function fallbackParse(input, availableCategories = []) {
 
   // Clean title
   let title = cleanInput.replace(/https?:\/\/[^\s]+/gi, '').replace(/\b(?:amazon|flipkart|myntra|ajio|deal|loot|off|₹|\d+%)\b/gi, '').trim();
-  if (title.length < 5) title = 'Special Deal Product';
-
+  const cat = availableCategories[0]?.id || 'electronics';
   return {
     title,
     slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-    categoryId: availableCategories[0]?.id || 'electronics',
+    categoryId: cat,
     subCategory: 'General',
     platform,
     price,
     originalPrice,
-    description: `${title} - Best value for money product on ${platform.toUpperCase()}. Heavy discount available for limited time.`,
-    tags: ['featured', 'budget_friendly'],
+    description: `🔥 LOOT DEAL HIGHLIGHT:
+${title} par mil raha hai zabardast discount! Limited-time price drop offer.
+
+📋 PRODUCT OVERVIEW:
+Ye product apni category me top-tier rating aur best value-for-money deliver karta hai. Daily usage aur premium durability ke liye ideal choice hai.
+
+⚡ KEY SPECIFICATIONS & FEATURES:
+• ⚡ High Performance & Class-Leading Efficiency
+• 💎 Premium Build Quality with Ergonomic Design
+• 🚀 Instant Connectivity & Ultra-Low Latency
+• 🔋 Long-Lasting Battery & Rapid Charging Support
+
+🛡️ BRAND WARRANTY & TRUST:
+100% Original Brand Certified Product with Official 1 Year Warranty & safe merchant delivery.`,
+    images: getCuratedGalleryForProduct(cat, title),
+    tags: ['featured', 'budget_friendly', 'hot'],
     affiliateLink
   };
 }

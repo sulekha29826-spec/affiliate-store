@@ -22,7 +22,7 @@ const ATRIA_API_KEY = process.env.VITE_ATRIA_API_KEY || 'atr_5hupTz5ZY9UwtjvGVk6
 const ATRIA_API_BASE = process.env.VITE_ATRIA_API_BASE || 'https://api.atria-asi.ai/v1';
 const ATRIA_MODEL = process.env.VITE_ATRIA_MODEL || 'Atria-Dawn-Preview';
 
-// High-demand rotating deal pools across Indian eCommerce
+// High-demand rotating deal pools across Indian eCommerce with full 3-4 photo galleries
 const DEAL_SCOUT_CANDIDATES = [
   {
     topic: 'boAt Airdopes 141 ANC True Wireless Earbuds',
@@ -31,7 +31,12 @@ const DEAL_SCOUT_CANDIDATES = [
     platform: 'amazon',
     basePrice: 1399,
     baseMrp: 4490,
-    image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&auto=format&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80'
+    ],
     affiliateLink: 'https://www.amazon.in/dp/B09N3ZNHTY?tag=sastabazar-21'
   },
   {
@@ -41,7 +46,12 @@ const DEAL_SCOUT_CANDIDATES = [
     platform: 'flipkart',
     basePrice: 1299,
     baseMrp: 5999,
-    image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&auto=format&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1510017803434-a899398421b3?w=800&auto=format&fit=crop&q=80'
+    ],
     affiliateLink: 'https://www.flipkart.com/noise-pulse-2-max/p/itmexample?affid=sastabazar'
   },
   {
@@ -51,7 +61,12 @@ const DEAL_SCOUT_CANDIDATES = [
     platform: 'myntra',
     basePrice: 2199,
     baseMrp: 5499,
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80'
+    ],
     affiliateLink: 'https://www.myntra.com/shoes/puma/running?aff=sastabazar'
   },
   {
@@ -61,7 +76,11 @@ const DEAL_SCOUT_CANDIDATES = [
     platform: 'amazon',
     basePrice: 649,
     baseMrp: 1499,
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80'
+    ],
     affiliateLink: 'https://www.amazon.in/dp/B08L7V43T9?tag=sastabazar-21'
   },
   {
@@ -71,7 +90,11 @@ const DEAL_SCOUT_CANDIDATES = [
     platform: 'amazon',
     basePrice: 599,
     baseMrp: 1245,
-    image: 'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=600&auto=format&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80'
+    ],
     affiliateLink: 'https://www.amazon.in/dp/B07WMS7TWB?tag=sastabazar-21'
   },
   {
@@ -81,7 +104,12 @@ const DEAL_SCOUT_CANDIDATES = [
     platform: 'amazon',
     basePrice: 1799,
     baseMrp: 2999,
-    image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&auto=format&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80'
+    ],
     affiliateLink: 'https://www.amazon.in/dp/B0C3R8Q4W4?tag=sastabazar-21'
   },
   {
@@ -91,7 +119,12 @@ const DEAL_SCOUT_CANDIDATES = [
     platform: 'flipkart',
     basePrice: 1499,
     baseMrp: 2195,
-    image: 'https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&auto=format&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&auto=format&fit=crop&q=80'
+    ],
     affiliateLink: 'https://www.flipkart.com/philips-mg3710-trimmer/p/itmexample?affid=sastabazar'
   },
   {
@@ -101,7 +134,12 @@ const DEAL_SCOUT_CANDIDATES = [
     platform: 'amazon',
     basePrice: 1999,
     baseMrp: 7995,
-    image: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600&auto=format&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1510017803434-a899398421b3?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80'
+    ],
     affiliateLink: 'https://www.amazon.in/dp/B0BZD9Z8R2?tag=sastabazar-21'
   }
 ];
@@ -198,28 +236,52 @@ function inspectDeal(candidate) {
  * AGENT 3: SastaAI Copywriter
  */
 async function generateCopy(deal) {
-  console.log(`✍️ Agent 3 (SastaAI Copywriter): Crafting high-converting Hinglish copy for "${deal.topic}"...`);
+  console.log(`✍️ Agent 3 (SastaAI Copywriter): Crafting rich structured copy for "${deal.topic}"...`);
 
-  const prompt = `You are "SastaAI Copywriter" for SastaBazar.
-Write an enticing, persuasive, and 100% genuine deal description for this Indian affiliate product:
+  const prompt = `You are "SastaAI Copywriter" for SastaBazar Indian eCommerce.
+Generate an enticing, highly structured, and authentic deal description for this Indian affiliate product:
 Product: ${deal.topic}
 Deal Price: ₹${deal.basePrice} (MRP: ₹${deal.baseMrp}, ${deal.discountPercent}% OFF)
 Category: ${deal.category}
 
-Instructions:
-- 1 punchy line explaining why this deal is unmissable
-- 3 clear bullet points with emojis highlighting real specs/benefits
-- 1 line reassuring 100% brand warranty & safe return
-- Conversational, warm Hinglish (no markdown headers). Max 80 words.`;
+Format EXACTLY into these 4 clean sections with line breaks (do NOT use markdown headers like # or ##):
+
+🔥 LOOT DEAL HIGHLIGHT:
+[1 punchy sentence highlighting why this deal and price drop is unmissable]
+
+📋 PRODUCT OVERVIEW:
+[2-3 compelling sentences describing who this product is for and its real-world performance]
+
+⚡ KEY SPECIFICATIONS & FEATURES:
+• [Emoji] Feature 1 (Battery / Playtime / Performance)
+• [Emoji] Feature 2 (Audio / Display / Build Quality)
+• [Emoji] Feature 3 (Connectivity / Charging / Speed)
+• [Emoji] Feature 4 (Durability / IPX Rating / Convenience)
+
+🛡️ BRAND WARRANTY & TRUST:
+100% Original Brand Certified Product. Comes with 1 Year Official Brand Warranty and 7-day merchant replacement guarantee.`;
 
   const aiReply = await callSastaAI([
-    { role: 'system', content: 'You are SastaAI, an authentic Indian deal expert. Keep copy concise, honest and high-converting.' },
+    { role: 'system', content: 'You are SastaAI, an authentic Indian eCommerce copywriter. Produce rich, structured, conversion-focused copy.' },
     { role: 'user', content: prompt },
   ]);
 
-  const fallbackCopy = `${deal.topic} abhi flat ${deal.discountPercent}% discount par mil raha hai! 🚀\n\n⚡ Top Performance & Best In Class Battery Life\n🎧 Crisp High-Definition Sound & Durable Build\n🛡️ 1 Year Official Brand Warranty Included\n\nLimited period loot deal—grab it before price increases!`;
+  const fallbackCopy = `🔥 LOOT DEAL HIGHLIGHT:
+${deal.topic} par mil raha hai flat ${deal.discountPercent}% ka barda discount! Limited-time price drop offer.
 
-  return aiReply && aiReply.length > 30 ? aiReply.trim() : fallbackCopy;
+📋 PRODUCT OVERVIEW:
+Ye product apni category me top-tier rating aur best value-for-money deliver karta hai. Daily usage, high performance aur long-term durability ke liye perfect companion hai.
+
+⚡ KEY SPECIFICATIONS & FEATURES:
+• ⚡ High Performance & Class-Leading Efficiency
+• 💎 Premium Build Quality with Ergonomic Design
+• 🚀 Instant Connectivity & Ultra-Low Latency
+• 🔋 Long-Lasting Battery & Rapid Charging Support
+
+🛡️ BRAND WARRANTY & TRUST:
+100% Original product backed by 1 Year Official Brand Warranty. Fulfilled securely via ${deal.platform?.toUpperCase() || 'official merchant'} with doorstep delivery and replacement guarantee.`;
+
+  return aiReply && aiReply.length > 50 ? aiReply.trim() : fallbackCopy;
 }
 
 /**
@@ -281,7 +343,7 @@ async function runAutopilotPipeline() {
     price: verified.basePrice,
     originalPrice: verified.baseMrp,
     discountPercent: verified.discountPercent,
-    images: [verified.image],
+    images: Array.isArray(verified.images) && verified.images.length > 0 ? verified.images : (verified.image ? [verified.image] : []),
     affiliateLink: verified.affiliateLink,
     tags: ['trending', 'deal_of_the_day', 'hot', 'budget_friendly'],
     clickCount: 0,

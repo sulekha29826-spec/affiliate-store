@@ -1,12 +1,15 @@
 {
   "products": {
     "prod_sony_xm5": {
+      "id": "prod_sony_xm5",
       "title": "Sony WH-1000XM5 Wireless Industry Leading Noise Canceling Headphones",
       "slug": "sony-wh-1000xm5-wireless-headphones",
-      "description": "The Sony WH-1000XM5 wireless noise-canceling headphones rewrite the rules for distraction-free listening. 2 processors control 8 microphones for unprecedented noise cancellation and exceptional call quality with 4 beamforming microphones.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat ₹8,000 instant discount on the world's finest noise-canceling headphones! Limited festive deal.\n\n📋 PRODUCT OVERVIEW:\nThe Sony WH-1000XM5 sets the gold standard for distraction-free listening. Powered by dual processors and 8 microphones, it delivers studio-grade acoustics and crystal-clear voice clarity.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🔇 8-Mic Auto NC Optimizer for world-class silence\n• 🔋 Up to 30 Hours Battery Life with 3-min quick charge (3 hours playback)\n• 💎 Ultra-lightweight soft fit leather headband and memory foam cups\n• 🎙️ 4 Beamforming mics with AI noise reduction for flawless calls\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original Brand Certified Product with 1 Year Sony India Official Warranty & 7-day replacement guarantee.",
       "images": [
         "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 26990,
       "originalPrice": 34990,
@@ -27,12 +30,15 @@
       "updatedAt": 1740000000000
     },
     "prod_s24_ultra": {
+      "id": "prod_s24_ultra",
       "title": "Samsung Galaxy S24 Ultra 5G (Titanium Gray, 256GB)",
       "slug": "samsung-galaxy-s24-ultra-5g",
-      "description": "Galaxy AI is here. Search like never before, get real-time voice translation on a call, format your notes into a clear summary, and effortlessly edit your photos. Equipped with 200MP camera and Snapdragon 8 Gen 3.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nSave flat ₹15,000 on Samsung's most powerful AI flagship smartphone with built-in S-Pen.\n\n📋 PRODUCT OVERVIEW:\nGalaxy AI is here. Search effortlessly with Circle to Search, get real-time call translation, and edit photos with generative AI. Housed in an aerospace-grade Titanium frame.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 📸 200MP Quad Telephoto Camera with 100x Space Zoom\n• ⚡ Snapdragon 8 Gen 3 for Galaxy (4nm ultimate gaming processor)\n• 📱 6.8\" Dynamic AMOLED 2X Display with Corning Gorilla Armor\n• 🔋 5000 mAh All-Day Battery with 45W Super Fast Charging\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Genuine product with 1 Year Samsung India Warranty & 7-day replacement guarantee.",
       "images": [
         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 119999,
       "originalPrice": 134999,
@@ -53,12 +59,15 @@
       "updatedAt": 1740000000000
     },
     "prod_macbook_m3": {
+      "id": "prod_macbook_m3",
       "title": "Apple 2024 MacBook Air 13-inch M3 Chip Laptop (8GB Unified Memory, 256GB SSD)",
       "slug": "apple-macbook-air-13-m3",
-      "description": "Lean, mean, M3 machine. The blazing-fast MacBook Air with M3 chip sails through work and play. With up to 18 hours of battery life and a striking Liquid Retina display.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nUnder ₹1,00,000 for Apple's blazing fast M3 MacBook Air! Pure productivity powerhouse.\n\n📋 PRODUCT OVERVIEW:\nLean, mean, M3 machine. Sails through intensive video editing, multitasking, and creative workflows with zero fan noise in a razor-thin 11.3mm aluminum chassis.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🚀 Apple M3 Chip (8-Core CPU + 8-Core GPU with Hardware Ray Tracing)\n• 🔋 Up to 18 Hours All-Day Battery Life\n• 🖥️ 13.6-inch Liquid Retina Display with 500 nits brightness & P3 wide color\n• 🔒 Touch ID, 1080p FaceTime HD camera & MagSafe 3 fast charging\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Genuine Apple India inventory with 1 Year Official Apple Warranty & AppleCare eligibility.",
       "images": [
         "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 99990,
       "originalPrice": 114900,
@@ -79,12 +88,15 @@
       "updatedAt": 1740000000000
     },
     "prod_iphone_15": {
+      "id": "prod_iphone_15",
       "title": "Apple iPhone 15 (128 GB) - Blue Super Retina XDR Display with Dynamic Island",
       "slug": "apple-iphone-15-128gb-blue",
-      "description": "Dynamic Island bubbles up alerts and Live Activities. 48MP Main camera with 2x Telephoto for high-resolution captures. All-day battery life with USB-C connector.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nSteal deal on Apple iPhone 15! Flat ₹9,901 price cut with bank offers.\n\n📋 PRODUCT OVERVIEW:\nEquipped with the innovative Dynamic Island and an advanced 48MP camera system. Features color-infused durable back glass and aerospace-grade aluminum enclosure.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🌟 Dynamic Island for seamless notifications & live tracking\n• 📸 48MP Main Camera with 2x optical-quality Telephoto zoom\n• ⚡ A16 Bionic chip delivering proven pro-tier speed\n• 🔌 Universal USB-C connector with all-day battery life\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Authentic Apple India device with 1 Year Apple Brand Warranty & doorstep fulfillment.",
       "images": [
         "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 69999,
       "originalPrice": 79900,
@@ -105,11 +117,15 @@
       "updatedAt": 1740000000000
     },
     "prod_oneplus_12r": {
+      "id": "prod_oneplus_12r",
       "title": "OnePlus 12R 5G (Cool Blue, 16GB RAM, 256GB Storage, Snapdragon 8 Gen 2)",
       "slug": "oneplus-12r-5g-cool-blue",
-      "description": "Flagship cooling and Snapdragon 8 Gen 2 gaming performance. 1.5K 120Hz ProXDR display with 5500 mAh battery and 100W SUPERVOOC charging technology.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nPerformance flagship beast with massive 5500 mAh battery and flagship Snapdragon 8 Gen 2!\n\n📋 PRODUCT OVERVIEW:\nThe OnePlus 12R combines high-octane flagship performance with unmatched battery endurance. Engineered with an industry-leading Dual Cryo-velocity VC cooling system.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• ⚡ Snapdragon 8 Gen 2 + 16GB LPDDR5X RAM\n• 📱 1.5K 120Hz 4th Gen LTPO ProXDR Display with 4500 nits peak brightness\n• 🔋 5500 mAh Battery with 100W SUPERVOOC charging (1% to 100% in 26 mins)\n• 📸 50MP Sony IMX890 Flagship Camera with OIS\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original OnePlus product with 1 Year Brand Warranty & fast courier delivery.",
       "images": [
-        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 42999,
       "originalPrice": 45999,
@@ -130,11 +146,15 @@
       "updatedAt": 1740000000000
     },
     "prod_ipad_10th": {
+      "id": "prod_ipad_10th",
       "title": "Apple iPad (10th Generation) with A14 Bionic chip, 10.9-inch Liquid Retina Display (64GB, Wi-Fi)",
       "slug": "apple-ipad-10th-generation-64gb",
-      "description": "Colorfully reimagined and more versatile than ever with an all-screen design. 10.9-inch Liquid Retina display and powerful A14 Bionic chip for daily creativity.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 15% OFF on Apple iPad 10th Gen! Best tablet for students, creators, and work.\n\n📋 PRODUCT OVERVIEW:\nColorfully redesigned with an edge-to-edge 10.9-inch Liquid Retina display. A versatile powerhouse for sketching, note-taking, gaming, and 4K media consumption.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🚀 A14 Bionic chip with 4-core graphics engine\n• 🖥️ 10.9-inch Liquid Retina Display with True Tone\n• 📷 12MP Ultra Wide front camera with Center Stage\n• ⚡ USB-C connectivity with Wi-Fi 6 & Touch ID integration\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Official Apple India warranty for 1 Year. Fulfilled by verified merchant partners.",
       "images": [
-        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 33900,
       "originalPrice": 39900,
@@ -154,11 +174,15 @@
       "updatedAt": 1740000000000
     },
     "prod_asus_tuf_f15": {
+      "id": "prod_asus_tuf_f15",
       "title": "ASUS TUF Gaming F15, 15.6-inch FHD 144Hz, Intel Core i5-11400H 11th Gen, RTX 3050 4GB Graphics Gaming Laptop",
       "slug": "asus-tuf-gaming-f15-rtx3050",
-      "description": "Geared for serious gaming and real-world durability. Powered by Intel Core i5 CPU and GeForce RTX 3050 GPU, action-packed gameplay is fast and fluid on 144Hz display.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 32% OFF on RTX 3050 Gaming Laptop! Heavy gaming power under ₹53,000.\n\n📋 PRODUCT OVERVIEW:\nGeared for serious gaming and military-grade MIL-STD-810H durability. Combines an Intel Core i5 CPU with dedicated NVIDIA GeForce RTX 3050 graphics for smooth, high-FPS gameplay.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🎮 NVIDIA GeForce RTX 3050 4GB GDDR6 dedicated GPU\n• ⚡ 11th Gen Intel Core i5-11400H (6 cores, up to 4.5 GHz)\n• 🖥️ 15.6-inch FHD 144Hz IPS-level anti-glare display\n• ❄️ Dual self-cleaning cooling fans with anti-dust technology\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Authentic ASUS product with 1 Year Manufacturer Warranty & 7-day replacement guarantee.",
       "images": [
-        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 52990,
       "originalPrice": 77990,
@@ -179,11 +203,15 @@
       "updatedAt": 1740000000000
     },
     "prod_apple_watch_9": {
+      "id": "prod_apple_watch_9",
       "title": "Apple Watch Series 9 GPS 45mm Starlight Aluminium Case with Sport Band - S/M",
       "slug": "apple-watch-series-9-gps-45mm",
-      "description": "Smarter, brighter, mightier. Features S9 SiP for a magical double tap gesture, an even brighter display, and on-device Siri with enhanced health metrics.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat ₹5,901 OFF on Apple Watch Series 9! Premium smartwatch for health & fitness tracking.\n\n📋 PRODUCT OVERVIEW:\nSmarter, brighter, mightier. Powered by the S9 SiP chip with the magical Double Tap gesture control. Features advanced health tracking including ECG and blood oxygen metrics.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• ⚡ S9 SiP chip with magical Double Tap hands-free gesture\n• ☀️ Ultra-bright 2000 nits Always-On Retina OLED display\n• ❤️ Advanced ECG, Blood Oxygen, and Sleep Stage monitoring\n• 🏃 Comprehensive workout companion with precision GPS\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original Apple India device with 1 Year Brand Warranty & doorstep fulfillment.",
       "images": [
-        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 38999,
       "originalPrice": 44900,
@@ -204,11 +232,15 @@
       "updatedAt": 1740000000000
     },
     "prod_jbl_flip6": {
+      "id": "prod_jbl_flip6",
       "title": "JBL Flip 6 Wireless Portable Bluetooth Speaker with Powerful Sound, Deep Bass & IP67 Waterproof & Dustproof",
       "slug": "jbl-flip-6-portable-bluetooth-speaker",
-      "description": "2-way speaker system designed to deliver loud, crystal clear, powerful sound. Racetrack-shaped woofer delivers exceptional low frequencies with 12 hours of playtime.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 36% discount on JBL Flip 6! Loud, crystal-clear punchy bass in a rugged portable body.\n\n📋 PRODUCT OVERVIEW:\nThe beat goes on with the JBL Flip 6 2-way speaker system. Engineered to deliver booming low frequencies, crisp highs, and party-starting sound wherever adventure takes you.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🔊 2-Way Speaker System with dedicated racetrack woofer & separate tweeter\n• 💧 IP67 Waterproof and Dustproof for pool, beach, or rain\n• 🔋 Up to 12 Hours Playtime on a single charge\n• 🔗 PartyBoost feature to link multiple JBL compatible speakers\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Genuine JBL India product backed by 1 Year Official Brand Warranty.",
       "images": [
-        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 8999,
       "originalPrice": 13999,
@@ -228,11 +260,15 @@
       "updatedAt": 1740000000000
     },
     "prod_boat_nirvana": {
+      "id": "prod_boat_nirvana",
       "title": "boAt Nirvana Ion ANC TWS Earbuds with 120H Playtime, 32dB Active Noise Cancellation",
       "slug": "boat-nirvana-ion-anc-tws",
-      "description": "Experience true tranquility with boAt Nirvana Ion ANC featuring crystal bionic sound powered by HiFi DSP, 120 hours total playtime, in-ear detection, and dual EQ modes.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nMassive 71% OFF! Premium ANC earbuds with mammoth 120-hour playback under ₹2,300.\n\n📋 PRODUCT OVERVIEW:\nSilence the chaos with 32dB Active Noise Cancellation and HiFi DSP crystal bionic audio. Featuring quad mics with ENx technology for studio-quality calls.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🔇 32dB Active Noise Cancellation + Dual EQ modes\n• 🔋 Massive 120 Hours Total Playback (24 hours on single earbud charge)\n• ⚡ Beast Mode with 60ms ultra-low latency for mobile gaming\n• 💧 IPX4 Water & Sweat resistance for intense workout sessions\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original boAt product backed by 1 Year Official Brand Warranty.",
       "images": [
-        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 2299,
       "originalPrice": 7990,
@@ -253,12 +289,15 @@
       "updatedAt": 1740000000000
     },
     "prod_nike_pegasus": {
+      "id": "prod_nike_pegasus",
       "title": "Nike Air Zoom Pegasus 40 Running Shoes For Men",
       "slug": "nike-air-zoom-pegasus-40-mens",
-      "description": "A springy ride for any run, the Peg return helps you accomplish your goals. Engineered mesh upper provides breathability and durability for all-day comfort.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 45% discount on legendary Nike Pegasus 40 running shoes! Limited sneaker deal.\n\n📋 PRODUCT OVERVIEW:\nA springy, responsive ride for every run. Combines Nike React technology with dual Zoom Air units to energize every stride from warmup to marathon finish line.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 👟 Dual Zoom Air units (forefoot and heel) for responsive push-off\n• ⚡ Nike React lightweight foam cushioning with maximum energy return\n• 🌬️ Highly tuned single-layer engineered mesh for maximum breathability\n• 🛡️ Waffle-inspired rubber outsole providing exceptional road traction\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Genuine Nike product. Verified merchant partner dispatch with 7-day hassle-free size exchange.",
       "images": [
         "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 6495,
       "originalPrice": 11895,
@@ -278,11 +317,15 @@
       "updatedAt": 1740000000000
     },
     "prod_puma_sneakers": {
+      "id": "prod_puma_sneakers",
       "title": "Puma Men Dazzler Low-Top Casual Sneakers with Cushioned Insole",
       "slug": "puma-men-dazzler-casual-sneakers",
-      "description": "Elevate your street style with Puma Dazzler sneakers. Featuring a clean leatherette finish, contrast signature Formstrip, and a SoftFoam+ sockliner for superior cushioning.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 60% OFF! Puma low-top lifestyle sneakers for only ₹1,599 (MRP ₹3,999).\n\n📋 PRODUCT OVERVIEW:\nUpgrade your daily sneaker rotation with the Puma Dazzler. Clean aesthetic, signature contrast Formstrip, and a SoftFoam+ comfort insert for all-day cloud-like walking.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• ☁️ SoftFoam+ sockliner for instantaneous step-in and long-lasting cushioning\n• 💎 Durable synthetic leather upper with sleek low-boot silhouette\n• 🛹 Non-marking vulcanized rubber outsole for sturdy grip\n• 👟 Padded collar and tongue for enhanced ankle comfort\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Authentic Puma merchandise with 90-day brand warranty and 7-day replacement guarantee.",
       "images": [
-        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 1599,
       "originalPrice": 3999,
@@ -303,11 +346,15 @@
       "updatedAt": 1740000000000
     },
     "prod_levis_jacket": {
+      "id": "prod_levis_jacket",
       "title": "Levi's Men's Trucker Denim Regular Fit Washed Jacket",
       "slug": "levis-mens-trucker-denim-jacket",
-      "description": "The original jean jacket since 1967. Levi's iconic trucker jacket is crafted from 100% cotton denim, designed with timeless dual chest flap pockets and point collar.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 52% discount on the timeless Levi's Trucker Denim Jacket! Classic wardrobe essential.\n\n📋 PRODUCT OVERVIEW:\nThe original jean jacket since 1967. Crafted from 100% premium heavy cotton denim with vintage wash, button-flap chest pockets, and side welt pockets.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 👕 100% Heavyweight Cotton Denim with authentic vintage wash\n• 🧥 Regular fit hitting at the hip with side hem adjusters\n• 💎 Levi's branded metal shank buttons with point collar\n• 🧵 Reinforced double-stitch seam construction for years of durability\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original Levi's apparel. Dispatched via official merchant with 7-day hassle-free returns.",
       "images": [
-        "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 2849,
       "originalPrice": 5999,
@@ -327,11 +374,15 @@
       "updatedAt": 1740000000000
     },
     "prod_rayban_aviator": {
+      "id": "prod_rayban_aviator",
       "title": "Ray-Ban Classic Polarized Green Lens Aviator Sunglasses (Gold Metal Frame, 58mm)",
       "slug": "ray-ban-classic-polarized-aviator",
-      "description": "Originally designed for US aviators in 1937, Ray-Ban Aviator sunglasses combine great styling with exceptional quality, performance, and 100% UV protection.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 31% OFF on iconic Ray-Ban Polarized Aviators! Timeless style with superior eye protection.\n\n📋 PRODUCT OVERVIEW:\nFirst designed for military pilots in 1937, Ray-Ban Aviator sunglasses combine timeless tear-drop shaping with polarized Crystal G-15 lenses for unbeatable clarity.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🕶️ Classic Green G-15 Polarized Lenses (eliminates 99% reflected glare)\n• ☀️ 100% UV400 Protection blocking harmful UVA & UVB rays\n• 🥇 Lightweight and durable gold-tone alloy metal frame\n• 👃 Adjustable silicone nose pads for personalized comfortable fit\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original Ray-Ban with Certificate of Authenticity & 2 Year Luxottica Brand Warranty.",
       "images": [
-        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 7290,
       "originalPrice": 10490,
@@ -351,11 +402,15 @@
       "updatedAt": 1740000000000
     },
     "prod_philips_airfryer": {
+      "id": "prod_philips_airfryer",
       "title": "Philips Digital Air Fryer HD9252/90 with Rapid Air Technology (4.1 Litre)",
       "slug": "philips-digital-air-fryer-hd9252",
-      "description": "Healthy frying with Rapid Air technology. 90% less fat. Fry, bake, grill, roast and even reheat with digital touch screen and 7 presets.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 38% OFF on India's No.1 Air Fryer brand! Enjoy crispy snacks with up to 90% less oil.\n\n📋 PRODUCT OVERVIEW:\nCook healthy meals in minutes with patented Rapid Air technology. The starfish bottom swirl circulates hot air evenly to fry, bake, grill, roast, and reheat with zero mess.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🍟 Rapid Air Starfish Technology for crispy results with 90% less fat\n• 🖥️ Digital Touchscreen with 7 one-touch cooking presets\n• 🥘 4.1L Capacity pan (ideal for 3-4 member families)\n• 🧼 QuickClean non-stick basket and dishwasher-safe components\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Authentic Philips Home Living product with 2 Year Global Warranty & replacement guarantee.",
       "images": [
-        "https://images.unsplash.com/photo-1585515320310-259814833e62?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1585515320310-259814833e62?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 7999,
       "originalPrice": 12995,
@@ -375,11 +430,15 @@
       "updatedAt": 1740000000000
     },
     "prod_dyson_v8": {
+      "id": "prod_dyson_v8",
       "title": "Dyson V8 Absolute Cordless Vacuum Cleaner with De-tangling Technology & 2 Cleaner Heads",
       "slug": "dyson-v8-absolute-cordless-vacuum",
-      "description": "Engineered for homes with pets. Powered by the Dyson digital motor V8, spinning at up to 110,000rpm to generate powerful suction on carpets and hard floors.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nSave flat ₹12,000 on Dyson V8 Absolute! Powerful cordless suction for spotlessly clean homes.\n\n📋 PRODUCT OVERVIEW:\nEngineered for deep-cleaning homes with pets. Powered by the Dyson digital motor V8, spinning at 110,000rpm to pick up microscopic dust, allergen particles, and pet hair effortlessly.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🌪️ Dyson V8 Digital Motor delivering 115 Air Watts of fade-free suction\n• 🧹 De-tangling Motorbar cleanerhead automatically clears wrapped hair\n• 🔋 Up to 40 Minutes of continuous suction with whole-machine filtration\n• 🔄 Converts quickly to handheld for cars, stairs, sofas, and mattresses\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Genuine Dyson product with 2 Year Official Dyson Warranty and free doorstep service.",
       "images": [
-        "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1584281722573-d5677b10291e?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 31900,
       "originalPrice": 43900,
@@ -400,11 +459,15 @@
       "updatedAt": 1740000000000
     },
     "prod_kent_ro": {
+      "id": "prod_kent_ro",
       "title": "KENT Grand Plus RO+UV+UF+TDS Control Water Purifier (9 Litres Storage Tank)",
       "slug": "kent-grand-plus-ro-water-purifier",
-      "description": "Multiple purification by RO+UV+UF+TDS Control removes dissolved impurities and kills bacteria & viruses to make 100% pure and mineral-rich drinking water.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 29% OFF on India's most trusted water purifier! 100% pure mineral-rich water.\n\n📋 PRODUCT OVERVIEW:\nMultiple purification by RO+UV+UF+TDS Control removes dissolved impurities like arsenic, rust, pesticides, and fluorides while retaining essential natural minerals.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 💧 Multi-stage RO+UV+UF+Alkaline purification process\n• 🛡️ Patented TDS Controller retains essential natural minerals in drinking water\n• 🚰 Large 9-Litre storage tank with 20 L/hr high purification capacity\n• 💡 UV LED light in storage tank keeps purified water 100% sterile & bacteria-free\n\n🛡️ BRAND WARRANTY & TRUST:\n1 Year Official Warranty + 3 Years Free Service AMC by KENT. Free standard installation included.",
       "images": [
-        "https://images.unsplash.com/photo-1584281722573-d5677b10291e?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1584281722573-d5677b10291e?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80"
       ],
       "price": 14999,
       "originalPrice": 21000,
@@ -424,22 +487,28 @@
       "updatedAt": 1740000000000
     },
     "prod_philips_trimmer": {
-      "title": "Philips Norelco All-in-One Multi Groomer Trimmer Series 7000 (19 Length Settings, 5hr Run Time)",
-      "slug": "philips-norelco-all-in-one-trimmer-7000",
-      "description": "Ultimate styling with our most advanced trimmer. DualCut steel blades self-sharpen for maximum precision. Includes beard, hair, body, and nose trimming attachments.",
+      "id": "prod_philips_trimmer",
+      "title": "Philips Multi Grooming Kit MG3710 All-in-One Trimmer",
+      "slug": "philips-multi-grooming-kit-mg3710-all-in-one-trimmer",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 32% discount on Philips All-in-One Multi Groomer! Complete styling for beard and hair.\n\n📋 PRODUCT OVERVIEW:\nMaintain your sharpest look at home with self-sharpening stainless steel blades. Comes with 8 quality tools for trimming and styling facial hair and head hair with zero pull.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• ✂️ Self-sharpening skin-friendly steel blades that stay sharp as Day 1\n• 🪒 8 versatile attachments for full beard, mustache, stubble, and nose/ear hair\n• 🔋 60 minutes cordless runtime per charge with rinseable attachments\n• 💎 Ergonomic rubber grip for maximum handling control during grooming\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Authentic Philips product backed by 2 Year Worldwide Brand Warranty & safe delivery.",
       "images": [
-        "https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&auto=format&fit=crop&q=80"
       ],
-      "price": 3495,
-      "originalPrice": 5495,
-      "discountPercent": 36,
-      "categoryId": "appliances",
+      "price": 1499,
+      "originalPrice": 2195,
+      "discountPercent": 32,
+      "categoryId": "beauty",
       "subCategory": "Personal Grooming",
-      "platform": "amazon",
-      "affiliateLink": "https://www.amazon.in/dp/B082N3N1C5?tag=sastabazar-21",
+      "platform": "flipkart",
+      "affiliateLink": "https://www.flipkart.com/philips-mg3710-trimmer/p/itmexample?affid=sastabazar",
       "tags": [
         "trending",
-        "deal_of_the_day"
+        "deal_of_the_day",
+        "hot",
+        "budget_friendly"
       ],
       "status": "active",
       "clickCount": 245,
@@ -448,38 +517,11 @@
       "createdAt": 1740000000000,
       "updatedAt": 1740000000000
     },
-    "prod_1790569830942": {
-      "id": "prod_1790569830942",
-      "title": "Philips Multi Grooming Kit MG3710 All-in-One Trimmer",
-      "slug": "philips-multi-grooming-kit-mg3710-all-in-one-trimmer",
-      "description": "Philips ka all-in-one grooming kit ab 32% off — ₹2195 wala trimmer sirf ₹1499 mein, aisi deal baar baar nahi aati!\n\n• 15+ styling attachments — beard, hair aur body grooming, sab ek hi kit mein\n• Self-sharpening stainless steel blades — smooth, skin-friendly trim har baar\n• Cordless use with up to 60 minutes runtime, fast charging ke saath\n\n100% brand warranty aur easy return policy — bilkul risk-free shopping!",
-      "categoryId": "beauty",
-      "subCategory": "Personal Grooming",
-      "platform": "flipkart",
-      "price": 1499,
-      "originalPrice": 2195,
-      "discountPercent": 32,
-      "images": [
-        "https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&auto=format&fit=crop&q=80"
-      ],
-      "affiliateLink": "https://www.flipkart.com/philips-mg3710-trimmer/p/itmexample?affid=sastabazar",
-      "tags": [
-        "trending",
-        "deal_of_the_day",
-        "hot",
-        "budget_friendly"
-      ],
-      "clickCount": 0,
-      "status": "active",
-      "createdAt": 1790569830943,
-      "updatedAt": 1790569830943,
-      "isAutoGenerated": true
-    },
     "prod_1790570625331": {
       "id": "prod_1790570625331",
       "title": "OnePlus Nord Buds 2r Wireless in Ear Earbuds with Mic",
       "slug": "oneplus-nord-buds-2r-wireless-in-ear-earbuds-with-mic",
-      "description": "OnePlus ka audio game iss budget mein kahi nahi milega — Nord Buds 2r aaj sirf ₹1,799 (MRP ₹2,999) par!\n\n- 🎵 12.4mm dynamic drivers — bass itna deep ki har gaana live lage\n- 🔇 38dB Active Noise Cancellation — traffic ya office ka shor, ab bilkul band\n- 🔋 38 hours total playback + 10 min charge = 5 hours nonstop music, Bluetooth 5.3 ke saath\n\n100% brand warranty aur easy return policy — shopping bilkul risk-free.",
+      "description": "🔥 LOOT DEAL HIGHLIGHT:\nFlat 40% OFF! OnePlus Nord Buds 2r for only ₹1,799 (MRP ₹2,999). Best budget earbuds.\n\n📋 PRODUCT OVERVIEW:\nEnjoy rich acoustic clarity and heavy bass with huge 12.4mm dynamic drivers. Features Sound Master Equalizer with 3 unique audio profiles tuned for Indian music.\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• 🎵 12.4mm Extra-Large Titanized Dynamic Drivers with BassWave enhancement\n• 🔋 Up to 38 Hours Total Playtime (8 hours on buds + 30 hours in charging case)\n• 🎙️ Dual Mic AI Clear Call algorithm for noise-free voice calling\n• 💧 IP55 Water and Sweat Resistance for outdoor running and workouts\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original OnePlus product with 1 Year Official Brand Warranty & replacement guarantee.",
       "categoryId": "electronics",
       "subCategory": "Audio & Headphones",
       "platform": "amazon",
@@ -487,7 +529,10 @@
       "originalPrice": 2999,
       "discountPercent": 40,
       "images": [
-        "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80"
       ],
       "affiliateLink": "https://www.amazon.in/dp/B0C3R8Q4W4?tag=sastabazar-21",
       "tags": [
