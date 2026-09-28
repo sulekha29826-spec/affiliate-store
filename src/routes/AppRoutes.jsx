@@ -9,7 +9,6 @@ import AboutPage from '../features/static/AboutPage';
 import ContactPage from '../features/static/ContactPage';
 import PrivacyPolicyPage from '../features/static/PrivacyPolicyPage';
 import TermsPage from '../features/static/TermsPage';
-import AIDealStudio from '../features/ai/AIDealStudio';
 
 export default function AppRoutes() {
   return (
@@ -18,8 +17,6 @@ export default function AppRoutes() {
       <Route path="/category/:categorySlug" element={<CategoryPage />} />
       <Route path="/product/:idOrSlug" element={<ProductDetailPage />} />
       <Route path="/search" element={<SearchPage />} />
-      <Route path="/deal-studio" element={<div className="max-w-7xl mx-auto px-2 sm:px-4 py-6"><AIDealStudio /></div>} />
-      <Route path="/admin" element={<div className="max-w-7xl mx-auto px-2 sm:px-4 py-6"><AIDealStudio /></div>} />
       <Route path="/affiliate-disclosure" element={<AffiliateDisclosurePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />

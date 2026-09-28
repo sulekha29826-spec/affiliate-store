@@ -108,11 +108,11 @@ export default function HomePage() {
           </div>
         ) : (
           <>
-            {/* SECTION 1: Newest High-Discount AI Deals (45% - 85% OFF) */}
+            {/* SECTION 1: Recently Added Deals (Up to 85% OFF) */}
             {latestLoot.length > 0 && (
               <DealRow
-                title="🔥 Newest AI Loot Deals (40% - 85% OFF)"
-                subtitle="Freshly scouted & verified by our 24/7 Autonomous Agent Swarm"
+                title="🔥 Recently Added Deals (Up to 85% OFF)"
+                subtitle="Hand-picked genuine price drops verified by our deal hunter team"
                 products={latestLoot}
                 viewAllLink="/category/all"
               />
