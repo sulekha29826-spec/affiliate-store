@@ -1,26 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import HeroBanner from './HeroBanner';
 import DealRow from './DealRow';
 import CategoryNav from '../../components/layout/CategoryNav';
+import ProductCard from '../../components/common/ProductCard';
 import { DealRowSkeleton } from '../../components/common/Loader';
-import { getTrendingProducts, getMostClickedProducts, getActiveProducts } from '../../services/productService';
-import { ShieldCheck, Zap, ArrowRightLeft, Sparkles } from 'lucide-react';
+import {
+  getTrendingProducts,
+  getMostClickedProducts,
+  getActiveProducts,
+  getLatestLootDeals
+} from '../../services/productService';
+import { ShieldCheck, Zap, ArrowRightLeft, Sparkles, Layers, ChevronDown, Flame } from 'lucide-react';
 
 export default function HomePage() {
+  const [latestLoot, setLatestLoot] = useState([]);
   const [trending, setTrending] = useState([]);
   const [mostClicked, setMostClicked] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showAllCatalog, setShowAllCatalog] = useState(false);
 
   useEffect(() => {
     async function loadData() {
       try {
         setLoading(true);
-        const [trendData, clickedData, allData] = await Promise.all([
+        const [lootData, trendData, clickedData, allData] = await Promise.all([
+          getLatestLootDeals(10),
           getTrendingProducts(10),
           getMostClickedProducts(10),
           getActiveProducts(),
         ]);
+        setLatestLoot(lootData);
         setTrending(trendData);
         setMostClicked(clickedData);
         setAllProducts(allData);
@@ -32,6 +43,10 @@ export default function HomePage() {
     }
     loadData();
   }, []);
+
+  const displayedCatalogProducts = showAllCatalog
+    ? allProducts
+    : allProducts.slice(0, 15);
 
   return (
     <div className="min-h-screen pb-12">
@@ -81,7 +96,7 @@ export default function HomePage() {
             </div>
             <div>
               <span className="block text-slate-900 leading-tight">Live Price Drops</span>
-              <span className="text-[10px] text-slate-500 font-normal">Real-time alerts</span>
+              <span className="text-[10px] text-slate-500 font-normal">{allProducts.length} Verified Products</span>
             </div>
           </div>
         </div>
@@ -93,30 +108,76 @@ export default function HomePage() {
           </div>
         ) : (
           <>
-            {/* Deals of the Day / Trending */}
-            <DealRow
-              title="Deals of the Day"
-              subtitle="Hand-picked verified discounts with highest savings"
-              products={trending}
-              viewAllLink="/category/electronics"
-            />
-
-            {/* Most Clicked Deals This Week */}
-            <DealRow
-              title="Most Clicked This Week"
-              subtitle="Trending popular picks preferred by our community"
-              products={mostClicked}
-              viewAllLink="/category/mobiles"
-            />
-
-            {/* All Fresh Deals */}
-            {allProducts.length > 0 && (
+            {/* SECTION 1: Newest High-Discount AI Deals (45% - 85% OFF) */}
+            {latestLoot.length > 0 && (
               <DealRow
-                title="Curated Catalog Deals"
-                subtitle="Browse all available deals across Amazon, Flipkart, Myntra & more"
-                products={allProducts.slice(0, 10)}
-                viewAllLink="/category/fashion"
+                title="🔥 Newest AI Loot Deals (40% - 85% OFF)"
+                subtitle="Freshly scouted & verified by our 24/7 Autonomous Agent Swarm"
+                products={latestLoot}
+                viewAllLink="/category/all"
               />
+            )}
+
+            {/* SECTION 2: Deals of the Day / Trending */}
+            {trending.length > 0 && (
+              <DealRow
+                title="⚡ Trending Deals of the Day"
+                subtitle="Hand-picked verified discounts with highest savings"
+                products={trending}
+                viewAllLink="/category/electronics"
+              />
+            )}
+
+            {/* SECTION 3: Most Clicked Deals This Week */}
+            {mostClicked.length > 0 && (
+              <DealRow
+                title="🎯 Most Clicked This Week"
+                subtitle="Trending popular picks preferred by our community"
+                products={mostClicked}
+                viewAllLink="/category/mobiles"
+              />
+            )}
+
+            {/* SECTION 4: Full Store Catalog with Expandable View */}
+            {allProducts.length > 0 && (
+              <div className="bg-white border border-slate-200/90 rounded-[4px] p-3 sm:p-5 my-4 max-w-7xl mx-auto shadow-sm">
+                <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-slate-100">
+                  <div className="border-l-4 border-l-emerald-600 pl-3">
+                    <h2 className="text-lg sm:text-2xl font-black text-slate-900 leading-tight flex items-center gap-2">
+                      <Layers className="w-5 h-5 text-emerald-600" />
+                      <span>Explore All Store Catalog Deals</span>
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-0.5 font-medium">
+                      Showing {displayedCatalogProducts.length} of {allProducts.length} available deals across Amazon, Flipkart, Myntra & more
+                    </p>
+                  </div>
+
+                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>{allProducts.length} Total Deals Live</span>
+                  </span>
+                </div>
+
+                {/* All Products Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3">
+                  {displayedCatalogProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+
+                {/* Show More / Show Less Toggle Button */}
+                {allProducts.length > 15 && (
+                  <div className="mt-6 text-center">
+                    <button
+                      onClick={() => setShowAllCatalog(!showAllCatalog)}
+                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
+                    >
+                      <span>{showAllCatalog ? 'Show Less Deals' : `Show All ${allProducts.length} Deals`}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showAllCatalog ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
+                )}
+              </div>
             )}
           </>
         )}

@@ -2,7 +2,7 @@ import { ref, get, query, orderByChild, equalTo } from 'firebase/database';
 import { database, isFirebaseConfigured, seedData } from './firebase';
 
 /**
- * Normalizes products object from Firebase into an array of active products
+ * Normalizes products object from Firebase into an array of active products sorted newest first
  * @param {Object} rawProducts
  * @returns {Array}
  */
@@ -10,12 +10,18 @@ function normalizeProducts(rawProducts) {
   if (!rawProducts) return [];
   return Object.entries(rawProducts)
     .map(([id, data]) => ({ id, ...data }))
-    .filter((p) => p.status === 'active');
+    .filter((p) => p.status === 'active')
+    .sort((a, b) => {
+      // Prioritize newest created products first, then highest discount
+      const timeDiff = (Number(b.createdAt) || 0) - (Number(a.createdAt) || 0);
+      if (timeDiff !== 0) return timeDiff;
+      return (Number(b.discountPercent) || 0) - (Number(a.discountPercent) || 0);
+    });
 }
 
 const LOCAL_STORAGE_KEY = 'sastabazar_custom_products';
 
-function getStoredLocalProducts() {
+export function getStoredLocalProducts() {
   try {
     if (typeof window !== 'undefined' && window.localStorage) {
       const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -25,6 +31,18 @@ function getStoredLocalProducts() {
     // Ignore in SSR / environments without storage
   }
   return {};
+}
+
+export function saveCustomProductToStorage(product) {
+  try {
+    const existing = getStoredLocalProducts();
+    existing[product.id] = product;
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(existing));
+    }
+  } catch (e) {
+    console.warn('Error saving product to local storage:', e);
+  }
 }
 
 /**
@@ -86,11 +104,23 @@ export async function getProductsByCategory(categoryId) {
 }
 
 /**
+ * Get newest high-discount products added by Autonomous Agent
+ * @param {number} limit
+ * @returns {Promise<Array>}
+ */
+export async function getLatestLootDeals(limit = 10) {
+  const all = await getActiveProducts();
+  return [...all]
+    .sort((a, b) => (Number(b.discountPercent) || 0) - (Number(a.discountPercent) || 0))
+    .slice(0, limit);
+}
+
+/**
  * Get trending products
  * @param {number} limit
  * @returns {Promise<Array>}
  */
-export async function getTrendingProducts(limit = 8) {
+export async function getTrendingProducts(limit = 10) {
   const all = await getActiveProducts();
   const trending = all.filter((p) => p.tags && p.tags.includes('trending'));
   return (trending.length > 0 ? trending : all).slice(0, limit);
@@ -101,7 +131,7 @@ export async function getTrendingProducts(limit = 8) {
  * @param {number} limit
  * @returns {Promise<Array>}
  */
-export async function getMostClickedProducts(limit = 8) {
+export async function getMostClickedProducts(limit = 10) {
   const all = await getActiveProducts();
   return [...all].sort((a, b) => (b.clickCount || 0) - (a.clickCount || 0)).slice(0, limit);
 }

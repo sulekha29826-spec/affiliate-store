@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShoppingBag, Flame, ShieldAlert, Heart, ExternalLink } from 'lucide-react';
+import { Search, ShoppingBag, Flame, ShieldAlert, Heart, ExternalLink, Bot } from 'lucide-react';
 
 export default function Header() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -62,12 +62,21 @@ export default function Header() {
             </Link>
 
             <Link
+              to="/deal-studio"
+              className="flex items-center gap-1.5 bg-[#FFD700] hover:bg-yellow-400 text-blue-950 font-black px-2.5 sm:px-3 py-1.5 rounded-[4px] transition-all duration-200 text-[11px] sm:text-xs shadow-md shrink-0 cursor-pointer"
+              title="24/7 Autonomous AI Agent Swarm Studio"
+            >
+              <Bot className="w-3.5 h-3.5" />
+              <span>AI Deal Studio</span>
+            </Link>
+
+            <Link
               to="/affiliate-disclosure"
-              className="flex items-center gap-1 hover:text-[#FFD700] bg-white/10 hover:bg-white/20 border border-white/20 px-2.5 py-1.5 rounded-[4px] transition-all duration-200 text-[11px] sm:text-xs shadow-xs"
+              className="hidden sm:flex items-center gap-1 hover:text-[#FFD700] bg-white/10 hover:bg-white/20 border border-white/20 px-2.5 py-1.5 rounded-[4px] transition-all duration-200 text-[11px] sm:text-xs shadow-xs"
               title="FTC & Amazon Associates Disclosure"
             >
               <ShieldAlert className="w-3.5 h-3.5 text-[#FFD700]" />
-              <span className="hidden sm:inline">Disclosure</span>
+              <span>Disclosure</span>
             </Link>
 
             {/* Quick Admin link */}
