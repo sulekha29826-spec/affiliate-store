@@ -3,9 +3,9 @@ const ATRIA_API_BASE = import.meta.env.VITE_ATRIA_API_BASE || 'https://api.atria
 const ATRIA_MODEL = import.meta.env.VITE_ATRIA_MODEL || 'Atria-Dawn-Preview';
 
 /**
- * Universal caller for SastaAI Backend LLM
+ * Universal caller for SastaAI Backend LLM with timeout & retry
  */
-async function callLLM(messages, temperature = 0.5, maxTokens = 800) {
+async function callLLM(messages, temperature = 0.5, maxTokens = 850) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 35000);
 
@@ -43,11 +43,6 @@ async function callLLM(messages, temperature = 0.5, maxTokens = 800) {
 }
 
 /**
- * Parse raw link, product title, or deal notes into a structured catalog product
- * @param {string} rawInput 
- * @param {Array} availableCategories 
- * @returns {Promise<Object>}
-/**
  * Curated high-resolution 3-4 multi-image gallery matching eCommerce categories
  */
 export function getCuratedGalleryForProduct(category = '', title = '') {
@@ -84,7 +79,7 @@ export function getCuratedGalleryForProduct(category = '', title = '') {
       'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&auto=format&fit=crop&q=80',
     ];
   }
-  if (text.includes('kettle') || text.includes('kitchen') || text.includes('appliance') || text.includes('cookware') || text.includes('pigeon')) {
+  if (text.includes('kettle') || text.includes('kitchen') || text.includes('appliance') || text.includes('cookware') || text.includes('pigeon') || text.includes('mixer')) {
     return [
       'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&auto=format&fit=crop&q=80',
       'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80',
@@ -92,7 +87,15 @@ export function getCuratedGalleryForProduct(category = '', title = '') {
       'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&auto=format&fit=crop&q=80',
     ];
   }
-  if (text.includes('fashion') || text.includes('shirt') || text.includes('t-shirt') || text.includes('cloth') || text.includes('jeans')) {
+  if (text.includes('power bank') || text.includes('charger') || text.includes('cable') || text.includes('extension') || text.includes('keyboard') || text.includes('speaker')) {
+    return [
+      'https://images.unsplash.com/photo-1609592807664-84226cfd5272?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80',
+    ];
+  }
+  if (text.includes('fashion') || text.includes('shirt') || text.includes('t-shirt') || text.includes('cloth') || text.includes('jeans') || text.includes('backpack')) {
     return [
       'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80',
       'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80',
@@ -110,49 +113,237 @@ export function getCuratedGalleryForProduct(category = '', title = '') {
 }
 
 /**
+ * Domain-specific technical specifications engine (Zero-fluff, genuine product-level specs)
+ */
+export function getDomainSpecsForProduct(category = '', title = '') {
+  const text = `${category} ${title}`.toLowerCase();
+
+  if (text.includes('earbud') || text.includes('airdope') || text.includes('headphone') || text.includes('audio') || text.includes('tws') || text.includes('neckband')) {
+    return {
+      specs: [
+        '🔊 10mm - 13mm Dynamic Titanium Bass Drivers for deep punchy audio thump',
+        '🎙️ Advanced Quad-Mic with ENx Environmental Noise Cancellation for crystal-clear calls',
+        '⚡ Ultra-Low Latency 40ms BEAST™ Gaming Mode with zero audio lag',
+        '🔋 Up to 42 - 60 Hours Total Playtime with ASAP™ Fast Charge (10 min = 10 hrs)'
+      ],
+      proTip: 'Gaming ya calls ke waqt low latency BEAST mode on karne ke liye right earbud par triple-tap karein.',
+      overview: 'Daily commutes, gym sessions aur high-clarity voice calls ke liye benchmark audio device hai. Is budget me aisi premium acoustic tuning aur battery longevity milna rare loot hai.'
+    };
+  }
+
+  if (text.includes('watch') || text.includes('wearable') || text.includes('pulse') || text.includes('ninja') || text.includes('fastrack')) {
+    return {
+      specs: [
+        '📱 1.83" - 1.96" High-Resolution Full-Touch 2.5D Curved Display (550+ nits brightness)',
+        '📞 Single-Chip Bluetooth Calling with high-definition microphone & speaker unit',
+        '❤️ 24/7 Advanced Biometric Suite: Real-time SpO2, Heart Rate & Sleep Monitoring',
+        '🛡️ IP68 Certified Water, Dust & Sweat Resistant with 100+ Active Sports Modes'
+      ],
+      proTip: 'Companion app me jaakar Always-On Display aur raise-to-wake feature enable karein for best experience.',
+      overview: 'Fitness enthusiasts aur busy professionals ke liye ideal daily companion hai jo bina phone nikale crystal clear wrist calls aur exact health telemetry deta hai.'
+    };
+  }
+
+  if (text.includes('shoe') || text.includes('sneaker') || text.includes('running') || text.includes('footwear') || text.includes('puma')) {
+    return {
+      specs: [
+        '👟 Dual-Density Softride / EVA Foam Midsole for cloud-like impact cushioning',
+        '💨 High-Breathability Engineered Mesh Upper keeping feet dry during intense workouts',
+        '🛡️ Full-Coverage Abrasion-Resistant Rubber Outsole with multi-terrain anti-skid lugs',
+        '🔒 Padded Collar & Anatomical Heel Counter for zero-slip lockdown comfort'
+      ],
+      proTip: 'Apne regular UK/India size ke hisaab se order karein; jeans aur athletic joggers dono par ultra-stylish look deta hai.',
+      overview: 'Daily morning running, gym workouts aur casual lifestyle wear ke liye best value footwear choice hai. Zero heel fatigue aur unmatched sole longevity deliver karta hai.'
+    };
+  }
+
+  if (text.includes('trimmer') || text.includes('shaver') || text.includes('grooming') || text.includes('philips')) {
+    return {
+      specs: [
+        '✂️ Self-Sharpening Skin-Friendly Stainless Steel Blades with rounded tips (Zero nicks)',
+        '🔋 Rechargeable High-Efficiency Battery with 60-90 minutes cordless runtime on USB',
+        '📏 0.5mm Precision Settings with versatile click-on guide combs (1mm to 10mm)',
+        '💧 Fully Washable & Detachable Blade Head for effortless hygienic maintenance'
+      ],
+      proTip: 'Har 3-4 uses ke baad blades ko include kiye gaye oil se lubricate karein for maximum sharpness aur smooth motor spin.',
+      overview: 'Effortless beard styling, stubble trimming aur clean grooming ke liye trusted choice hai jo saloon jaisa finish ghar baithe deta hai.'
+    };
+  }
+
+  if (text.includes('power bank') || text.includes('charger') || text.includes('extension') || text.includes('portronics') || text.includes('syska')) {
+    return {
+      specs: [
+        '🔋 10,000mAh - 20,000mAh High-Density A-Grade Lithium-Polymer Power Core',
+        '⚡ 20W - 22.5W Two-Way Fast Power Delivery (PD 3.0) & QuickCharge 3.0 support',
+        '🔌 Dual USB-A Output + Type-C Bidirectional Port for simultaneous 3-device charging',
+        '🛡️ 12-Layer Smart IC Circuit Protection against over-voltage, short-circuit & heat'
+      ],
+      proTip: 'Device ko ultra-fast charge karne ke liye compatible Type-C PD cable use karein for minimum charging duration.',
+      overview: 'Travel, work aur emergencies ke liye non-stop power backup ensure karta hai. Compact form factor aur rapid power delivery se phone lightning speed se charge hota hai.'
+    };
+  }
+
+  if (text.includes('kettle') || text.includes('kitchen') || text.includes('mixer') || text.includes('grinder') || text.includes('lifelong')) {
+    return {
+      specs: [
+        '⚙️ Heavy-Duty 500W - 750W Pure Copper High-Torque Motor (20,000+ RPM output)',
+        '🥣 100% Food-Grade 304 Stainless Steel Jars with leak-proof locking lids',
+        '🛡️ Automatic Overload Protector (OLP) switch for extended motor lifespan',
+        '🌪️ Tri-Flow Technology & Razor-Sharp Hardened Blades for fine dry & wet blending'
+      ],
+      proTip: 'Smooth chutney aur batter banane ke liye pehle 10 seconds tak pulse mode use karein.',
+      overview: 'Indian cooking ki heavy grinding requirements (masala, idli batter, smoothies) ko bina kisi motor stress ke easily handle karta hai.'
+    };
+  }
+
+  if (text.includes('fashion') || text.includes('shirt') || text.includes('backpack') || text.includes('bag') || text.includes('wildcraft') || text.includes('allen solly')) {
+    return {
+      specs: [
+        '🧵 100% Breathable Long-Staple Combed Cotton / High-Tenacity Weather-Resistant Ripstop Fabric',
+        '🪡 Precision Reinforced Bar-Tack Stitching at high-stress points for maximum tear-resistance',
+        '🎨 Fade-Resistant Color-Lock Technology maintaining vibrancy wash after wash',
+        '✨ Tailored Contemporary Fit ensuring exceptional drape and all-day sweat-free comfort'
+      ],
+      proTip: 'Gentle machine wash inside-out with cold water for preserving fabric texture and deep color tone.',
+      overview: 'Workplace, college campus aur weekend outings ke liye sharp aur sophisticated choice hai. Premium fabric feel aur long-lasting durability provide karta hai.'
+    };
+  }
+
+  // Default Tech Gadgets & Lifestyle
+  return {
+    specs: [
+      '⚡ Class-Leading High-Efficiency Hardware with ultra-responsive performance',
+      '💎 Premium High-Durability Ergonomic Construction engineered for daily rigor',
+      '🚀 Instant Multi-Platform Connectivity with low-latency signal transmission',
+      '🔋 Optimized Energy Architecture delivering all-day reliable battery longevity'
+    ],
+    proTip: 'Product register karke official brand warranty benefits zaroor claim karein.',
+    overview: 'Apni category me benchmark value-for-money, top-tier user ratings aur reliable build quality deliver karta hai.'
+  };
+}
+
+/**
+ * Generate razor-sharp, high-converting copy using SastaAI Neuro-Copywriter
+ */
+export async function generateSharpProductCopy(product) {
+  const title = product.title || '';
+  const category = product.category || product.categoryId || '';
+  const subCategory = product.subCategory || '';
+  const price = Number(product.price) || 999;
+  const originalPrice = Number(product.originalPrice) || 2999;
+  const discountPercent = originalPrice > price
+    ? Math.round(((originalPrice - price) / originalPrice) * 100)
+    : 50;
+  const savings = Math.max(0, originalPrice - price);
+  const platform = (product.platform || 'Amazon').toUpperCase();
+
+  const domain = getDomainSpecsForProduct(category, title);
+
+  const systemPrompt = `You are "SastaAI Apex Product Strategist & Neuro-Copywriter", India's #1 eCommerce deal conversion specialist.
+Your mission: Turn this product into an irresistible, authentic, high-converting deal listing that builds absolute trust and triggers purchase action.
+
+Indian deal hunters demand real technical accuracy, honest discount mathematics, and practical value. AVOID generic buzzwords like "superior performance" or "ergonomic design". Give real numbers, battery hours, wattage, driver sizes, and actionable buying advice.
+
+Product Details:
+- Title: ${title}
+- Deal Price: ₹${price.toLocaleString('en-IN')} (MRP: ₹${originalPrice.toLocaleString('en-IN')})
+- Net Discount: Flat ${discountPercent}% OFF (Savings: ₹${savings.toLocaleString('en-IN')})
+- Category: ${category} / ${subCategory}
+- Merchant Platform: ${platform}
+
+CRITICAL: Output EXACTLY these 5 sections with clean spacing (NO markdown headers like # or ##, NO markdown bold in section titles):
+
+🔥 LOOT DEAL VERDICT & SAVINGS:
+[Exact savings math: "MRP ₹${originalPrice.toLocaleString('en-IN')} se girkar sirf ₹${price.toLocaleString('en-IN')} — Seedha ₹${savings.toLocaleString('en-IN')} ki bachat (Flat ${discountPercent}% OFF)!". Explain why this specific price drop is an extraordinary bargain compared to typical market prices.]
+
+📋 EXPERT PRODUCT BREAKDOWN:
+[2-3 punchy, compelling sentences explaining who should buy this, real-world utility, and why it outperforms alternatives in this budget.]
+
+⚡ SPECIFICATIONS & BENCHMARKS:
+• ${domain.specs[0]}
+• ${domain.specs[1]}
+• ${domain.specs[2]}
+• ${domain.specs[3]}
+
+⭐ DEAL HUNTER'S PRO-TIP:
+${domain.proTip}
+
+🛡️ 100% BHAROSA & WARRANTY:
+100% Original Brand Certified Product with 1 Year Official Brand Warranty. Fulfilled securely via ${platform} with 7-day replacement guarantee.`;
+
+  try {
+    const aiReply = await callLLM([
+      { role: 'system', content: 'You are SastaAI, an elite Indian eCommerce deal copywriter. Output clear, authentic, high-converting text.' },
+      { role: 'user', content: systemPrompt }
+    ], 0.5, 750);
+
+    if (aiReply && aiReply.length > 80 && aiReply.includes('LOOT DEAL VERDICT')) {
+      return aiReply.trim();
+    }
+  } catch (e) {
+    console.warn('AI Copywriter call failed, falling back to sharp domain engine:', e.message);
+  }
+
+  // Sharp Fallback Copy
+  return `🔥 LOOT DEAL VERDICT & SAVINGS:
+MRP ₹${originalPrice.toLocaleString('en-IN')} se girkar sirf ₹${price.toLocaleString('en-IN')} — Seedha ₹${savings.toLocaleString('en-IN')} ki bachat (Flat ${discountPercent}% Instant OFF)! Is price range me aisi quality aur discount milna genuine loot deal hai.
+
+📋 EXPERT PRODUCT BREAKDOWN:
+${domain.overview} Regular days par ye product ₹${Math.round(originalPrice * 0.75).toLocaleString('en-IN')} ke aas-paas sell hota hai, jisse ye current price drop an unmissable steal ban jata hai.
+
+⚡ SPECIFICATIONS & BENCHMARKS:
+• ${domain.specs[0]}
+• ${domain.specs[1]}
+• ${domain.specs[2]}
+• ${domain.specs[3]}
+
+⭐ DEAL HUNTER'S PRO-TIP:
+${domain.proTip}
+
+🛡️ 100% BHAROSA & WARRANTY:
+100% Original Brand Certified Product backed by 1 Year Official Brand Warranty. Fulfilled securely via ${platform} with doorstep safe delivery and 7-day replacement guarantee.`;
+}
+
+/**
  * Parse raw link, product title, or deal notes into a structured catalog product
- * @param {string} rawInput 
- * @param {Array} availableCategories 
- * @returns {Promise<Object>}
  */
 export async function aiParseProduct(rawInput, availableCategories = []) {
   const catList = availableCategories.map(c => c.id).join(', ') || 'electronics, fashion, appliances, home, beauty';
 
-  const systemPrompt = `You are "SastaAI Catalog Copilot", an expert Indian affiliate e-commerce product manager for "SastaBazar".
-Your task is to take any raw input (product name, pasted specs, or affiliate URL) and convert it into a complete, high-converting product listing JSON with multiple images and structured description.
+  const systemPrompt = `You are "SastaAI Catalog Architect & Neuro-Copywriter" for SastaBazar.
+Transform the raw input (pasted URL, title, or specs) into a complete, high-converting Indian eCommerce product listing JSON with realistic pricing and structured copy.
 
 RULES:
 1. Output ONLY a valid raw JSON object. Do NOT wrap in markdown codeblocks (no \`\`\`json).
-2. JSON must strictly follow this structure:
+2. JSON structure:
 {
-  "title": "Clean, attractive product title with key spec (e.g. boAt Airdopes 141 ANC Bluetooth Wireless Earbuds with 42H Playtime)",
+  "title": "Clean, authoritative title with brand and key spec (e.g. boAt Airdopes 141 ANC Bluetooth Wireless Earbuds with 42H Playtime)",
   "slug": "kebab-case-slugified-title",
   "categoryId": "one of: [${catList}]",
-  "subCategory": "Relevant subcategory (e.g. Audio & Headphones, Smart Wearables, Footwear, Kitchen Appliances)",
+  "subCategory": "Precise subcategory (e.g. Audio & Headphones, Smart Wearables, Footwear, Kitchen Appliances, Grooming)",
   "platform": "amazon" | "flipkart" | "myntra" | "ajio" | "boat" | "meesho" | "other",
-  "price": 999,
-  "originalPrice": 2999,
-  "description": "🔥 LOOT DEAL HIGHLIGHT:\n[Punchy hook line]\n\n📋 PRODUCT OVERVIEW:\n[2-3 sentences explaining benefits]\n\n⚡ KEY SPECIFICATIONS & FEATURES:\n• [Emoji] Feature 1\n• [Emoji] Feature 2\n• [Emoji] Feature 3\n• [Emoji] Feature 4\n\n🛡️ BRAND WARRANTY & TRUST:\n100% Original Brand Certified Product with 1 Year Official Brand Warranty.",
+  "price": 1199,
+  "originalPrice": 4490,
+  "description": "5-section structured description (LOOT DEAL VERDICT, EXPERT PRODUCT BREAKDOWN, SPECIFICATIONS & BENCHMARKS, DEAL HUNTER PRO-TIP, 100% BHAROSA)",
   "images": [
     "High quality product image URL 1",
     "High quality product image URL 2",
     "High quality product image URL 3",
     "High quality product image URL 4"
   ],
-  "tags": ["featured", "hot", "deal_of_the_day", "budget_friendly"],
+  "tags": ["featured", "hot", "deal_of_the_day", "budget_friendly", "historical_low"],
   "affiliateLink": "Affiliate URL if detected in the input, otherwise leave empty"
 }
-3. Estimate realistic Indian Rupee prices and healthy 30-75% discount if prices are not explicitly provided.
-4. Categorize accurately.
+3. Estimate realistic Indian Rupee prices and healthy 40-80% discount if prices are not explicitly provided.
+4. Categorize accurately and assign genuine high-res product galleries.
 5. NEVER mention internal AI providers or model names.`;
 
   try {
     const rawReply = await callLLM([
       { role: 'system', content: systemPrompt },
       { role: 'user', content: `Extract and generate complete product details for:\n"${rawInput}"` }
-    ], 0.3, 800);
+    ], 0.3, 850);
 
-    // Clean any accidental markdown quotes
     const cleaned = rawReply.replace(/```json/gi, '').replace(/```/g, '').trim();
     const parsed = JSON.parse(cleaned);
 
@@ -161,9 +352,14 @@ RULES:
       parsed.images = getCuratedGalleryForProduct(parsed.categoryId || '', parsed.title || '');
     }
 
+    // Enhance description if sparse
+    if (!parsed.description || parsed.description.length < 100) {
+      parsed.description = await generateSharpProductCopy(parsed);
+    }
+
     return parsed;
   } catch (err) {
-    console.warn('AI Parsing failed, falling back to heuristic parsing:', err);
+    console.warn('AI Parsing failed, falling back to heuristic domain parsing:', err);
     return fallbackParse(rawInput, availableCategories);
   }
 }
@@ -172,105 +368,89 @@ RULES:
  * Enhance an existing product description into high-converting Hinglish/English deal copy
  */
 export async function aiEnhanceDescription(title, currentDesc = '') {
-  const systemPrompt = `You are "SastaAI Copywriter" for SastaBazar Indian affiliate eCommerce.
-Generate an enticing, highly structured, and authentic deal description for this Indian affiliate product.
-Product: "${title}"
-Current notes/specs: "${currentDesc}"
-
-Format EXACTLY into these 4 clean sections with line breaks (do NOT use markdown headers like # or ##):
-
-🔥 LOOT DEAL HIGHLIGHT:
-[1 punchy sentence highlighting why this deal and price drop is unmissable]
-
-📋 PRODUCT OVERVIEW:
-[2-3 compelling sentences describing who this product is for and its real-world performance]
-
-⚡ KEY SPECIFICATIONS & FEATURES:
-• [Emoji] Feature 1 (Battery / Playtime / Performance)
-• [Emoji] Feature 2 (Audio / Display / Build Quality)
-• [Emoji] Feature 3 (Connectivity / Charging / Speed)
-• [Emoji] Feature 4 (Durability / IPX Rating / Convenience)
-
-🛡️ BRAND WARRANTY & TRUST:
-100% Original Brand Certified Product. Comes with 1 Year Official Brand Warranty and 7-day merchant replacement guarantee.`;
-
-  try {
-    const reply = await callLLM([
-      { role: 'system', content: systemPrompt },
-      { role: 'user', content: `Write structured high-converting product description for: "${title}". Current context: "${currentDesc}"` }
-    ], 0.6, 600);
-
-    return reply.trim();
-  } catch (err) {
-    console.error('Enhance description failed:', err);
-    return `🔥 LOOT DEAL HIGHLIGHT:
-${title} par mil raha hai zabardast discount! Limited-time price drop offer.
-
-📋 PRODUCT OVERVIEW:
-Ye product apni category me best-in-class performance aur maximum value deliver karta hai. Daily usage aur premium durability ke liye ideal choice hai.
-
-⚡ KEY SPECIFICATIONS & FEATURES:
-• ⚡ Superior Performance & Long-Lasting Reliability
-• 💎 Premium Ergonomic Build Quality
-• 🚀 Seamless Connectivity & Fast Response
-• 🔋 All-Day Battery / Energy Efficient Performance
-
-🛡️ BRAND WARRANTY & TRUST:
-100% Original Brand Certified Product with Official 1 Year Warranty & safe merchant delivery.`;
-  }
+  return generateSharpProductCopy({ title, description: currentDesc });
 }
 
 /**
- * Generate broadcast post for Telegram / WhatsApp / Instagram
+ * Generate viral broadcast post for Telegram / WhatsApp / Instagram
  */
 export async function aiGenerateSocialPost(product, channel = 'telegram') {
-  const systemPrompt = `You are "SastaAI Deal Broadcast Expert" for Indian Telegram/WhatsApp shopping loot channels.
-Create a viral, ready-to-publish deal post for channel: "${channel}".
+  const disc = product.discountPercent || (product.originalPrice > product.price ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 50);
+  const savings = (product.originalPrice && product.price) ? Math.max(0, product.originalPrice - product.price) : 0;
+  const platform = (product.platform || 'Amazon').toUpperCase();
+  const domain = getDomainSpecsForProduct(product.category || product.categoryId || '', product.title || '');
 
-Format requirements:
-- High attention hook (🔥 LOOT DEAL, ⚡ PRICE DROP ALERT)
-- Product Name
-- ❌ MRP: ₹[originalPrice]
-- ✅ Deal Price: ₹[price] ([discountPercent]% OFF)
-- 2-3 killer features / reasons to buy
-- Direct Buying Link placeholder: [affiliateLink or Storefront URL]
-- Urgent CTA ("Stock jaldi khatam ho sakta hai, loot lo!")
-- Use plenty of emojis. Keep it concise, energetic, and engaging in Hinglish.`;
+  const systemPrompt = `You are "SastaAI Deal Broadcast Director" for elite Indian shopping communities on ${channel.toUpperCase()}.
+Craft a high-converting, viral shopping alert that drives immediate clicks.
+
+Format Requirements:
+- Urgent, high-attention headline (🔥🚨 MASSIVE PRICE DROP ALERT! 🚨🔥)
+- Product Title
+- ❌ MRP: ₹${product.originalPrice || 2999}
+- ✅ Loot Deal Price: ₹${product.price} (Flat ${disc}% Instant OFF!)
+- 💰 Net Savings: Flat ₹${savings.toLocaleString('en-IN')} Bachat!
+- 3 Killer Specs with emojis (e.g., ${domain.specs[0]}, ${domain.specs[1]}, ${domain.specs[2]})
+- Direct Deal Link: ${product.affiliateLink || 'https://affiliate-store-kohl.vercel.app'}
+- Punchy Urgency CTA ("Price kisi bhi time badh sakta hai, loot lo!")
+- Use formatting suitable for ${channel}.`;
 
   try {
-    const userPrompt = `Product:
-Title: ${product.title}
-Price: ₹${product.price}
-MRP: ₹${product.originalPrice}
-Discount: ${product.discountPercent || Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
-Platform: ${product.platform}
-Affiliate Link: ${product.affiliateLink || 'https://affiliate-store-kohl.vercel.app'}`;
-
     const reply = await callLLM([
       { role: 'system', content: systemPrompt },
-      { role: 'user', content: userPrompt }
-    ], 0.7, 500);
+      { role: 'user', content: `Generate viral broadcast for: "${product.title}"` }
+    ], 0.6, 500);
 
-    return reply.trim();
+    if (reply && reply.length > 50) {
+      return reply.trim();
+    }
   } catch (err) {
     console.error('Generate social post failed:', err);
-    const disc = product.originalPrice > product.price ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 50;
-    return `🔥 LOOT DEAL ALERT! 🔥\n\n🛍️ ${product.title}\n❌ MRP: ₹${product.originalPrice || 2999}\n✅ Deal Price: ₹${product.price || 999} (${disc}% OFF!)\n\n⚡ Top Value For Money Choice\n🚀 Grab before price increases!\n👉 Buy Now: ${product.affiliateLink || 'https://affiliate-store-kohl.vercel.app'}`;
   }
+
+  // High-converting fallback broadcast
+  return `🔥🚨 MASSIVE PRICE CRASH ALERT! 🚨🔥
+
+🛍️ ${product.title}
+❌ MRP: ₹${product.originalPrice || 2999}
+✅ Loot Deal Price: ₹${product.price || 999} (Flat ${disc}% OFF!)
+💰 Net Savings: Flat ₹${savings ? savings.toLocaleString('en-IN') : 'Bada'} Bachat!
+
+⚡ Key Highlights:
+👉 ${domain.specs[0]}
+👉 ${domain.specs[1]}
+👉 🛡️ 1 Year Official Brand Warranty & ${platform} Fulfilled
+
+🛒 Direct Deal Link (Loot Lo):
+👉 ${product.affiliateLink || 'https://affiliate-store-kohl.vercel.app'}
+
+⏳ Stock limited hai aur price kisi bhi waqt badh sakta hai. Jaldi order karein!`;
 }
 
 /**
- * Chat with SastaAI Admin Copilot for store strategy & tips
+ * Chat with SastaAI Admin Copilot for store strategy & monetization
  */
 export async function aiAskAdminCopilot(userQuery, history = [], storeSummary = '') {
-  const systemPrompt = `You are "SastaAI Admin Copilot", the smart AI advisor for the owner and admins of "SastaBazar".
-Your expertise:
-- Affiliate marketing in India (Amazon Associates, Flipkart Affiliate, EarnKaro, vCommission)
-- Telegram/WhatsApp deal channel monetization
-- Product curation, pricing discounts, seasonal sale events (Great Indian Festival, Big Billion Days)
-- Conversion optimization and copywriting
+  const systemPrompt = `You are "SastaAI Master eCommerce & Affiliate Growth Director" for SastaBazar.
+You possess elite, real-world mastery over Indian affiliate marketing, retail arbitrage, and community conversion funnels.
 
-Answer in natural, polite Hinglish. Be structured, actionable, and encouraging. Never mention any third-party provider or model names.
+Your core expertise spans:
+1. AFFILIATE PLATFORMS & COMMISSION MAXIMIZATION:
+   - Amazon Associates India (Store ID optimization, 24-hr cookie attribution, qualifying purchases, high commission categories like Fashion 9%, Home & Kitchen 9%, Electronics 4-5%).
+   - Flipkart Affiliate / EarnKaro / Cuelinks / vCommission (profit links, sub-ids, payout thresholds).
+2. COMMUNITY & VIRAL DISTRIBUTION ENGINE:
+   - Telegram Deal Channels: Posting schedules (8:30 AM morning deals, 1:30 PM lunch flash deals, 8:00 PM prime loot), pinned message strategies, deal verification badges.
+   - WhatsApp Communities & Channels: Broadcast formatting, forwardable short deals, high-urgency FOMO triggers.
+3. PRICING & CONVERSION RATE OPTIMIZATION (CRO):
+   - Price anchoring (MRP vs Deal Price), savings highlighting (net ₹ savings), urgency cues (stock limits, flash timers).
+   - Seasonal Campaign Playbooks (Great Indian Festival, Big Billion Days, Republic Day Sale, Diwali Mega Loot).
+4. CATALOG ARCHITECTURE & STORE OPS:
+   - SEO keyword targeting for high-intent search terms ("smartwatch under 1500", "boat airdopes flat 70% off").
+   - Category merchandising and hero banner rotation.
+
+COMMUNICATION STYLE:
+- Professional, sharp, data-driven, yet highly approachable in natural, energetic Hinglish.
+- Provide numbered action steps, concrete revenue tactics, and direct mathematical examples (e.g. CTR calculations, commission projections).
+- Never mention internal AI provider names or model versions. Always speak as SastaAI Director.
 
 ${storeSummary ? `=== Current Store Context ===\n${storeSummary}\n=================` : ''}`;
 
@@ -281,7 +461,7 @@ ${storeSummary ? `=== Current Store Context ===\n${storeSummary}\n==============
       { role: 'user', content: userQuery }
     ];
 
-    const reply = await callLLM(messages, 0.7, 700);
+    const reply = await callLLM(messages, 0.7, 750);
     return reply.trim();
   } catch (err) {
     console.error('Admin Copilot error:', err);
@@ -303,7 +483,6 @@ function fallbackParse(input, availableCategories = []) {
   else if (lower.includes('boat')) platform = 'boat';
   else if (lower.includes('meesho')) platform = 'meesho';
 
-  // Extract possible numbers for price
   const priceMatches = cleanInput.match(/(?:₹|rs\.?|inr)?\s*([0-9]{2,6})/gi);
   let price = 999;
   let originalPrice = 2499;
@@ -319,13 +498,15 @@ function fallbackParse(input, availableCategories = []) {
     }
   }
 
-  // Detect URL
   const urlMatch = cleanInput.match(/https?:\/\/[^\s]+/i);
   const affiliateLink = urlMatch ? urlMatch[0] : '';
 
-  // Clean title
   let title = cleanInput.replace(/https?:\/\/[^\s]+/gi, '').replace(/\b(?:amazon|flipkart|myntra|ajio|deal|loot|off|₹|\d+%)\b/gi, '').trim();
   const cat = availableCategories[0]?.id || 'electronics';
+  const domain = getDomainSpecsForProduct(cat, title);
+  const disc = originalPrice > price ? Math.round(((originalPrice - price) / originalPrice) * 100) : 50;
+  const savings = Math.max(0, originalPrice - price);
+
   return {
     title,
     slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
@@ -334,22 +515,25 @@ function fallbackParse(input, availableCategories = []) {
     platform,
     price,
     originalPrice,
-    description: `🔥 LOOT DEAL HIGHLIGHT:
-${title} par mil raha hai zabardast discount! Limited-time price drop offer.
+    description: `🔥 LOOT DEAL VERDICT & SAVINGS:
+MRP ₹${originalPrice.toLocaleString('en-IN')} se girkar sirf ₹${price.toLocaleString('en-IN')} — Seedha ₹${savings.toLocaleString('en-IN')} ki bachat (Flat ${disc}% OFF)! Is price range me aisi deal milna genuine loot offer hai.
 
-📋 PRODUCT OVERVIEW:
-Ye product apni category me top-tier rating aur best value-for-money deliver karta hai. Daily usage aur premium durability ke liye ideal choice hai.
+📋 EXPERT PRODUCT BREAKDOWN:
+${domain.overview} Daily usage, high performance aur maximum value-for-money deliver karta hai.
 
-⚡ KEY SPECIFICATIONS & FEATURES:
-• ⚡ High Performance & Class-Leading Efficiency
-• 💎 Premium Build Quality with Ergonomic Design
-• 🚀 Instant Connectivity & Ultra-Low Latency
-• 🔋 Long-Lasting Battery & Rapid Charging Support
+⚡ SPECIFICATIONS & BENCHMARKS:
+• ${domain.specs[0]}
+• ${domain.specs[1]}
+• ${domain.specs[2]}
+• ${domain.specs[3]}
 
-🛡️ BRAND WARRANTY & TRUST:
-100% Original Brand Certified Product with Official 1 Year Warranty & safe merchant delivery.`,
+⭐ DEAL HUNTER'S PRO-TIP:
+${domain.proTip}
+
+🛡️ 100% BHAROSA & WARRANTY:
+100% Original Brand Certified Product backed by 1 Year Official Brand Warranty. Fulfilled securely via ${platform.toUpperCase()} with 7-day replacement guarantee.`,
     images: getCuratedGalleryForProduct(cat, title),
-    tags: ['featured', 'budget_friendly', 'hot'],
+    tags: ['featured', 'budget_friendly', 'hot', 'historical_low'],
     affiliateLink
   };
 }

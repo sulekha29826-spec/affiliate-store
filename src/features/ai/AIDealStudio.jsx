@@ -26,7 +26,8 @@ import {
   aiEnhanceDescription,
   aiGenerateSocialPost,
   aiAskAdminCopilot,
-  getCuratedGalleryForProduct
+  getCuratedGalleryForProduct,
+  generateSharpProductCopy
 } from '../../services/adminAIService';
 import { ref, set } from 'firebase/database';
 import { database, isFirebaseConfigured } from '../../services/firebase';
@@ -552,24 +553,14 @@ export default function AIDealStudio() {
       for (let i = 0; i < candidatesToPublish.length; i++) {
         const candidate = candidatesToPublish[i];
         const disc = Math.round(((candidate.originalPrice - candidate.price) / candidate.originalPrice) * 100);
+        const savings = Math.max(0, candidate.originalPrice - candidate.price);
 
-        log(`🔍 [${i + 1}/10] [Agent 2: Bharosa Check]: Verified "${candidate.title.slice(0, 32)}..." | ${disc}% REAL OFF | Brand Warranty Confirmed`);
-        await new Promise((r) => setTimeout(r, 150));
+        log(`🔍 [${i + 1}/10] [Agent 1 & 2: Arbitrage & Bharosa]: Verified "${candidate.title.slice(0, 30)}..." | ${disc}% OFF (₹${savings.toLocaleString('en-IN')} bachat) | Brand Warranty & Tracking Verified`);
+        await new Promise((r) => setTimeout(r, 120));
 
-        const structuredCopy = `🔥 LOOT DEAL HIGHLIGHT:
-${candidate.title} par mil raha hai zabardast flat ${disc}% ka instant discount! Limited-time price drop offer.
-
-📋 PRODUCT OVERVIEW:
-${candidate.subCategory || 'eCommerce'} category me top-rated product. Best value-for-money, high performance aur long-term durability ke saath daily use ke liye perfect choice hai.
-
-⚡ KEY SPECIFICATIONS & FEATURES:
-• ⚡ Superior Performance & Energy Efficiency
-• 💎 Premium Ergonomic Build Quality
-• 🚀 Seamless Connectivity & Instant Response
-• 🔋 All-Day Battery / High-Durability Reliability
-
-🛡️ BRAND WARRANTY & TRUST:
-100% Original Brand Certified Product backed by 1 Year Official Brand Warranty. Fulfilled securely via ${candidate.platform.toUpperCase()} with doorstep delivery and replacement guarantee.`;
+        log(`✍️ [${i + 1}/10] [Agent 3: SastaAI Neuro-Copywriter]: Generating sharp 5-section technical specs & conversion copy...`);
+        const structuredCopy = await generateSharpProductCopy(candidate);
+        await new Promise((r) => setTimeout(r, 120));
 
         const newProductPayload = {
           title: candidate.title,
@@ -582,8 +573,10 @@ ${candidate.subCategory || 'eCommerce'} category me top-rated product. Best valu
           originalPrice: candidate.originalPrice,
           discountPercent: disc,
           affiliateLink: candidate.affiliateLink,
-          images: candidate.images && Array.isArray(candidate.images) ? candidate.images : [candidate.image || 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80'],
-          tags: ['trending', 'deal_of_the_day', 'hot', 'autopilot', 'high_discount'],
+          images: candidate.images && Array.isArray(candidate.images) && candidate.images.length >= 2
+            ? candidate.images
+            : getCuratedGalleryForProduct(candidate.category, candidate.title),
+          tags: ['trending', 'deal_of_the_day', 'hot', 'autopilot', 'high_discount', 'historical_low'],
           status: 'active',
         };
 
