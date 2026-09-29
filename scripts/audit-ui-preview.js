@@ -89,7 +89,25 @@ async function runAudit() {
         timeout: 30000
       });
 
-      // Extra wait for animations and fonts to settle
+      // Scroll down smoothly to trigger lazy-loaded images, then scroll back to top
+      await page.evaluate(async () => {
+        await new Promise((resolve) => {
+          let totalHeight = 0;
+          const distance = 400;
+          const timer = setInterval(() => {
+            const scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              window.scrollTo(0, 0);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+
+      // Extra wait for lazy images to finish loading
       await new Promise((r) => setTimeout(r, 1500));
 
       // Automated DOM & UI Health Inspection
@@ -107,10 +125,10 @@ async function runAudit() {
           });
         }
 
-        // Check 2: Broken Images
+        // Check 2: Broken Images (True 404/Failed images only)
         const brokenImages = [];
         document.querySelectorAll('img').forEach((img) => {
-          if (!img.complete || img.naturalWidth === 0) {
+          if (img.complete && img.naturalWidth === 0) {
             brokenImages.push({
               src: img.src,
               alt: img.alt || '[NO_ALT]'
