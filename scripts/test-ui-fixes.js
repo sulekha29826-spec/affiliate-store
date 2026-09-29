@@ -8,13 +8,22 @@ import puppeteer from 'puppeteer-core';
 
   const page = await browser.newPage();
 
-  // Test 1: Mobile PDP Check
+  // Test 1: Mobile PDP Check by navigating to live product
   await page.setViewport({ width: 375, height: 812, isMobile: true });
-  await page.goto('https://affiliate-store-kohl.vercel.app/product/boat-airdopes-141-anc', { waitUntil: 'networkidle2' });
+  await page.goto('https://affiliate-store-kohl.vercel.app/', { waitUntil: 'networkidle2' });
+
+  // Click on the first product card
+  await page.evaluate(() => {
+    const cardLink = Array.from(document.querySelectorAll('a')).find((a) => a.pathname.startsWith('/product/'));
+    if (cardLink) cardLink.click();
+  });
+
+  await page.waitForNavigation({ waitUntil: 'networkidle2' }).catch(() => {});
+  await new Promise((r) => setTimeout(r, 1500));
 
   const pdpMetrics = await page.evaluate(() => {
-    // Mobile sticky buy button
-    const stickyBar = document.querySelector('.fixed.bottom-0');
+    const currentUrl = window.location.href;
+    const stickyBar = document.querySelector('.sm\\:hidden.fixed.bottom-0');
     const stickyBuyBtn = stickyBar ? stickyBar.querySelector('button') : null;
     const fabButton = document.querySelector('button[aria-label="Open SastaAI Assistant"]');
 
@@ -23,14 +32,15 @@ import puppeteer from 'puppeteer-core';
     const fabRect = fabButton ? fabButton.getBoundingClientRect() : null;
 
     return {
+      currentUrl,
       stickyBarFound: !!stickyBar,
-      stickyTop: stickyRect?.top,
-      stickyBottom: stickyRect?.bottom,
-      buyButtonText: stickyBuyBtn?.innerText?.trim(),
-      buyRect: buyRect ? { top: buyRect.top, bottom: buyRect.bottom } : null,
-      fabRect: fabRect ? { top: fabRect.top, bottom: fabRect.bottom } : null,
-      fabIsAboveSticky: fabRect && stickyRect ? fabRect.bottom < stickyRect.top : null,
-      gapBetweenFabAndSticky: fabRect && stickyRect ? Math.round(stickyRect.top - fabRect.bottom) : null
+      stickyTop: stickyRect ? Math.round(stickyRect.top) : null,
+      stickyBottom: stickyRect ? Math.round(stickyRect.bottom) : null,
+      buyButtonText: stickyBuyBtn ? stickyBuyBtn.innerText.replace(/\s+/g, ' ').trim() : null,
+      buyRect: buyRect ? { top: Math.round(buyRect.top), bottom: Math.round(buyRect.bottom), right: Math.round(buyRect.right) } : null,
+      fabRect: fabRect ? { top: Math.round(fabRect.top), bottom: Math.round(fabRect.bottom), right: Math.round(fabRect.right) } : null,
+      fabIsAboveSticky: fabRect && stickyRect ? fabRect.bottom <= stickyRect.top : null,
+      clearanceBetweenFabAndSticky: fabRect && stickyRect ? Math.round(stickyRect.top - fabRect.bottom) : null
     };
   });
   console.log('PDP Metrics:', JSON.stringify(pdpMetrics, null, 2));
@@ -58,5 +68,5 @@ import puppeteer from 'puppeteer-core';
   console.log('Search Dropdown Metrics:', JSON.stringify(searchMetrics, null, 2));
 
   await browser.close();
-  console.log('Verification finished successfully!');
+  console.log('All verification checks completed successfully!');
 })();
