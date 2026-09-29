@@ -12,15 +12,11 @@ import puppeteer from 'puppeteer-core';
   await page.setViewport({ width: 375, height: 812, isMobile: true });
   await page.goto('https://affiliate-store-kohl.vercel.app/', { waitUntil: 'networkidle2' });
 
-  const productHref = await page.evaluate(() => {
-    const a = Array.from(document.querySelectorAll('a')).find((el) => el.getAttribute('href')?.startsWith('/product/'));
-    return a ? a.href : null;
-  });
-  console.log('Navigating directly to PDP:', productHref);
-  if (productHref) {
-    await page.goto(productHref, { waitUntil: 'networkidle2' });
-  }
-  await new Promise((r) => setTimeout(r, 1500));
+  const productUrl = 'https://affiliate-store-kohl.vercel.app/product/prod_sony_xm5';
+  console.log('Navigating directly to PDP:', productUrl);
+  await page.goto(productUrl, { waitUntil: 'networkidle2' });
+  await page.waitForSelector('button[aria-label="Open SastaAI Assistant"]', { timeout: 10000 }).catch(() => {});
+  await new Promise((r) => setTimeout(r, 2000));
 
   const pdpMetrics = await page.evaluate(() => {
     const currentUrl = window.location.href;
