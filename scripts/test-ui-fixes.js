@@ -12,13 +12,14 @@ import puppeteer from 'puppeteer-core';
   await page.setViewport({ width: 375, height: 812, isMobile: true });
   await page.goto('https://affiliate-store-kohl.vercel.app/', { waitUntil: 'networkidle2' });
 
-  // Click on the first product card
-  await page.evaluate(() => {
-    const cardLink = Array.from(document.querySelectorAll('a')).find((a) => a.pathname.startsWith('/product/'));
-    if (cardLink) cardLink.click();
+  const productHref = await page.evaluate(() => {
+    const a = Array.from(document.querySelectorAll('a')).find((el) => el.getAttribute('href')?.startsWith('/product/'));
+    return a ? a.href : null;
   });
-
-  await page.waitForNavigation({ waitUntil: 'networkidle2' }).catch(() => {});
+  console.log('Navigating directly to PDP:', productHref);
+  if (productHref) {
+    await page.goto(productHref, { waitUntil: 'networkidle2' });
+  }
   await new Promise((r) => setTimeout(r, 1500));
 
   const pdpMetrics = await page.evaluate(() => {
