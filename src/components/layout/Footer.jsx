@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Heart, ExternalLink, HelpCircle } from 'lucide-react';
+import { ShieldCheck, Heart, ExternalLink, HelpCircle, ArrowRight } from 'lucide-react';
 import { getSiteSettings } from '../../services/settingsService';
 
 export default function Footer() {
@@ -24,12 +24,19 @@ export default function Footer() {
               ABOUT SASTABAZAR
             </h4>
             <p className="text-slate-300 leading-relaxed mb-3">
-              SastaBazar is your smart companion for tracking daily deals, price drops, and hand-picked offers from top Indian e-commerce platforms.
+              India's trusted deal discovery network tracking daily price drops, coupon glitches, and authentic flash sales across top retailers.
             </p>
-            <div className="flex items-center gap-2 text-emerald-400 font-bold">
+            <div className="flex items-center gap-2 text-emerald-400 font-bold mb-3">
               <ShieldCheck className="w-4 h-4" />
               <span>100% Genuine Redirects</span>
             </div>
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-1.5 text-[#FFD700] hover:text-amber-300 font-bold text-xs group transition-colors"
+            >
+              <span>Our Story & How We Audit Deals</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </div>
 
           {/* Col 2: Quick Links */}
@@ -67,6 +74,11 @@ export default function Footer() {
               POLICY & COMPLIANCE
             </h4>
             <ul className="space-y-2 text-slate-300 font-medium">
+              <li>
+                <Link to="/about" className="hover:text-[#FFD700] transition-colors">
+                  About SastaBazar
+                </Link>
+              </li>
               <li>
                 <Link to="/affiliate-disclosure" className="text-[#FFD700] font-bold hover:underline">
                   Affiliate Disclosure (FTC & Amazon)

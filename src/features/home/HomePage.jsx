@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeroBanner from './HeroBanner';
 import DealRow from './DealRow';
+import AboutSastaBazarSection from './AboutSastaBazarSection';
 import CategoryNav from '../../components/layout/CategoryNav';
 import ProductCard from '../../components/common/ProductCard';
 import { DealRowSkeleton } from '../../components/common/Loader';
@@ -181,6 +182,9 @@ export default function HomePage() {
             )}
           </>
         )}
+
+        {/* Section: About SastaBazar & Trust Guarantees */}
+        <AboutSastaBazarSection />
       </div>
     </div>
   );
