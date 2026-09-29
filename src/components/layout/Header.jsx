@@ -46,7 +46,11 @@ export default function Header() {
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
   const handleSearchSubmit = (e) => {
@@ -136,91 +140,109 @@ export default function Header() {
               </div>
             </form>
 
+            {/* Mobile Backdrop Overlay when search is focused */}
+            {isFocused && (
+              <div
+                className="fixed inset-0 bg-black/40 z-40 sm:hidden backdrop-blur-2xs"
+                onClick={() => setIsFocused(false)}
+              />
+            )}
+
             {/* Keyword Suggestions Dropdown */}
             {isFocused && (
-              <div className="absolute left-0 right-0 top-full mt-1.5 bg-white text-slate-800 rounded-md shadow-2xl border border-slate-200 overflow-hidden z-50 animate-in fade-in-50 duration-150">
+              <div className="fixed left-2 right-2 sm:left-0 sm:right-auto sm:absolute top-[56px] sm:top-full mt-1.5 w-auto sm:w-full sm:min-w-[520px] sm:max-w-2xl bg-white text-slate-800 rounded-xl shadow-2xl border border-slate-200/90 overflow-hidden z-50 animate-in fade-in-50 duration-150 max-h-[75vh] sm:max-h-[520px] overflow-y-auto">
                 {/* Mode 1: Typing text with live product matches */}
                 {searchTerm.trim().length > 0 ? (
                   <div>
                     {matchedSuggestions.length > 0 ? (
-                      <div className="py-2">
-                        <div className="px-3 py-1.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                          <Tag className="w-3 h-3 text-blue-600" />
-                          <span>Matching Deals</span>
+                      <div className="py-1">
+                        <div className="px-3.5 sm:px-4 py-2 text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between border-b border-slate-100 bg-slate-50/60">
+                          <div className="flex items-center gap-1.5">
+                            <Tag className="w-3.5 h-3.5 text-blue-600" />
+                            <span>Matching Verified Deals ({matchedSuggestions.length})</span>
+                          </div>
+                          <span className="text-[10px] text-slate-400 lowercase font-medium">tap to view deal</span>
                         </div>
                         {matchedSuggestions.map((product) => (
                           <button
                             key={product.id}
                             type="button"
                             onClick={() => handleSelectProduct(product)}
-                            className="w-full text-left px-3 py-2 flex items-center gap-3 hover:bg-blue-50 transition-colors border-b border-slate-50 last:border-0 cursor-pointer min-h-[44px]"
+                            className="w-full text-left px-3.5 sm:px-4 py-2.5 flex items-center gap-3 sm:gap-3.5 hover:bg-blue-50/70 transition-colors border-b border-slate-100 last:border-0 cursor-pointer min-h-[56px] group"
                           >
                             <img
                               src={product.imageUrl || (product.images && product.images[0]) || 'https://via.placeholder.com/60'}
                               alt={product.title}
                               onError={(e) => handleImageError(e, product.categoryId)}
-                              className="w-9 h-9 object-contain bg-slate-50 p-0.5 rounded border border-slate-100 shrink-0"
+                              className="w-11 h-11 sm:w-12 sm:h-12 object-contain bg-white p-1 rounded-md border border-slate-200 shrink-0 shadow-2xs group-hover:scale-105 transition-transform"
                             />
-                            <div className="flex-1 min-w-0">
-                              <p className="text-xs font-semibold text-slate-800 truncate">
+                            <div className="flex-1 min-w-0 pr-1">
+                              <p className="text-xs sm:text-sm font-semibold text-slate-900 line-clamp-2 leading-snug group-hover:text-blue-700 transition-colors">
                                 {product.title}
                               </p>
-                              <div className="flex items-center gap-2 mt-0.5 text-[11px]">
-                                <span className="font-bold text-slate-900">
+                              <div className="flex items-center gap-2 mt-1 text-[11px] flex-wrap">
+                                <span className="font-extrabold text-slate-900 text-xs sm:text-sm">
                                   ₹{product.price ? Number(product.price).toLocaleString('en-IN') : '0'}
                                 </span>
+                                {product.originalPrice && Number(product.originalPrice) > Number(product.price) && (
+                                  <span className="text-[11px] text-slate-400 line-through">
+                                    ₹{Number(product.originalPrice).toLocaleString('en-IN')}
+                                  </span>
+                                )}
                                 {product.discountPercent > 0 && (
-                                  <span className="text-emerald-700 font-bold bg-emerald-50 px-1 rounded text-[10px]">
+                                  <span className="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200/80 px-1.5 py-0.2 rounded text-[10px]">
                                     {product.discountPercent}% OFF
                                   </span>
                                 )}
-                                <span className="text-[10px] text-slate-400 capitalize">
+                                <span className="text-[10px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-1.5 py-0.2 rounded capitalize">
                                   {product.platform || 'Online'}
                                 </span>
                               </div>
                             </div>
-                            <ArrowRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all shrink-0" />
                           </button>
                         ))}
 
                         <button
                           type="button"
                           onClick={() => handleSearchSubmit()}
-                          className="w-full text-center py-2.5 bg-slate-50 hover:bg-blue-50 text-blue-700 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer border-t border-slate-100"
+                          className="w-full text-center py-3 bg-slate-50 hover:bg-blue-50 text-blue-700 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer border-t border-slate-100"
                         >
                           <Search className="w-3.5 h-3.5" />
-                          <span>See all results for "{searchTerm}"</span>
+                          <span>See all deals matching "{searchTerm}"</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     ) : (
-                      <div className="p-4 text-center">
-                        <p className="text-xs text-slate-500">
-                          No direct matches for <span className="font-bold text-slate-700">"{searchTerm}"</span>
+                      <div className="p-5 text-center">
+                        <p className="text-xs sm:text-sm text-slate-500">
+                          No direct matches found for <span className="font-bold text-slate-800">"{searchTerm}"</span>
                         </p>
                         <button
                           type="button"
                           onClick={() => handleSearchSubmit()}
-                          className="mt-2 text-xs text-blue-600 hover:underline font-semibold"
+                          className="mt-2.5 inline-flex items-center gap-1.5 text-xs sm:text-sm text-blue-600 hover:text-blue-800 font-bold"
                         >
-                          Search full store anyway →
+                          <span>Search entire store catalog</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     )}
                   </div>
                 ) : (
                   /* Mode 2: Search input focused with popular search keywords */
-                  <div className="p-3">
-                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                  <div className="p-3.5 sm:p-4">
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2.5">
                       <TrendingUp className="w-3.5 h-3.5 text-amber-500" />
                       <span>Popular Trending Searches</span>
                     </div>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {POPULAR_SEARCH_TAGS.map((tag) => (
                         <button
                           key={tag}
                           type="button"
                           onClick={() => handleSelectKeyword(tag)}
-                          className="text-xs bg-slate-100 hover:bg-blue-100 hover:text-blue-800 text-slate-700 font-medium px-2.5 py-1 rounded-full transition-colors cursor-pointer"
+                          className="text-xs sm:text-sm bg-slate-100 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 border border-slate-200 text-slate-700 font-semibold px-3 py-1.5 rounded-full transition-all cursor-pointer shadow-2xs active:scale-95"
                         >
                           {tag}
                         </button>
@@ -236,10 +258,11 @@ export default function Header() {
           <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm font-semibold">
             <Link
               to="/category/electronics"
-              className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 px-2.5 sm:px-3 py-1.5 rounded-[4px] text-white hover:text-[#FFD700] transition-all duration-200 shadow-xs"
+              className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 px-2 sm:px-3 py-1.5 rounded-[4px] text-white hover:text-[#FFD700] transition-all duration-200 shadow-xs shrink-0"
             >
               <Flame className="w-4 h-4 text-[#FFD700] fill-current" />
-              <span>Trending Deals</span>
+              <span className="hidden sm:inline">Trending Deals</span>
+              <span className="sm:hidden text-xs">Deals</span>
             </Link>
 
             <Link

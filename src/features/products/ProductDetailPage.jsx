@@ -100,7 +100,7 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4 min-h-screen">
+    <div className="max-w-7xl mx-auto px-2 sm:px-4 pt-4 pb-28 sm:pb-8 min-h-screen">
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center gap-1.5 text-xs text-gray-500 mb-4 flex-wrap">
         <Link to="/" className="hover:text-[#2874F0]">Home</Link>
@@ -280,20 +280,25 @@ export default function ProductDetailPage() {
       )}
 
       {/* Sticky Mobile Bottom CTA Bar */}
-      <div className="sm:hidden fixed bottom-0 inset-x-0 bg-white border-t border-slate-300 p-2.5 z-40 shadow-xl flex items-center justify-between gap-3">
-        <div>
-          <span className="text-lg font-black text-slate-900">
-            {formatCurrency(price)}
-          </span>
-          {discountPercent > 0 && (
-            <span className="text-[11px] font-black text-white bg-gradient-to-r from-emerald-600 to-green-600 px-1.5 py-0.5 rounded ml-1.5 shadow-xs">
-              {discountPercent}% OFF
+      <div className="sm:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 z-40 shadow-[0_-4px_16px_rgba(0,0,0,0.08)] flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider leading-none mb-1">
+            Loot Price
+          </div>
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-lg font-black text-slate-900 leading-none">
+              {formatCurrency(price)}
             </span>
-          )}
+            {discountPercent > 0 && (
+              <span className="text-[10px] font-black text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded leading-none">
+                {discountPercent}% OFF
+              </span>
+            )}
+          </div>
         </div>
         <button
           onClick={handleBuyNow}
-          className="bg-gradient-to-r from-[#FF5200] via-[#FF6000] to-[#E54800] text-white text-xs font-black py-2.5 px-5 rounded shadow-md shadow-orange-500/25 active:scale-95 transition-all duration-150 flex items-center gap-1.5 cursor-pointer"
+          className="flex-1 max-w-[210px] bg-gradient-to-r from-[#FF5200] via-[#FF6000] to-[#E54800] hover:from-[#E54800] hover:to-[#CC3800] text-white text-xs font-black py-3 px-4 rounded shadow-md shadow-orange-500/25 active:scale-95 transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer"
         >
           <span>BUY ON {platform?.toUpperCase()}</span>
           <ExternalLink className="w-3.5 h-3.5" />

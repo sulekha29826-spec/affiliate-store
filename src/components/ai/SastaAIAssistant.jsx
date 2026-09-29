@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Bot, 
   Sparkles, 
@@ -27,6 +27,8 @@ const SUGGESTED_PROMPTS = [
 ];
 
 export default function SastaAIAssistant() {
+  const location = useLocation();
+  const isProductPage = location.pathname.startsWith('/product/');
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -113,7 +115,7 @@ export default function SastaAIAssistant() {
     <>
       {/* Floating Action Button */}
       {!isOpen && (
-        <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2">
+        <div className={`fixed ${isProductPage ? 'bottom-20 right-3.5 sm:bottom-6 sm:right-6' : 'bottom-5 right-5 sm:bottom-6 sm:right-6'} z-50 flex items-center gap-2`}>
           {hasUnread && (
             <div className="hidden md:flex items-center gap-1.5 bg-slate-900/90 text-white text-xs px-3 py-1.5 rounded-full shadow-lg border border-slate-700 animate-bounce">
               <Sparkles className="w-3.5 h-3.5 text-[#FFD700]" />
@@ -124,10 +126,10 @@ export default function SastaAIAssistant() {
           <button
             onClick={() => setIsOpen(true)}
             aria-label="Open SastaAI Assistant"
-            className="group relative flex items-center gap-2.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-4 sm:px-5 rounded-full shadow-xl shadow-indigo-600/35 hover:shadow-indigo-600/50 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer border border-white/20"
+            className="group relative flex items-center gap-2 sm:gap-2.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-2.5 px-3.5 sm:py-3 sm:px-5 rounded-full shadow-xl shadow-indigo-600/35 hover:shadow-indigo-600/50 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer border border-white/20"
           >
             <div className="relative">
-              <Bot className="w-5 h-5 text-white animate-pulse" />
+              <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white animate-pulse" />
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-indigo-600" />
             </div>
             <span className="text-xs sm:text-sm tracking-wide">Ask SastaAI</span>
@@ -138,7 +140,7 @@ export default function SastaAIAssistant() {
 
       {/* Interactive Chat Window Modal */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[94vw] sm:w-[420px] h-[580px] max-h-[85vh] bg-white rounded-2xl shadow-2xl border border-slate-200/90 flex flex-col overflow-hidden animate-fade-in font-sans">
+        <div className={`fixed ${isProductPage ? 'bottom-20 sm:bottom-6' : 'bottom-4 sm:bottom-6'} right-3 sm:right-6 z-50 w-[94vw] sm:w-[420px] h-[580px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-slate-200/90 flex flex-col overflow-hidden animate-fade-in font-sans`}>
           {/* Header */}
           <div className="bg-gradient-to-r from-[#1746B3] via-[#1D4ED8] to-[#2563EB] text-white p-3.5 sm:p-4 flex items-center justify-between shadow-md">
             <div className="flex items-center gap-2.5">
