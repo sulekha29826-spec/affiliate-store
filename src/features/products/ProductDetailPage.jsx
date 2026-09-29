@@ -7,6 +7,7 @@ import ProductCard from '../../components/common/ProductCard';
 import { ProductDetailSkeleton } from '../../components/common/Loader';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { trackAndRedirect } from '../../utils/trackClick';
+import { handleImageError } from '../../utils/imageFallback';
 import { 
   ShieldCheck, 
   ExternalLink, 
@@ -132,6 +133,7 @@ export default function ProductDetailPage() {
                     <img
                       src={img}
                       alt={`Thumbnail ${idx + 1}`}
+                      onError={(e) => handleImageError(e, categoryId)}
                       className="w-full h-full object-contain"
                     />
                   </button>
@@ -145,6 +147,7 @@ export default function ProductDetailPage() {
                 key={currentImg}
                 src={currentImg}
                 alt={title}
+                onError={(e) => handleImageError(e, categoryId)}
                 className="max-h-[380px] max-w-full object-contain animate-fade-in transition-all duration-300"
               />
               <div className="absolute top-2 left-2">

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, Flame, ShieldAlert, X, ArrowRight, Tag, TrendingUp } from 'lucide-react';
 import { getActiveProducts } from '../../services/productService';
+import { handleImageError } from '../../utils/imageFallback';
 
 const POPULAR_SEARCH_TAGS = [
   'Smartwatch',
@@ -112,13 +113,13 @@ export default function Header() {
                   className="w-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm pl-4 pr-16 py-2 sm:py-2.5 focus:outline-none"
                 />
 
-                {/* Clear Button */}
+                {/* Clear Button with comfortable touch target */}
                 {searchTerm && (
                   <button
                     type="button"
                     onClick={() => setSearchTerm('')}
                     aria-label="Clear search"
-                    className="absolute right-12 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
+                    className="absolute right-12 top-0 bottom-0 px-2.5 flex items-center justify-center text-slate-400 hover:text-slate-700 cursor-pointer transition-colors"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -152,11 +153,12 @@ export default function Header() {
                             key={product.id}
                             type="button"
                             onClick={() => handleSelectProduct(product)}
-                            className="w-full text-left px-3 py-2 flex items-center gap-3 hover:bg-blue-50 transition-colors border-b border-slate-50 last:border-0 cursor-pointer"
+                            className="w-full text-left px-3 py-2 flex items-center gap-3 hover:bg-blue-50 transition-colors border-b border-slate-50 last:border-0 cursor-pointer min-h-[44px]"
                           >
                             <img
                               src={product.imageUrl || (product.images && product.images[0]) || 'https://via.placeholder.com/60'}
                               alt={product.title}
+                              onError={(e) => handleImageError(e, product.categoryId)}
                               className="w-9 h-9 object-contain bg-slate-50 p-0.5 rounded border border-slate-100 shrink-0"
                             />
                             <div className="flex-1 min-w-0">

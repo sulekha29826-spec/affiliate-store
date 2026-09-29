@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { getActiveBanners } from '../../services/bannerService';
 import { HeroBannerSkeleton } from '../../components/common/Loader';
+import { handleImageError } from '../../utils/imageFallback';
 
 export default function HeroBanner() {
   const [banners, setBanners] = useState([]);
@@ -52,6 +53,7 @@ export default function HeroBanner() {
             key={active.id || currentIndex}
             src={active.image}
             alt={active.title || 'Special Deal'}
+            onError={(e) => handleImageError(e, 'electronics')}
             className="w-full h-full object-cover animate-fade-in group-hover:scale-102 transition-transform duration-700 ease-out"
           />
           {active.title && (

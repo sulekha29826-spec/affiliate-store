@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getCategories } from '../../services/categoryService';
 import { CategoryNavSkeleton } from '../common/Loader';
+import { handleImageError } from '../../utils/imageFallback';
 
 export default function CategoryNav() {
   const [categories, setCategories] = useState([]);
@@ -37,6 +38,7 @@ export default function CategoryNav() {
                   src={cat.image}
                   alt={cat.name}
                   loading="lazy"
+                  onError={(e) => handleImageError(e, cat.id)}
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>

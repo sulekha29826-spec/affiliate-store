@@ -177,21 +177,22 @@ export default function SearchPage() {
                   setInputQuery('');
                   setSearchParams({});
                 }}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"
+                aria-label="Clear search"
+                className="absolute right-2 top-0 bottom-0 px-2.5 flex items-center justify-center text-slate-400 hover:text-slate-700 cursor-pointer transition-colors"
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-4 h-4" />
               </button>
             )}
           </div>
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm px-4 py-2 rounded transition-colors shrink-0 shadow-xs cursor-pointer"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm px-4 py-2 min-h-[38px] rounded transition-colors shrink-0 shadow-xs cursor-pointer flex items-center justify-center"
           >
             Search
           </button>
         </form>
 
-        {/* Quick Filter Pills */}
+        {/* Quick Filter Pills with comfortable touch target */}
         <div className="flex items-center gap-1.5 overflow-x-auto pt-3 pb-1 no-scrollbar border-t border-slate-100 mt-3 text-xs">
           <span className="text-slate-400 font-semibold text-[11px] shrink-0 mr-1 flex items-center gap-1">
             <SlidersHorizontal className="w-3 h-3 text-slate-500" />
@@ -202,7 +203,7 @@ export default function SearchPage() {
               key={pill.id}
               type="button"
               onClick={() => setActiveFilter(pill.id)}
-              className={`px-3 py-1 rounded-full font-semibold shrink-0 transition-all cursor-pointer text-xs ${
+              className={`px-3.5 py-1.5 min-h-[34px] flex items-center justify-center rounded-full font-semibold shrink-0 transition-all cursor-pointer text-xs ${
                 activeFilter === pill.id
                   ? 'bg-blue-600 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'

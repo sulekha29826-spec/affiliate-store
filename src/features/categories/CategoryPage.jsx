@@ -111,7 +111,7 @@ export default function CategoryPage() {
         {/* Mobile filter toggle */}
         <button
           onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
-          className="md:hidden flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-xs font-semibold px-3 py-2 rounded-[2px] cursor-pointer"
+          className="md:hidden flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-xs font-semibold px-3.5 py-2 min-h-[36px] rounded-[2px] cursor-pointer"
         >
           <Filter className="w-3.5 h-3.5" />
           <span>Filters</span>
@@ -247,7 +247,7 @@ export default function CategoryPage() {
                 <button
                   key={s.key}
                   onClick={() => setSortBy(s.key)}
-                  className={`px-3 py-1.5 rounded-[3px] text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 min-h-[34px] flex items-center justify-center rounded-[3px] text-xs font-bold transition-all cursor-pointer ${
                     sortBy === s.key
                       ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
                       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'

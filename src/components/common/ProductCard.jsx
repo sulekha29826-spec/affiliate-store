@@ -5,6 +5,7 @@ import PlatformBadge from './PlatformBadge';
 import RatingChip from './RatingChip';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { trackAndRedirect } from '../../utils/trackClick';
+import { handleImageError } from '../../utils/imageFallback';
 
 export default function ProductCard({ product }) {
   if (!product) return null;
@@ -50,6 +51,7 @@ export default function ProductCard({ product }) {
             src={displayImage}
             alt={title}
             loading="lazy"
+            onError={(e) => handleImageError(e, product.categoryId)}
             className="max-h-full max-w-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out will-change-transform"
           />
         </div>
